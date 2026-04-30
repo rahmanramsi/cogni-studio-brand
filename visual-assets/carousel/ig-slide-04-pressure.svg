@@ -1,0 +1,30 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="rgba(13,155,174,0.12)"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071929"/>
+      <stop offset="50%" stop-color="#0F2A4A"/>
+      <stop offset="100%" stop-color="#0A3050"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <rect width="1080" height="1080" fill="url(#dotgrid)"/>
+  <rect x="0" y="0" width="4" height="1080" fill="#F77F2A"/>
+  <text x="80" y="160" font-family="'Georgia','Times New Roman',serif" font-weight="900" font-style="italic" font-size="28" fill="#0D9BAE" letter-spacing="0.08">Kenapa Ini "Maksa"?</text>
+  <text x="80" y="280" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="26" fill="#FFFFFF">1. Sembunyikan fitur terbaik di tier atas</text>
+  <text x="100" y="330" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.55)">Yang paling powerful gak turun ke Plus/Pro/Free</text>
+  <text x="80" y="410" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="26" fill="#FFFFFF">2. Pricing jangkar</text>
+  <text x="100" y="460" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.55)">Business lebih murah per akun dari Pro, tapi</text>
+  <text x="100" y="500" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.55)">minimal 2 user — kamu harus bawa tim</text>
+  <text x="80" y="580" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="26" fill="#FFFFFF">3. Rilis senyap</text>
+  <text x="100" y="630" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.55)">Gak bikin heboh biar yang sadar "nemuin sendiri"</text>
+  <text x="100" y="670" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.55)">dan merasa lebih butuh dari yang sebenarnya</text>
+  <line x1="80" y1="740" x2="550" y2="740" stroke="rgba(13,155,174,0.3)" stroke-width="2"/>
+  <text x="80" y="810" font-family="'Georgia','Times New Roman',serif" font-weight="900" font-style="italic" font-size="28" fill="#F77F2A">Sadar kalau kamu lagi dimaksa</text>
+  <text x="80" y="860" font-family="'Georgia','Times New Roman',serif" font-weight="900" font-style="italic" font-size="26" fill="#F77F2A">adalah langkah pertama</text>
+  <text x="80" y="930" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="700" font-size="18" fill="rgba(255,255,255,0.4)">Rahman Ramsi</text>
+  <text x="80" y="970" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="14" fill="rgba(255,255,255,0.25)">AI Educator &amp; Consultant</text>
+  <text x="760" y="970" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="600" font-size="14" fill="#F77F2A">4/5 ›</text>
+</svg>
