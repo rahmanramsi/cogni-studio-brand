@@ -400,6 +400,30 @@
       background: var(--studio-teal-pale); border-radius: var(--r-lg); padding: 20px;
       border-left: 4px solid var(--studio-teal);
     }
+
+    /* ── SCREENSHOT LAYOUT ──────────────────── */
+    .ss-layout {
+      display: flex; flex-direction: column; gap: 0;
+      background: var(--cogni-navy-deep); border-radius: var(--r-lg); overflow: hidden;
+    }
+    .ss-head {
+      padding: 28px 32px 12px;
+    }
+    .ss-body {
+      padding: 0 32px 20px;
+    }
+    .ss-img-wrap {
+      background: var(--cogni-navy); padding: 8px; border-radius: var(--r-lg) var(--r-lg) 0 0;
+      margin: 0 32px 16px; border: 1px solid rgba(13,155,174,0.15);
+    }
+    .ss-img-wrap img, .ss-img-wrap svg {
+      width: 100%; border-radius: var(--r-md); display: block;
+    }
+    .ss-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; background: var(--kerja-orange); border-radius: var(--r-full);
+      font-size: 10px; font-weight: 700; color: white; letter-spacing: .05em;
+    }
     .c-quote-text {
       font-family: var(--font-h); font-size: 14px; font-weight: 600;
       color: var(--cogni-navy); line-height: 1.5; margin-bottom: 10px;
@@ -1007,6 +1031,64 @@
           <div style="background:white;padding:10px 14px;font-size:11px;color:var(--steel)">Avatar circle 1:1 untuk profil Rahman Ramsi.</div>
         </div>
       </div>
+    </div>
+
+    <div class="comp-demo">
+      <div class="comp-title">Screenshot Layout (Standard)</div>
+      <div class="comp-desc">Format resmi untuk slide yang menyertakan screenshot: Heading → Content → Screenshot. Urutan ini standar di semua output.</div>
+
+      <div style="background:var(--cloud);border-radius:var(--r-lg);overflow:hidden;margin-bottom:16px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+          <div style="padding:24px;border-right:1px solid var(--mist)">
+            <div style="font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px">Layout Reference</div>
+            <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);line-height:1.8;font-family:monospace">
+              ┌──────────────────────────┐<br>
+              │  Heading (bold, large)    │<br>
+              │  Content description      │<br>
+              ├──────────────────────────┤<br>
+              │                          │<br>
+              │  Screenshot / Image       │<br>
+              │  (dalam container navy)   │<br>
+              │                          │<br>
+              ├──────────────────────────┤<br>
+              │  Label          [Image]   │<br>
+              │  Footer                  │<br>
+              └──────────────────────────┘
+            </div>
+          </div>
+          <div style="padding:24px">
+            <div style="font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px">CSS Structure</div>
+            <pre style="font-family:monospace;font-size:11px;color:var(--steel);line-height:1.7;background:var(--cloud);padding:12px;border-radius:var(--r-md);overflow-x:auto">
+.ss-layout { /* container */
+  background: var(--cogni-navy-deep);
+  border-radius: var(--r-lg);
+}
+.ss-head { /* heading area */
+  padding: 28px 32px 12px;
+}
+.ss-body { /* content area */
+  padding: 0 32px 20px;
+}
+.ss-img-wrap { /* screenshot frame */
+  background: var(--cogni-navy);
+  padding: 8px; margin: 0 32px 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(13,155,174,0.15);
+}
+.ss-img-wrap img {
+  width: 100%; border-radius: var(--r-md);
+}
+.ss-label { /* image badge */
+  background: var(--kerja-orange);
+  padding: 4px 12px; border-radius: 999px;
+  font-size: 10px; font-weight: 700; color: white;
+}
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box"><strong>Aturan screenshot layout:</strong> Heading pakai Sora 800, body pakai Plus Jakarta 400. Screenshot di-fit proporsional <code>preserveAspectRatio="xMidYMid meet"</code>. Container navy border tipis. Label "Image" opsional. Format ini WAJIB dipakai untuk semua slide yang mengandung screenshot.</div>
     </div>
 
     <div class="comp-demo">
