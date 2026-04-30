@@ -6,7 +6,7 @@
   <title>Rahman Ramsi — Design System v3.0 (Impeccable Draft)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,6 +20,8 @@
       --kerja-orange:      #F77F2A;
       --kerja-orange-lt:   #FF9A4A;
       --kerja-orange-pale: #FFF0E5;
+      --highlight-pink:    #E91E63;
+      --highlight-gold:    #F59E0B;
       --white:    #FFFFFF;
       --cloud:    #F4F7FA;
       --mist:     #D4DCE6;
@@ -31,6 +33,7 @@
       --red-pale:  #FEF2F2;
       --font-h: 'Sora', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
       --font-b: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      --font-hl: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
       --r-xs: 2px; --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-full: 9999px;
       --sh-xs: 0 1px 2px rgba(15,42,74,0.04);
       --sh-sm: 0 1px 4px rgba(15,42,74,0.07);
@@ -327,6 +330,28 @@
       color: var(--cogni-navy); margin-bottom: 4px;
     }
     .motif-body { font-size: 11.5px; color: var(--steel); line-height: 1.6; }
+
+    /* ── HIGHLIGHT SYSTEM ────────────────────── */
+    .hl {
+      font-family: var(--font-hl);
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.01em;
+    }
+    .hl-orange { color: var(--kerja-orange); }
+    .hl-teal { color: var(--studio-teal); }
+    .hl-pink { color: var(--highlight-pink); }
+    .hl-gold { color: var(--highlight-gold); }
+    .hl-navy { color: var(--cogni-navy); }
+
+    .hl-examples {
+      display: flex; flex-direction: column; gap: 12px;
+      background: var(--cloud); border-radius: var(--r-lg); padding: 24px;
+      margin-bottom: 16px;
+    }
+    .hl-example {
+      font-size: 22px; line-height: 1.4;
+    }
 
     /* ── 4. COMPONENTS ───────────────────────── */
     .comp-demo {
@@ -991,6 +1016,28 @@
           <div style="background:white;padding:10px 14px;font-size:11px;color:var(--steel)">Avatar circle 1:1 untuk profil Rahman Ramsi.</div>
         </div>
       </div>
+    </div>
+
+    <div class="comp-demo">
+      <div class="comp-title">Highlight System</div>
+      <div class="comp-desc">Untuk menarik perhatian ke kata kunci: gunakan font <strong>Playfair Display</strong> (italic 700) dengan warna mencolok. Hanya untuk 1-2 kata per paragraf — overuse akan mengurangi efek.</div>
+
+      <div class="hl-examples">
+        <div class="hl-example" style="color:var(--ink)">
+          AI bukan tentang <span class="hl hl-orange">teknologi</span> &mdash; ini tentang hasil.
+        </div>
+        <div class="hl-example" style="color:var(--ink)">
+          Hemat <span class="hl hl-pink">3 jam</span> per hari dengan workflow otomatis.
+        </div>
+        <div class="hl-example" style="color:var(--ink)">
+          Gunakan <span class="hl hl-gold">satu tools</span> yang benar-benar kamu butuhkan.
+        </div>
+        <div class="hl-example" style="color:var(--cogni-navy);background:var(--cloud);border-radius:var(--r-md);padding:12px">
+          <span class="hl hl-teal">Mulai</span> dari use case terkecil &mdash; jangan langsung all-in.
+        </div>
+      </div>
+
+      <div class="info-box"><strong>Aturan highlight:</strong> Gunakan <code>font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic</code>. Pilih warna kontras — Kerja Orange (#F77F2A), Highlight Pink (#E91E63), Highlight Gold (#F59E0B), atau Studio Teal (#0D9BAE). Maksimal 1-2 kata per kalimat. Jangan highlight lebih dari 20% teks dalam satu layout.</div>
     </div>
   </section>
 
