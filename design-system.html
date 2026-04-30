@@ -1034,61 +1034,108 @@
     </div>
 
     <div class="comp-demo">
-      <div class="comp-title">Screenshot Layout (Standard)</div>
-      <div class="comp-desc">Format resmi untuk slide yang menyertakan screenshot: Heading → Content → Screenshot. Urutan ini standar di semua output.</div>
+      <div class="comp-title">Screenshot Layouts</div>
+      <div class="comp-desc">5 approach resmi untuk menyertakan screenshot dalam slide. Pilih sesuai konteks konten. Approach 3 adalah standar utama.</div>
 
-      <div style="background:var(--cloud);border-radius:var(--r-lg);overflow:hidden;margin-bottom:16px">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px">
+
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:18px;border-left:3px solid var(--studio-teal)">
+          <div style="font-family:var(--font-h);font-size:11px;font-weight:700;color:var(--cogni-navy);margin-bottom:6px">1. Full-Bleed + Overlay</div>
+          <div style="font-size:10px;color:var(--steel);line-height:1.6">
+            Screenshot full slide, ditimpa navy-teal gradient overlay 85%→35%. Teks di atas.
+          </div>
+          <div style="margin-top:6px;font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.08em;text-transform:uppercase">Hero · Hook · Storytelling</div>
+        </div>
+
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:18px;border-left:3px solid var(--studio-teal)">
+          <div style="font-family:var(--font-h);font-size:11px;font-weight:700;color:var(--cogni-navy);margin-bottom:6px">2. Device Mockup</div>
+          <div style="font-size:10px;color:var(--steel);line-height:1.6">
+            Screenshot dalam frame HP/Laptop putih. Teks di samping. Memberi konteks "tampilan layar".
+          </div>
+          <div style="margin-top:6px;font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.08em;text-transform:uppercase">Demo Tools · Side-by-Side</div>
+        </div>
+
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:18px;border-left:3px solid var(--kerja-orange)">
+          <div style="font-family:var(--font-h);font-size:11px;font-weight:700;color:var(--cogni-navy);margin-bottom:6px">3. Standard Split ⭐</div>
+          <div style="font-size:10px;color:var(--steel);line-height:1.6">
+            Heading → Content → Screenshot dalam container navy. Format resmi design system.
+          </div>
+          <div style="margin-top:6px;font-size:9px;font-weight:700;color:var(--kerja-orange);letter-spacing:.08em;text-transform:uppercase">Semua Slide Screenshot</div>
+        </div>
+
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:18px;border-left:3px solid var(--studio-teal)">
+          <div style="font-family:var(--font-h);font-size:11px;font-weight:700;color:var(--cogni-navy);margin-bottom:6px">4. Card-Based Light</div>
+          <div style="font-size:10px;color:var(--steel);line-height:1.6">
+            Background Cloud. Screenshot di card putih, teks di card navy terpisah.
+          </div>
+          <div style="margin-top:6px;font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.08em;text-transform:uppercase">Tips · Listicle · Ringan</div>
+        </div>
+
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:18px;border-left:3px solid var(--studio-teal)">
+          <div style="font-family:var(--font-h);font-size:11px;font-weight:700;color:var(--cogni-navy);margin-bottom:6px">5. Dominant Text + Tile</div>
+          <div style="font-size:10px;color:var(--steel);line-height:1.6">
+            Teks besar sebagai fokus utama, screenshot sebagai tile kecil pendukung.
+          </div>
+          <div style="margin-top:6px;font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.08em;text-transform:uppercase">Pesan &gt; Bukti Visual</div>
+        </div>
+
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:18px;border-left:3px solid var(--studio-teal)">
+          <div style="font-family:var(--font-h);font-size:11px;font-weight:700;color:var(--cogni-navy);margin-bottom:6px">CSS Ready</div>
+          <div style="font-size:10px;color:var(--steel);line-height:1.6">
+            Semua approach pake classes <code>.ss-layout</code>, <code>.ss-head</code>, <code>.ss-body</code>, <code>.ss-img-wrap</code>.
+          </div>
+          <div style="margin-top:6px;font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.08em;text-transform:uppercase">Copy-Paste Ready</div>
+        </div>
+
+      </div>
+
+      <div style="background:var(--cloud);border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-          <div style="padding:24px;border-right:1px solid var(--mist)">
-            <div style="font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px">Layout Reference</div>
-            <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);line-height:1.8;font-family:monospace">
+          <div style="padding:20px;border-right:1px solid var(--mist)">
+            <div style="font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Standard Layout Reference</div>
+            <div style="font-family:monospace;font-size:12px;color:var(--cogni-navy);line-height:1.8">
               ┌──────────────────────────┐<br>
-              │  Heading (bold, large)    │<br>
-              │  Content description      │<br>
+              │  Heading (Sora 800)       │<br>
+              │  Content (PJS 400)        │<br>
               ├──────────────────────────┤<br>
-              │                          │<br>
               │  Screenshot / Image       │<br>
-              │  (dalam container navy)   │<br>
-              │                          │<br>
+              │  (container navy border)  │<br>
               ├──────────────────────────┤<br>
-              │  Label          [Image]   │<br>
+              │  Label           [Image]  │<br>
               │  Footer                  │<br>
               └──────────────────────────┘
             </div>
           </div>
-          <div style="padding:24px">
-            <div style="font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px">CSS Structure</div>
-            <pre style="font-family:monospace;font-size:11px;color:var(--steel);line-height:1.7;background:var(--cloud);padding:12px;border-radius:var(--r-md);overflow-x:auto">
-.ss-layout { /* container */
-  background: var(--cogni-navy-deep);
-  border-radius: var(--r-lg);
-}
-.ss-head { /* heading area */
-  padding: 28px 32px 12px;
-}
-.ss-body { /* content area */
-  padding: 0 32px 20px;
-}
-.ss-img-wrap { /* screenshot frame */
-  background: var(--cogni-navy);
-  padding: 8px; margin: 0 32px 16px;
-  border-radius: var(--r-lg);
-  border: 1px solid rgba(13,155,174,0.15);
-}
-.ss-img-wrap img {
-  width: 100%; border-radius: var(--r-md);
-}
-.ss-label { /* image badge */
-  background: var(--kerja-orange);
-  padding: 4px 12px; border-radius: 999px;
-  font-size: 10px; font-weight: 700; color: white;
-}
+          <div style="padding:20px">
+            <div style="font-size:9px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Overlay Gradient CSS</div>
+            <pre style="font-family:monospace;font-size:10px;color:var(--steel);line-height:1.6;background:white;padding:10px;border-radius:var(--r-md);overflow-x:auto">
+/* Approach 1: Full-bleed overlay */
+background: linear-gradient(180deg,
+  rgba(15,42,74,0.88),
+  rgba(15,42,74,0.65),
+  rgba(13,155,174,0.30));
+
+/* Approach 2: Device mockup frame */
+border-radius: 36px; padding: 8px;
+background: #2A2A2A;
+
+/* Approach 3: Standard split */
+.ss-layout { /* full container */ }
+.ss-img-wrap { padding: 8px;
+  border: 1px solid rgba(13,155,174,0.15); }
+
+/* Approach 4: Light card */
+box-shadow: 0 2px 12px rgba(15,42,74,0.08);
+
+/* Approach 5: Dominant tile */
+.ss-img-wrap { max-width: 70%;
+  margin: 0 auto; }
             </pre>
           </div>
         </div>
       </div>
 
-      <div class="info-box"><strong>Aturan screenshot layout:</strong> Heading pakai Sora 800, body pakai Plus Jakarta 400. Screenshot di-fit proporsional <code>preserveAspectRatio="xMidYMid meet"</code>. Container navy border tipis. Label "Image" opsional. Format ini WAJIB dipakai untuk semua slide yang mengandung screenshot.</div>
+      <div class="info-box"><strong>Aturan screenshot:</strong> Heading pakai font Sora 800. Screenshot di-fit proporsional <code>preserveAspectRatio="xMidYMid meet"</code>. Container navy dengan border tipis rgba(13,155,174,0.15). Label "Image" opsional. Approach 3 (Standard Split) WAJIB dipakai sebagai default — approach lain untuk variasi konteks.</div>
     </div>
 
     <div class="comp-demo">
