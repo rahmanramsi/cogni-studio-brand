@@ -1,0 +1,28 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="rgba(13,155,174,0.12)"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071929"/>
+      <stop offset="50%" stop-color="#0F2A4A"/>
+      <stop offset="100%" stop-color="#0A3050"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <rect width="1080" height="1080" fill="url(#dotgrid)"/>
+  <rect x="0" y="0" width="4" height="1080" fill="#F77F2A"/>
+  <text x="80" y="160" font-family="'Georgia','Times New Roman',serif" font-weight="900" font-style="italic" font-size="28" fill="#0D9BAE" letter-spacing="0.08">Yang Sebenarnya Dirilis</text>
+  <text x="80" y="290" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="52" fill="#FFFFFF" letter-spacing="-0.02">22 April 2026</text>
+  <text x="80" y="370" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="52" fill="#FFFFFF" letter-spacing="-0.02">Workspace Agents</text>
+  <rect x="80" y="430" width="920" height="2" fill="rgba(13,155,174,0.25)"/>
+  <text x="80" y="510" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="500" font-size="28" fill="rgba(255,255,255,0.7)">AI otonom yang jalan sendiri di cloud.</text>
+  <text x="80" y="570" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="500" font-size="28" fill="rgba(255,255,255,0.7)">Buka email, update spreadsheet,</text>
+  <text x="80" y="630" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="500" font-size="28" fill="rgba(255,255,255,0.7)">kirim laporan ke Slack — otomatis.</text>
+  <rect x="80" y="700" width="920" height="2" fill="rgba(13,155,174,0.25)"/>
+  <text x="80" y="790" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="600" font-size="26" fill="#F77F2A">Tapi yang bisa pakai?</text>
+  <text x="80" y="850" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="500" font-size="26" fill="#FF9A4A">Cuma Business &amp; Enterprise.</text>
+  <text x="80" y="930" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="700" font-size="18" fill="rgba(255,255,255,0.4)">Rahman Ramsi</text>
+  <text x="80" y="970" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="14" fill="rgba(255,255,255,0.25)">Agentic Architect</text>
+  <text x="760" y="970" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="600" font-size="14" fill="#F77F2A">2/5 ›</text>
+</svg>

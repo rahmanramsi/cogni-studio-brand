@@ -1,0 +1,43 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="rgba(13,155,174,0.12)"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071929"/>
+      <stop offset="50%" stop-color="#0F2A4A"/>
+      <stop offset="100%" stop-color="#0A3050"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <rect width="1080" height="1080" fill="url(#dotgrid)"/>
+
+  <!-- Phone frame mockup -->
+  <rect x="60" y="80" width="460" height="880" rx="40" fill="#2A2A2A" stroke="#444" stroke-width="3"/>
+  <rect x="76" y="96" width="428" height="848" rx="32" fill="#1A1A2E"/>
+  <!-- Phone notch -->
+  <rect x="220" y="80" width="140" height="28" rx="14" fill="#2A2A2A"/>
+  <!-- Phone screen content -->
+  <rect x="96" y="116" width="388" height="30" rx="6" fill="rgba(255,255,255,0.06)"/>
+  <rect x="116" y="172" width="348" height="14" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="116" y="196" width="280" height="14" rx="3" fill="rgba(255,255,255,0.06)"/>
+  <rect x="116" y="240" width="348" height="50" rx="6" fill="rgba(247,127,42,0.15)"/>
+  <rect x="116" y="306" width="348" height="50" rx="6" fill="rgba(255,255,255,0.04)"/>
+  <rect x="116" y="372" width="348" height="50" rx="6" fill="rgba(255,255,255,0.04)"/>
+  <rect x="116" y="438" width="348" height="50" rx="6" fill="rgba(247,127,42,0.12)"/>
+  <rect x="116" y="504" width="348" height="50" rx="6" fill="rgba(255,255,255,0.04)"/>
+
+  <!-- Text column -->
+  <rect x="0" y="140" width="4" height="540" fill="#F77F2A"/>
+  <text x="560" y="200" font-family="'Georgia','Times New Roman',serif" font-weight="900" font-style="italic" font-size="24" fill="#0D9BAE">Device Mockup</text>
+  <text x="560" y="270" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="40" fill="#FFFFFF">Screenshot</text>
+  <text x="560" y="330" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="40" fill="#FFFFFF">dalam Frame</text>
+  <text x="560" y="390" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="800" font-size="40" fill="#FFFFFF">HP</text>
+  <text x="560" y="470" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.55)">Memberi konteks "ini tampilan</text>
+  <text x="560" y="510" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.55)">yang kamu lihat di layar"</text>
+  <text x="560" y="580" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="500" font-size="20" fill="rgba(255,255,255,0.4)">Cocok untuk demo tools,</text>
+  <text x="560" y="614" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="500" font-size="20" fill="rgba(255,255,255,0.4)">side-by-side comparison</text>
+
+  <text x="560" y="920" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="700" font-size="16" fill="rgba(255,255,255,0.35)">Rahman Ramsi</text>
+  <text x="560" y="1020" font-family="'Trebuchet MS','Arial',sans-serif" font-weight="600" font-size="14" fill="#F77F2A">Approach 2/4</text>
+</svg>
