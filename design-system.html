@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cogni Studio — Design System Proposal v2.0</title>
+  <!-- Google Fonts intentionally omitted: served at workspace.opensynergic.com with
+       style-src 'self' 'unsafe-inline' which blocks external stylesheets.
+       Specified fonts: Sora (heading) + Plus Jakarta Sans (body) — listed in CSS vars.
+       For local use, add the Google Fonts <link> back or self-host the .woff2 files. -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cogni-navy:        #0F2A4A;
+      --cogni-navy-mid:    #1A3F6E;
+      --cogni-navy-deep:   #071929;
+      --studio-teal:       #0D9BAE;
+      --studio-teal-light: #14B8CE;
+      --studio-teal-pale:  #E3F7FA;
+      --kerja-orange:      #F77F2A;
+      --kerja-orange-lt:   #FF9A4A;
+      --kerja-orange-pale: #FFF0E5;
+      --white:    #FFFFFF;
+      --gray-50:  #F4F7FA;
+      --gray-100: #EBF0F5;
+      --gray-200: #D4DCE6;
+      --gray-400: #8FA3B8;
+      --gray-600: #4A6175;
+      --gray-900: #0D1F2D;
+      /* Specified fonts: Sora (heading) · Plus Jakarta Sans (body)
+         System fallbacks render here — load fonts locally to see specified typefaces */
+      --font-h: 'Sora', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-b: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-full: 9999px;
+      --sh-sm: 0 1px 4px rgba(15,42,74,0.07);
+      --sh-md: 0 4px 16px rgba(15,42,74,0.10);
+      --sh-lg: 0 8px 40px rgba(15,42,74,0.14);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-b);
+      background: var(--gray-50);
+      color: var(--gray-900);
+      display: flex;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── SIDEBAR ─────────────────────────────── */
+    .sidebar {
+      width: 252px; min-width: 252px;
+      background: var(--cogni-navy);
+      height: 100vh; position: sticky; top: 0;
+      display: flex; flex-direction: column;
+      padding: 28px 20px;
+      overflow-y: auto;
+    }
+    .sb-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
+    .sb-logo {
+      width: 34px; height: 34px;
+      background: var(--studio-teal);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-weight: 800; font-size: 13px; color: white;
+    }
+    .sb-name { font-family: var(--font-h); font-weight: 700; font-size: 14px; color: white; }
+    .sb-sub  { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 1px; }
+    .sb-nav  { list-style: none; flex: 1; }
+    .sb-nav li { margin-bottom: 2px; }
+    .sb-nav a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 12px; border-radius: 8px;
+      text-decoration: none; font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.55); transition: all .15s;
+    }
+    .sb-nav a:hover { background: rgba(255,255,255,0.08); color: white; }
+    .sb-nav a.active { background: var(--studio-teal); color: white; }
+    .sb-nav .nn { font-size: 10px; color: rgba(255,255,255,0.25); font-weight: 700; min-width: 18px; }
+    .sb-foot {
+      border-top: 1px solid rgba(255,255,255,0.09);
+      padding-top: 18px; font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.9;
+    }
+
+    /* ── MAIN ────────────────────────────────── */
+    .main { flex: 1; overflow-x: hidden; }
+
+    .section { padding: 72px 60px; border-bottom: 1px solid var(--gray-200); }
+    .section:last-child { border-bottom: none; }
+
+    .sh { margin-bottom: 48px; }
+    .sh-num {
+      font-size: 11px; font-weight: 700; color: var(--studio-teal);
+      letter-spacing: .18em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .sh-title {
+      font-family: var(--font-h); font-size: 34px; font-weight: 800;
+      color: var(--cogni-navy); line-height: 1.1; margin-bottom: 10px;
+    }
+    .sh-desc { font-size: 15px; color: var(--gray-600); max-width: 560px; line-height: 1.75; }
+
+    .why {
+      display: flex; gap: 8px;
+      background: var(--kerja-orange-pale);
+      border-left: 3px solid var(--kerja-orange);
+      padding: 11px 14px; border-radius: 0 var(--r-md) var(--r-md) 0;
+      font-size: 13px; color: var(--gray-600); margin-top: 10px; line-height: 1.65;
+    }
+    .why strong { color: var(--kerja-orange); white-space: nowrap; }
+
+    .sub-h {
+      font-family: var(--font-h); font-size: 18px; font-weight: 700;
+      color: var(--cogni-navy); margin-bottom: 16px; margin-top: 36px;
+    }
+
+    /* ── 1. COLOR ────────────────────────────── */
+    .color-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      gap: 14px; margin-bottom: 36px;
+    }
+    .swatch {
+      border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: var(--sh-sm); cursor: pointer; position: relative;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .swatch:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+    .swatch-top {
+      height: 92px; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      color: rgba(255,255,255,0); transition: color .15s;
+    }
+    .swatch:hover .swatch-top { color: rgba(255,255,255,0.85); }
+    .swatch-bot { background: white; padding: 11px 13px; }
+    .sw-name { font-family: var(--font-h); font-size: 12px; font-weight: 700; color: var(--gray-900); }
+    .sw-hex  { font-family: monospace; font-size: 12px; color: var(--gray-600); margin-top: 2px; }
+    .sw-use  { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+    .swatch-flash {
+      position: absolute; inset: 0; background: rgba(13,155,174,.88);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 13px; font-weight: 700; color: white;
+      opacity: 0; transition: opacity .2s; border-radius: var(--r-lg); pointer-events: none;
+    }
+
+    .usage-table {
+      width: 100%; border-collapse: collapse; font-size: 13.5px;
+      background: white; border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: var(--sh-sm); margin-bottom: 28px;
+    }
+    .usage-table th {
+      text-align: left; padding: 12px 18px;
+      background: var(--gray-50);
+      font-family: var(--font-h); font-size: 11px; font-weight: 700;
+      color: var(--gray-600); text-transform: uppercase; letter-spacing: .1em;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .usage-table td {
+      padding: 12px 18px; border-bottom: 1px solid var(--gray-100);
+      color: var(--gray-900); line-height: 1.5;
+    }
+    .usage-table tr:last-child td { border-bottom: none; }
+    .cdot {
+      width: 14px; height: 14px; border-radius: 50%;
+      display: inline-block; vertical-align: middle; margin-right: 7px;
+    }
+
+    .dark-preview {
+      background: var(--cogni-navy-deep);
+      border-radius: var(--r-lg); padding: 28px; margin-top: 24px;
+    }
+    .dark-preview h3 {
+      font-family: var(--font-h); font-size: 18px; font-weight: 700;
+      color: white; margin-bottom: 6px;
+    }
+    .dark-preview p { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 18px; }
+    .dark-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+    .chip {
+      padding: 6px 14px; border-radius: var(--r-full);
+      font-size: 12px; font-weight: 600;
+    }
+
+    /* ── 2. TYPOGRAPHY ───────────────────────── */
+    .font-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+    .font-card {
+      background: white; border-radius: var(--r-lg); padding: 28px; box-shadow: var(--sh-sm);
+    }
+    .fc-label {
+      font-size: 11px; font-weight: 700; color: var(--studio-teal);
+      letter-spacing: .15em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .fc-big {
+      font-size: 30px; font-weight: 700; color: var(--cogni-navy);
+      margin-bottom: 10px; line-height: 1.1;
+    }
+    .fc-alpha { font-size: 14px; color: var(--gray-600); line-height: 1.9; letter-spacing: .04em; }
+    .fc-note  { font-size: 12px; color: var(--gray-400); margin-top: 12px; }
+
+    .type-scale {
+      background: white; border-radius: var(--r-lg); padding: 32px;
+      box-shadow: var(--sh-sm); margin-bottom: 24px;
+    }
+    .type-row {
+      display: flex; align-items: baseline; gap: 20px;
+      padding: 18px 0; border-bottom: 1px solid var(--gray-100);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .tm { min-width: 130px; flex-shrink: 0; }
+    .tm-name {
+      font-size: 10px; font-weight: 700; color: var(--gray-400);
+      letter-spacing: .12em; text-transform: uppercase; display: block;
+    }
+    .tm-spec {
+      font-family: monospace; font-size: 10px; color: var(--gray-400);
+      display: block; margin-top: 3px; line-height: 1.65;
+    }
+
+    .live-demo {
+      background: var(--studio-teal-pale); border-radius: var(--r-lg); padding: 28px; margin-top: 20px;
+    }
+    .live-demo h3 {
+      font-family: var(--font-h); font-size: 15px; font-weight: 700;
+      color: var(--cogni-navy); margin-bottom: 14px;
+    }
+    .live-input {
+      width: 100%; padding: 12px 14px;
+      border: 2px solid var(--studio-teal);
+      border-radius: var(--r-md); font-family: var(--font-b); font-size: 15px;
+      color: var(--gray-900); outline: none; background: white; margin-bottom: 20px;
+    }
+    .live-outputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .lo-card { background: white; border-radius: var(--r-md); padding: 14px; }
+    .lo-label {
+      font-size: 10px; font-weight: 700; color: var(--gray-400);
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px;
+    }
+
+    /* ── 3. VISUAL STYLE ─────────────────────── */
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 36px; }
+    .prin-card {
+      background: white; border-radius: var(--r-lg); padding: 24px; box-shadow: var(--sh-sm);
+      border-top: 3px solid var(--studio-teal);
+    }
+    .prin-icon { font-size: 24px; margin-bottom: 10px; line-height: 1; display: flex; }
+    .prin-title {
+      font-family: var(--font-h); font-size: 15px; font-weight: 700;
+      color: var(--cogni-navy); margin-bottom: 6px;
+    }
+    .prin-body { font-size: 13px; color: var(--gray-600); line-height: 1.7; }
+
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 36px; }
+    .dd-card { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-sm); }
+    .dd-hdr {
+      display: flex; align-items: center; gap: 7px;
+      padding: 10px 18px; font-size: 12px; font-weight: 700; letter-spacing: .05em;
+    }
+    .do-hdr  { background: #ECFDF5; color: #065F46; }
+    .dont-hdr { background: #FEF2F2; color: #991B1B; }
+    .dd-body { background: white; padding: 20px; }
+    .dd-item { display: flex; gap: 10px; margin-bottom: 12px; font-size: 13.5px; color: var(--gray-600); line-height: 1.5; }
+    .dd-item:last-child { margin-bottom: 0; }
+    .di { font-size: 14px; flex-shrink: 0; }
+
+    .mood-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .mb-card {
+      border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/3;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 18px; position: relative;
+    }
+    .mb-tag {
+      font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7);
+      text-transform: uppercase; letter-spacing: .12em; margin-bottom: 4px;
+    }
+    .mb-title {
+      font-family: var(--font-h); font-size: 15px; font-weight: 700;
+      color: white; line-height: 1.25;
+    }
+
+    /* ── 4. COMPONENTS ───────────────────────── */
+    .comp-demo {
+      background: white; border-radius: var(--r-lg); padding: 28px;
+      box-shadow: var(--sh-sm); margin-bottom: 32px;
+    }
+    .comp-title {
+      font-family: var(--font-h); font-size: 16px; font-weight: 700;
+      color: var(--cogni-navy); margin-bottom: 5px;
+    }
+    .comp-desc { font-size: 13px; color: var(--gray-600); margin-bottom: 20px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 7px; padding: 11px 22px; border-radius: var(--r-md);
+      font-family: var(--font-b); font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all .15s; border: 2px solid transparent;
+    }
+    .btn-primary  { background: var(--cogni-navy); color: white; }
+    .btn-primary:hover { background: var(--cogni-navy-mid); }
+    .btn-secondary { background: var(--studio-teal); color: white; }
+    .btn-secondary:hover { background: var(--studio-teal-light); }
+    .btn-ghost {
+      background: transparent; color: var(--cogni-navy);
+      border-color: var(--gray-200);
+    }
+    .btn-ghost:hover { border-color: var(--cogni-navy); background: var(--gray-50); }
+    .btn-accent { background: var(--kerja-orange); color: white; }
+    .btn-accent:hover { background: var(--kerja-orange-lt); }
+    .btn-sm { padding: 7px 14px; font-size: 12px; }
+    .btn-lg { padding: 14px 28px; font-size: 15px; }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .c-feature {
+      background: white; border-radius: var(--r-lg); padding: 22px;
+      box-shadow: var(--sh-sm); border: 1px solid var(--gray-100);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .c-feature:hover { box-shadow: var(--sh-md); transform: translateY(-2px); }
+    .c-icon {
+      width: 40px; height: 40px; border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 14px;
+    }
+    .c-title {
+      font-family: var(--font-h); font-size: 15px; font-weight: 700;
+      color: var(--cogni-navy); margin-bottom: 6px;
+    }
+    .c-body { font-size: 13px; color: var(--gray-600); line-height: 1.65; }
+
+    .c-stat {
+      background: linear-gradient(135deg, var(--cogni-navy) 0%, var(--cogni-navy-mid) 100%);
+      border-radius: var(--r-lg); padding: 22px; color: white;
+    }
+    .stat-val {
+      font-family: var(--font-h); font-size: 38px; font-weight: 800;
+      color: white; line-height: 1; margin-bottom: 4px;
+    }
+    .stat-lbl { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+    .c-quote {
+      background: var(--studio-teal-pale); border-radius: var(--r-lg); padding: 22px;
+      border-left: 4px solid var(--studio-teal);
+    }
+    .c-quote-text {
+      font-family: var(--font-h); font-size: 15px; font-weight: 600;
+      color: var(--cogni-navy); line-height: 1.55; margin-bottom: 12px;
+      font-style: italic;
+    }
+    .c-quote-author { font-size: 12px; color: var(--studio-teal); font-weight: 700; }
+
+    .img-treat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .it-card { border-radius: var(--r-lg); overflow: hidden; }
+    .it-top { height: 120px; position: relative; display: flex; align-items: center; justify-content: center; }
+    .it-label {
+      position: absolute; bottom: 10px; left: 10px;
+      background: rgba(0,0,0,0.55); color: white;
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+      padding: 4px 8px; border-radius: var(--r-sm);
+    }
+    .it-bot { background: white; padding: 10px 14px; font-size: 12px; color: var(--gray-600); }
+
+    /* ── 5. PLATFORM ─────────────────────────── */
+    .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .pf-wrap {
+      background: white; border-radius: var(--r-lg); padding: 22px; box-shadow: var(--sh-sm);
+    }
+    .pf-name { font-family: var(--font-h); font-size: 14px; font-weight: 700; color: var(--cogni-navy); }
+    .pf-spec { font-family: monospace; font-size: 11px; color: var(--gray-400); margin-bottom: 14px; }
+    .pf-preview { border-radius: var(--r-md); overflow: hidden; }
+
+    /* IG 1:1 */
+    .ig-p {
+      aspect-ratio: 1/1;
+      background: linear-gradient(145deg, #0F2A4A 0%, #143561 60%, #0D3565 100%);
+      padding: 28px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    /* LinkedIn 1.91:1 */
+    .li-p {
+      aspect-ratio: 1200/628;
+      background: linear-gradient(135deg, var(--cogni-navy) 0%, #17526A 100%);
+      padding: 24px 28px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    /* Twitter 16:9 */
+    .tw-p {
+      aspect-ratio: 16/9;
+      background: var(--gray-900);
+      padding: 22px 26px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    /* Reel 9:16 — shown in a smaller column */
+    .reel-outer { display: flex; justify-content: center; }
+    .reel-p {
+      aspect-ratio: 9/16;
+      max-height: 360px;
+      width: auto;
+      background: linear-gradient(180deg, #071929 0%, #0F2A4A 55%, #0A3050 100%);
+      padding: 22px 18px; display: flex; flex-direction: column; justify-content: space-between;
+      border-radius: var(--r-md); overflow: hidden;
+    }
+
+    /* platform text helpers */
+    .pt-tag {
+      font-size: 10px; font-weight: 700; color: var(--studio-teal-light);
+      letter-spacing: .15em; text-transform: uppercase;
+    }
+    .pt-h {
+      font-family: var(--font-h); font-weight: 800; color: white; line-height: 1.15;
+    }
+    .pt-body { font-family: var(--font-b); color: rgba(255,255,255,0.72); line-height: 1.6; }
+    .pt-logo {
+      font-family: var(--font-h); font-weight: 800; color: white; opacity: 0.85;
+    }
+    .pt-bar { height: 3px; background: var(--kerja-orange); border-radius: 2px; }
+    .pt-badge {
+      display: inline-flex; align-items: center; padding: 4px 10px;
+      background: var(--studio-teal); border-radius: var(--r-full);
+      font-size: 10px; font-weight: 700; color: white; letter-spacing: .05em;
+    }
+    .pt-num {
+      font-family: var(--font-h); font-size: 52px; font-weight: 800;
+      color: var(--studio-teal-light); line-height: 1; opacity: 0.25;
+      position: absolute; top: -8px; right: 20px;
+    }
+    .pt-hr { height: 1px; background: rgba(255,255,255,0.1); margin: 10px 0; }
+
+    /* ── 6. BRAND VOICE ──────────────────────── */
+    .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .vc-card {
+      border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 1/1;
+      position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 22px;
+    }
+    .vc-type-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: rgba(0,0,0,0.45); backdrop-filter: blur(6px);
+      color: white; font-size: 10px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: var(--r-full);
+    }
+    .vc-tagline {
+      font-family: var(--font-h); font-size: 20px; font-weight: 800;
+      color: white; line-height: 1.2; margin-bottom: 8px;
+    }
+    .vc-sub { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    .vc-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .vc-brand { font-family: var(--font-h); font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7); }
+    .vc-accent { width: 28px; height: 3px; background: var(--kerja-orange); border-radius: 2px; }
+
+    .voice-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+    .vn-card { background: white; border-radius: var(--r-lg); padding: 18px; box-shadow: var(--sh-sm); }
+    .vn-title { font-family: var(--font-h); font-size: 13px; font-weight: 700; color: var(--cogni-navy); margin-bottom: 6px; }
+    .vn-body  { font-size: 12px; color: var(--gray-600); line-height: 1.65; }
+
+    /* cover / hero banner */
+    .cover {
+      background: linear-gradient(135deg, var(--cogni-navy) 0%, #17406E 60%, #0D3D6B 100%);
+      padding: 64px 60px;
+      display: flex; flex-direction: column; justify-content: center; min-height: 280px;
+    }
+    .cover-eyebrow {
+      font-size: 11px; font-weight: 700; color: var(--studio-teal-light);
+      letter-spacing: .2em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .cover-title {
+      font-family: var(--font-h); font-size: 44px; font-weight: 800;
+      color: white; line-height: 1.1; max-width: 560px; margin-bottom: 14px;
+    }
+    .cover-desc { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 500px; line-height: 1.7; }
+    .cover-meta { margin-top: 32px; display: flex; gap: 24px; align-items: center; }
+    .cover-badge {
+      display: inline-flex; align-items: center; padding: 7px 16px;
+      background: var(--kerja-orange); border-radius: var(--r-full);
+      font-size: 12px; font-weight: 700; color: white;
+    }
+    .cover-date { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+    .divider { height: 1px; background: var(--gray-200); margin: 32px 0; }
+  </style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══════════════════════════════════════════════ -->
+<nav class="sidebar">
+  <div class="sb-brand">
+    <div class="sb-logo">CS</div>
+    <div>
+      <div class="sb-name">Cogni Studio</div>
+      <div class="sb-sub">Design System Proposal</div>
+    </div>
+  </div>
+  <ul class="sb-nav" id="sidenav">
+    <li><a href="#cover"      class="active"><span class="nn">00</span> Overview</a></li>
+    <li><a href="#colors"             ><span class="nn">01</span> Warna</a></li>
+    <li><a href="#typography"         ><span class="nn">02</span> Tipografi</a></li>
+    <li><a href="#visual-style"       ><span class="nn">03</span> Visual Style</a></li>
+    <li><a href="#components"         ><span class="nn">04</span> Komponen</a></li>
+    <li><a href="#platforms"          ><span class="nn">05</span> Platform</a></li>
+    <li><a href="#brand-voice"        ><span class="nn">06</span> Brand Voice</a></li>
+    <li><a href="#tokens"             ><span class="nn">07</span> Tokens</a></li>
+    <li><a href="#accessibility"      ><span class="nn">08</span> Aksesibilitas</a></li>
+  </ul>
+  <div class="sb-foot">
+    <div>Brand Visuals Agent</div>
+    <div>Cogni Studio · 2026</div>
+    <div style="margin-top:4px;color:rgba(255,255,255,0.2)">Proposal v2.0 · 8 Sections</div>
+  </div>
+</nav>
+
+<!-- ══ MAIN ═════════════════════════════════════════════════ -->
+<main class="main">
+
+  <!-- COVER -->
+  <div class="cover" id="cover">
+    <div class="cover-eyebrow">Cogni Studio · Design System</div>
+    <h1 class="cover-title">Bahasa Visual Brand yang Konsisten &amp; Scalable</h1>
+    <p class="cover-desc">
+      Proposal sistem desain untuk Rahman Ramsi sebagai AI educator Indonesia —
+      mencakup warna, tipografi, komponen, dan panduan per platform.
+    </p>
+    <div class="cover-meta">
+      <span class="cover-badge">v2.0 · Updated</span>
+      <span class="cover-date">April 2026 · 8 Sections</span>
+    </div>
+    <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6">
+      Versi ini sepenuhnya CSP-compatible dengan <code style="font-family:monospace;background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px">style-src 'self' 'unsafe-inline'</code> dan <code style="font-family:monospace;background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px">script-src 'self'</code>. Tidak ada external resources atau inline scripts. Font yang ditentukan: Sora (heading) + Plus Jakarta Sans (body) — install secara lokal atau self-host untuk melihat tampilan yang benar.
+    </div>
+  </div>
+
+  <!-- ══ 01 WARNA ══════════════════════════════════════════ -->
+  <section class="section" id="colors">
+    <div class="sh">
+      <div class="sh-num">01 — Warna</div>
+      <h2 class="sh-title">Color Palette</h2>
+      <p class="sh-desc">Tiga warna utama yang membentuk identitas Cogni Studio — authority, clarity, dan energy.</p>
+    </div>
+
+    <!-- Primary swatches -->
+    <h3 class="sub-h">Primary &amp; Secondary</h3>
+    <div class="color-grid" id="swatches">
+      <div class="swatch" data-hex="#0F2A4A">
+        <div class="swatch-top" style="background:#0F2A4A">hex →</div>
+        <div class="swatch-bot">
+          <div class="sw-name">Cogni Navy</div>
+          <div class="sw-hex">#0F2A4A</div>
+          <div class="sw-use">Primary · Headline · Background dark</div>
+        </div>
+      </div>
+      <div class="swatch" data-hex="#1A3F6E">
+        <div class="swatch-top" style="background:#1A3F6E">hex →</div>
+        <div class="swatch-bot">
+          <div class="sw-name">Navy Mid</div>
+          <div class="sw-hex">#1A3F6E</div>
+          <div class="sw-use">Hover state · Gradient end</div>
+        </div>
+      </div>
+      <div class="swatch" data-hex="#0D9BAE">
+        <div class="swatch-top" style="background:#0D9BAE">hex →</div>
+        <div class="swatch-bot">
+          <div class="sw-name">Studio Teal</div>
+          <div class="sw-hex">#0D9BAE</div>
+          <div class="sw-use">Secondary · Links · Highlights</div>
+        </div>
+      </div>
+      <div class="swatch" data-hex="#14B8CE">
+        <div class="swatch-top" style="background:#14B8CE">hex →</div>
+        <div class="swatch-bot">
+          <div class="sw-name">Teal Light</div>
+          <div class="sw-hex">#14B8CE</div>
+          <div class="sw-use">Hover · Dark mode text</div>
+        </div>
+      </div>
+      <div class="swatch" data-hex="#F77F2A">
+        <div class="swatch-top" style="background:#F77F2A">hex →</div>
+        <div class="swatch-bot">
+          <div class="sw-name">Kerja Orange</div>
+          <div class="sw-hex">#F77F2A</div>
+          <div class="sw-use">Accent · CTA · Emphasis</div>
+        </div>
+      </div>
+      <div class="swatch" data-hex="#FF9A4A">
+        <div class="swatch-top" style="background:#FF9A4A">hex →</div>
+        <div class="swatch-bot">
+          <div class="sw-name">Orange Light</div>
+          <div class="sw-hex">#FF9A4A</div>
+          <div class="sw-use">Orange hover · Warm highlight</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why"><strong>Kenapa →</strong> Navy memberi authority tanpa kesan korporat kaku. Teal adalah warna clarity dan komunikasi — sangat kontras dengan navy tapi tetap tenang. Orange adalah energi "kerja nyata" — bukan kemewahan (gold) dan bukan hype (merah). Ketiganya membentuk trio: Kepercayaan + Kejelasan + Aksi.</div>
+
+    <!-- Neutrals -->
+    <h3 class="sub-h" style="margin-top:32px">Neutral Scale</h3>
+    <div class="color-grid">
+      <div class="swatch" data-hex="#F4F7FA">
+        <div class="swatch-top" style="background:#F4F7FA;border:1px solid #D4DCE6">hex →</div>
+        <div class="swatch-bot"><div class="sw-name">Cloud</div><div class="sw-hex">#F4F7FA</div><div class="sw-use">Page background</div></div>
+      </div>
+      <div class="swatch" data-hex="#EBF0F5">
+        <div class="swatch-top" style="background:#EBF0F5">hex →</div>
+        <div class="swatch-bot"><div class="sw-name">Mist</div><div class="sw-hex">#EBF0F5</div><div class="sw-use">Section separator</div></div>
+      </div>
+      <div class="swatch" data-hex="#8FA3B8">
+        <div class="swatch-top" style="background:#8FA3B8">hex →</div>
+        <div class="swatch-bot"><div class="sw-name">Steel</div><div class="sw-hex">#8FA3B8</div><div class="sw-use">Placeholder text</div></div>
+      </div>
+      <div class="swatch" data-hex="#4A6175">
+        <div class="swatch-top" style="background:#4A6175">hex →</div>
+        <div class="swatch-bot"><div class="sw-name">Slate</div><div class="sw-hex">#4A6175</div><div class="sw-use">Body text · Captions</div></div>
+      </div>
+      <div class="swatch" data-hex="#0D1F2D">
+        <div class="swatch-top" style="background:#0D1F2D">hex →</div>
+        <div class="swatch-bot"><div class="sw-name">Ink</div><div class="sw-hex">#0D1F2D</div><div class="sw-use">Headline text</div></div>
+      </div>
+    </div>
+
+    <!-- Usage table -->
+    <h3 class="sub-h">Panduan Penggunaan Warna</h3>
+    <table class="usage-table">
+      <thead>
+        <tr><th>Warna</th><th>Gunakan Untuk</th><th>Hindari</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="cdot" style="background:#0F2A4A"></span>Cogni Navy</td>
+          <td>Background gelap, headline besar, sidebar, header kartu</td>
+          <td>Teks kecil di background terang (kontras kurang)</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#0D9BAE"></span>Studio Teal</td>
+          <td>Link, highlight, border aktif, icon, badge</td>
+          <td>Background besar — teal dominan terasa terlalu dingin</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#F77F2A"></span>Kerja Orange</td>
+          <td>CTA button, angka penting, garis aksen, satu elemen per layout</td>
+          <td>Lebih dari satu elemen per slide — orange kehilangan "power"</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#4A6175"></span>Slate</td>
+          <td>Body copy, deskripsi, caption</td>
+          <td>Heading utama — gunakan Ink (#0D1F2D) untuk kontras lebih tinggi</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Dark mode -->
+    <h3 class="sub-h">Dark Mode Adaptation</h3>
+    <div class="dark-preview">
+      <h3>Cogni Studio · Dark Mode</h3>
+      <p>Untuk konten Instagram/Reel yang dipublish malam hari atau feed dengan aesthetic gelap</p>
+      <div class="dark-chips">
+        <span class="chip" style="background:#14B8CE;color:#071929">Teal Light · Headline</span>
+        <span class="chip" style="background:rgba(255,255,255,0.12);color:white">White 75% · Body</span>
+        <span class="chip" style="background:#F77F2A;color:white">Kerja Orange · CTA</span>
+        <span class="chip" style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5)">White 15% · Surface</span>
+        <span class="chip" style="background:#071929;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.1)">Deep Navy · Background</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 TIPOGRAFI ══════════════════════════════════════ -->
+  <section class="section" id="typography">
+    <div class="sh">
+      <div class="sh-num">02 — Tipografi</div>
+      <h2 class="sh-title">Typography System</h2>
+      <p class="sh-desc">Dua font yang saling melengkapi — karakter kuat untuk headline, keterbacaan tinggi untuk body copy.</p>
+    </div>
+
+    <!-- Font pairing -->
+    <div class="font-pair">
+      <div class="font-card">
+        <div class="fc-label">Heading Font</div>
+        <div class="fc-big" style="font-family:'Sora',sans-serif;font-weight:800">Sora</div>
+        <div class="fc-alpha" style="font-family:'Sora',sans-serif">
+          ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789
+        </div>
+        <div class="fc-note">Google Fonts · Geometric sans · Kesan: modern, confident, approachable</div>
+        <div class="why" style="margin-top:12px"><strong>Kenapa →</strong> Sora memiliki karakter geometric yang kuat tapi joints-nya cukup "warm" — tidak sedingin Futura atau setrendy Poppins. Cocok untuk audience profesional Indonesia yang ingin terlihat serius tapi tetap accessible.</div>
+      </div>
+      <div class="font-card">
+        <div class="fc-label">Body Font</div>
+        <div class="fc-big" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700">Plus Jakarta Sans</div>
+        <div class="fc-alpha" style="font-family:'Plus Jakarta Sans',sans-serif">
+          ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789
+        </div>
+        <div class="fc-note">Google Fonts · Indonesian-designed · Kesan: clean, readable, lokal</div>
+        <div class="why" style="margin-top:12px"><strong>Kenapa →</strong> Dibuat oleh desainer Indonesia untuk konteks lokal. Glyph coverage untuk Bahasa Indonesia sangat baik. Lebih berkarakter dari Inter tapi tidak distract dari konten.</div>
+      </div>
+    </div>
+
+    <!-- Type scale -->
+    <h3 class="sub-h">Type Scale</h3>
+    <div class="type-scale">
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">Display</span>
+          <span class="tm-spec">Sora 800<br>56px / 1.0<br>−1.5px tracking</span>
+        </div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(32px,4vw,56px);font-weight:800;color:#0F2A4A;line-height:1.0;letter-spacing:-1.5px">AI untuk Kerja</div>
+      </div>
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">H1</span>
+          <span class="tm-spec">Sora 800<br>40px / 1.1<br>−1px tracking</span>
+        </div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(24px,3vw,40px);font-weight:800;color:#0F2A4A;line-height:1.1;letter-spacing:-1px">5 Cara AI Bantu Kerja Lebih Cepat</div>
+      </div>
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">H2</span>
+          <span class="tm-spec">Sora 700<br>28px / 1.2<br>−0.5px tracking</span>
+        </div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;color:#0F2A4A;line-height:1.2;letter-spacing:-0.5px">Mengapa AI Masih Terasa Susah?</div>
+      </div>
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">H3</span>
+          <span class="tm-spec">Sora 700<br>20px / 1.3<br>0px tracking</span>
+        </div>
+        <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:#0F2A4A;line-height:1.3">Mulai dari Use Case yang Relevan</div>
+      </div>
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">H4</span>
+          <span class="tm-spec">Sora 600<br>16px / 1.4<br>0px tracking</span>
+        </div>
+        <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#0F2A4A;line-height:1.4">Langkah 1: Identifikasi Tugas Berulang</div>
+      </div>
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">Body</span>
+          <span class="tm-spec">Plus Jakarta Sans 400<br>15px / 1.75<br>0px tracking</span>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:400;color:#4A6175;line-height:1.75">AI bukan tentang teknologi semata — ini tentang menghemat waktu dan energi kamu untuk hal-hal yang benar-benar penting. Knowledge workers Indonesia bisa mulai dari hal kecil.</div>
+      </div>
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">Caption</span>
+          <span class="tm-spec">Plus Jakarta Sans 400<br>12px / 1.6<br>+0.2px tracking</span>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:400;color:#8FA3B8;line-height:1.6;letter-spacing:0.2px">Sumber: Riset pengguna Cogni Studio · April 2026</div>
+      </div>
+      <div class="type-row">
+        <div class="tm">
+          <span class="tm-name">Label</span>
+          <span class="tm-spec">Plus Jakarta Sans 700<br>11px / 1.0<br>+0.15em tracking<br>UPPERCASE</span>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#0D9BAE;line-height:1.0;letter-spacing:0.15em;text-transform:uppercase">AI Educator · Tutorial · Indonesia</div>
+      </div>
+    </div>
+
+    <!-- Type pairing samples (static) -->
+    <div class="live-demo">
+      <h3>Contoh Pairing — Konten Nyata</h3>
+      <div class="live-outputs">
+        <div class="lo-card">
+          <div class="lo-label">Headline · Sora 800</div>
+          <div style="font-family:var(--font-h);font-size:22px;font-weight:800;color:#0F2A4A;line-height:1.15">AI untuk Kerja</div>
+        </div>
+        <div class="lo-card">
+          <div class="lo-label">Subheading · Sora 600</div>
+          <div style="font-family:var(--font-h);font-size:16px;font-weight:600;color:#0F2A4A;line-height:1.35">5 Cara Hemat 3 Jam/Hari</div>
+        </div>
+        <div class="lo-card">
+          <div class="lo-label">Body · Plus Jakarta 400</div>
+          <div style="font-family:var(--font-b);font-size:14px;font-weight:400;color:#4A6175;line-height:1.7">Pelajari cara kerja lebih efisien dengan AI — cocok untuk knowledge workers Indonesia.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 VISUAL STYLE ═══════════════════════════════════ -->
+  <section class="section" id="visual-style">
+    <div class="sh">
+      <div class="sh-num">03 — Visual Style</div>
+      <h2 class="sh-title">Estetika &amp; Arah Visual</h2>
+      <p class="sh-desc">Clean, modern, approachable — bukan corporate kaku. Setiap elemen harus earn its place.</p>
+    </div>
+
+    <!-- Principles -->
+    <h3 class="sub-h">3 Prinsip Visual Utama</h3>
+    <div class="principles">
+      <div class="prin-card">
+        <div class="prin-icon" style="color:var(--studio-teal)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18" opacity="0.45"/></svg></div>
+        <div class="prin-title">Whitespace sebagai Desain</div>
+        <div class="prin-body">Ruang kosong bukan kekosongan — itu nafas konten. Setiap elemen butuh "ruang personal" agar pesan dapat dipahami dengan cepat. Minimum margin antar section: 48px.</div>
+      </div>
+      <div class="prin-card" style="border-top-color:var(--kerja-orange)">
+        <div class="prin-icon" style="color:var(--kerja-orange)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M3 12h12M3 19h7"/></svg></div>
+        <div class="prin-title">Hierarki yang Jelas</div>
+        <div class="prin-body">Mata pembaca harus tahu mana yang paling penting dalam 3 detik pertama. Gunakan ukuran, weight, dan warna — bukan dekorasi — untuk menciptakan hierarki informasi.</div>
+      </div>
+      <div class="prin-card" style="border-top-color:var(--cogni-navy)">
+        <div class="prin-icon" style="color:var(--cogni-navy)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+        <div class="prin-title">Satu Aksen per Layout</div>
+        <div class="prin-body">Orange hanya boleh muncul sekali per slide/kartu sebagai "hero". Kalau semua hal penting, maka tidak ada yang penting. Fokus aksen = fokus perhatian audiens.</div>
+      </div>
+    </div>
+
+    <!-- Do / Don't -->
+    <h3 class="sub-h">Do's &amp; Don'ts</h3>
+    <div class="do-dont">
+      <div class="dd-card">
+        <div class="dd-hdr do-hdr">✓ Lakukan</div>
+        <div class="dd-body">
+          <div class="dd-item"><span class="di">✓</span><div><strong>Grid yang bersih</strong> — gunakan 12-column grid dengan gutter konsisten (24px mobile, 32px desktop)</div></div>
+          <div class="dd-item"><span class="di">✓</span><div><strong>Satu pesan utama</strong> per visual — satu takeaway yang bisa diingat dalam 5 detik</div></div>
+          <div class="dd-item"><span class="di">✓</span><div><strong>Foto yang relevan</strong> — konteks Indonesia (orang lokal, setting Indonesia, tools yang nyata)</div></div>
+          <div class="dd-item"><span class="di">✓</span><div><strong>Bold headline</strong> dengan body copy yang lebih tenang — kontras menciptakan ritme baca</div></div>
+          <div class="dd-item"><span class="di">✓</span><div><strong>Data dengan konteks</strong> — angka selalu diberi penjelasan singkat mengapa itu penting</div></div>
+        </div>
+      </div>
+      <div class="dd-card">
+        <div class="dd-hdr dont-hdr">✗ Hindari</div>
+        <div class="dd-body">
+          <div class="dd-item"><span class="di">✗</span><div><strong>Multiple gradient</strong> competing dalam satu layout — pilih satu focal point</div></div>
+          <div class="dd-item"><span class="di">✗</span><div><strong>Emoji sebagai ikon</strong> — terlihat tidak profesional di audience B2B / knowledge workers</div></div>
+          <div class="dd-item"><span class="di">✗</span><div><strong>Terlalu banyak font weight</strong> — cukup 2-3 weight per layout (misalnya 800 + 500 + 400)</div></div>
+          <div class="dd-item"><span class="di">✗</span><div><strong>Stock photo generik</strong> — foto model yang tidak ada hubungannya dengan konten AI/kerja Indonesia</div></div>
+          <div class="dd-item"><span class="di">✗</span><div><strong>Orange lebih dari sekali</strong> per visual — warna aksen kehilangan kekuatannya</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mood board -->
+    <h3 class="sub-h">Mood Board Referensi</h3>
+    <div class="mood-board">
+      <div class="mb-card" style="background:linear-gradient(145deg,#0F2A4A,#1A3F6E)">
+        <div class="mb-tag">Functional First</div>
+        <div class="mb-title">Data + Typography yang cukup bicara sendiri</div>
+      </div>
+      <div class="mb-card" style="background:linear-gradient(145deg,#0D9BAE,#0F2A4A)">
+        <div class="mb-tag">Human &amp; Warm</div>
+        <div class="mb-title">Wajah nyata, situasi kerja lokal Indonesia</div>
+      </div>
+      <div class="mb-card" style="background:linear-gradient(145deg,#1a1a2e,#16213e)">
+        <div class="mb-tag">Bold Headlines</div>
+        <div class="mb-title">Teks besar sebagai gambar, imagery minimal</div>
+      </div>
+      <div class="mb-card" style="background:linear-gradient(145deg,#F77F2A,#D4600A)">
+        <div class="mb-tag">System Thinking</div>
+        <div class="mb-title">Diagram alur, framework, step-by-step visual</div>
+      </div>
+      <div class="mb-card" style="background:linear-gradient(145deg,#0A3050,#0D9BAE)">
+        <div class="mb-tag">Real Stories</div>
+        <div class="mb-title">Quote nyata dari pengguna + hasil konkret</div>
+      </div>
+      <div class="mb-card" style="background:linear-gradient(145deg,#071929,#0F2A4A)">
+        <div class="mb-tag">Practical How-to</div>
+        <div class="mb-title">Numbered steps, checklist, action yang jelas</div>
+      </div>
+    </div>
+    <div class="why" style="margin-top:16px"><strong>Kenapa →</strong> Mood board ini mencerminkan "AI untuk Kerja, Bukan untuk Pamer" — visual yang fungsional dan inspiratif, bukan glamor atau overpromising. Tidak ada abstract art atau visual yang butuh waktu untuk dipahami.</div>
+
+    <!-- Visual Motifs -->
+    <h3 class="sub-h" style="margin-top:48px">Visual Language &amp; Motif Khas</h3>
+    <p style="font-size:14px;color:var(--gray-600);margin-bottom:24px;line-height:1.7">Elemen grafis yang membuat konten Cogni Studio langsung bisa dikenali — bukan hanya dari warna atau font, tapi dari motif yang konsisten dipakai di semua platform.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px">
+
+      <!-- Dot Grid Pattern -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="height:100px;border-radius:var(--r-md);overflow:hidden;margin-bottom:14px;background:var(--cogni-navy);position:relative">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dotgrid" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="rgba(13,155,174,0.35)"/></pattern></defs><rect width="100%" height="100%" fill="url(#dotgrid)"/></svg>
+          <div style="position:absolute;bottom:10px;left:12px;font-family:var(--font-h);font-size:13px;font-weight:700;color:white">Cogni Studio</div>
+        </div>
+        <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px">Dot Grid Background</div>
+        <div style="font-size:12px;color:var(--gray-600);line-height:1.6">Pola titik teal tipis di atas navy — memberi texture tanpa distraction. Digunakan di slide cover dan section header.</div>
+      </div>
+
+      <!-- Accent Bar Motif -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="height:100px;border-radius:var(--r-md);overflow:hidden;margin-bottom:14px;background:var(--gray-50);border:1px solid var(--gray-200);display:flex;flex-direction:column;justify-content:center;padding:16px;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:3px;height:32px;background:var(--kerja-orange);border-radius:2px;flex-shrink:0"></div>
+            <div>
+              <div style="font-family:var(--font-h);font-size:11px;font-weight:800;color:var(--cogni-navy);line-height:1.1">Headline Penting</div>
+              <div style="font-size:10px;color:var(--gray-400);margin-top:2px">Deskripsi ringkas</div>
+            </div>
+          </div>
+          <div style="height:1px;background:var(--gray-200)"></div>
+        </div>
+        <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px">Vertical Accent Bar</div>
+        <div style="font-size:12px;color:var(--gray-600);line-height:1.6">Garis vertikal orange 3px di kiri — penanda visual untuk insight penting, quote, atau highlight konten.</div>
+      </div>
+
+      <!-- Step / Diagram Style -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="height:100px;border-radius:var(--r-md);overflow:hidden;margin-bottom:14px;background:var(--gray-50);border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;gap:6px;padding:12px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:28px;height:28px;border-radius:6px;background:var(--cogni-navy);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:10px;font-weight:800;color:white">1</div>
+            <div style="font-size:8px;color:var(--gray-600);text-align:center;line-height:1.2">Input</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8FA3B8" stroke-width="1.5"><path d="M5 12h14M15 6l6 6-6 6"/></svg>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:28px;height:28px;border-radius:6px;background:var(--studio-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:10px;font-weight:800;color:white">2</div>
+            <div style="font-size:8px;color:var(--gray-600);text-align:center;line-height:1.2">Proses</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8FA3B8" stroke-width="1.5"><path d="M5 12h14M15 6l6 6-6 6"/></svg>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:28px;height:28px;border-radius:6px;background:var(--kerja-orange);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:10px;font-weight:800;color:white">3</div>
+            <div style="font-size:8px;color:var(--gray-600);text-align:center;line-height:1.2">Output</div>
+          </div>
+        </div>
+        <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px">Step Diagram Style</div>
+        <div style="font-size:12px;color:var(--gray-600);line-height:1.6">Kotak bersudut 6px dengan nomor bold + panah tipis — untuk konten how-to, workflow, dan framework AI.</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:16px">
+
+      <!-- Large Decorative Number -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="height:100px;border-radius:var(--r-md);overflow:hidden;margin-bottom:14px;background:linear-gradient(135deg,var(--cogni-navy),var(--cogni-navy-mid));position:relative;display:flex;align-items:flex-end;padding:12px">
+          <div style="position:absolute;top:-10px;right:12px;font-family:var(--font-h);font-size:72px;font-weight:800;color:var(--studio-teal-light);opacity:0.15;line-height:1">5</div>
+          <div style="font-family:var(--font-h);font-size:12px;font-weight:700;color:white;z-index:1">5 Cara AI Bantu Kamu</div>
+        </div>
+        <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px">Decorative Large Number</div>
+        <div style="font-size:12px;color:var(--gray-600);line-height:1.6">Angka raksasa 15% opacity sebagai elemen dekoratif — memberi depth tanpa mengganggu hierarki konten.</div>
+      </div>
+
+      <!-- Photo Treatment: Duotone -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="height:100px;border-radius:var(--r-md);overflow:hidden;margin-bottom:14px;position:relative">
+          <div style="position:absolute;inset:0;background:linear-gradient(145deg,rgba(15,42,74,0.85),rgba(13,155,174,0.6))" ></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:8px;left:10px;font-size:9px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:.08em;text-transform:uppercase">Navy+Teal Overlay</div>
+        </div>
+        <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px">Photo Treatment: Overlay</div>
+        <div style="font-size:12px;color:var(--gray-600);line-height:1.6">Foto asli + gradient overlay navy→teal. Unifikasi semua foto jadi terlihat satu family visual.</div>
+      </div>
+
+      <!-- Icon Style Reference -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="height:100px;border-radius:var(--r-md);overflow:hidden;margin-bottom:14px;background:var(--gray-50);border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;gap:16px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cogni-navy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <div style="font-size:8px;color:var(--gray-400)">Layers</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--studio-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            <div style="font-size:8px;color:var(--gray-400)">AI</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kerja-orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <div style="font-size:8px;color:var(--gray-400)">Growth</div>
+          </div>
+        </div>
+        <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px">Icon Style: 24px Stroke 1.5</div>
+        <div style="font-size:12px;color:var(--gray-600);line-height:1.6">Line icons stroke-width 1.5 — Lucide/Phosphor style. Selalu monochrome per konteks (navy / teal / orange).</div>
+      </div>
+    </div>
+
+    <div class="why"><strong>Kenapa penting →</strong> Motif grafis yang konsisten membuat setiap post "terasa Cogni Studio" bahkan sebelum audiens membaca teksnya. Dot grid, accent bar, step diagram, dan decorative number adalah 4 elemen yang bisa langsung dikenali dan diimplementasikan tanpa desainer grafis setiap hari.</div>
+  </section>
+
+  <!-- ══ 04 KOMPONEN ═══════════════════════════════════════ -->
+  <section class="section" id="components">
+    <div class="sh">
+      <div class="sh-num">04 — Komponen</div>
+      <h2 class="sh-title">Component Guidelines</h2>
+      <p class="sh-desc">Building blocks yang konsisten — dari tombol hingga kartu konten.</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="comp-demo">
+      <div class="comp-title">Buttons</div>
+      <div class="comp-desc">4 varian + 2 ukuran. Hierarchy: Primary → Secondary → Accent → Ghost.</div>
+      <div class="btn-row">
+        <button class="btn btn-primary">Mulai Belajar</button>
+        <button class="btn btn-secondary">Lihat Course</button>
+        <button class="btn btn-accent">Coba Gratis</button>
+        <button class="btn btn-ghost">Pelajari Lagi</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary btn-sm">Daftar</button>
+        <button class="btn btn-secondary btn-sm">Subscribe</button>
+        <button class="btn btn-accent btn-sm">Coba Sekarang</button>
+        <button class="btn btn-ghost btn-sm">Detail</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary btn-lg">Mulai Perjalanan AI-mu →</button>
+      </div>
+      <div class="why" style="margin-top:16px"><strong>Kenapa →</strong> Primary (navy) untuk aksi navigasi utama. Secondary (teal) untuk pilihan alternatif. Accent (orange) untuk CTA yang butuh konversi tinggi — maksimal SATU per halaman. Ghost untuk aksi sekunder yang tidak perlu menonjol.</div>
+    </div>
+
+    <!-- Cards -->
+    <div class="comp-demo">
+      <div class="comp-title">Cards</div>
+      <div class="comp-desc">3 varian kartu untuk konten berbeda: Feature (edukasi), Stat (data), Quote (social proof).</div>
+      <div class="cards-grid">
+        <div class="c-feature">
+          <div class="c-icon" style="background:var(--studio-teal-pale);color:var(--studio-teal)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="8" width="10" height="9" rx="2"/><path d="M12 3v5M7.5 11h-2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h2M16.5 11h2a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-2M9 12h.01M15 12h.01M9 15.5q1.5 1 3 1t3-1"/></svg></div>
+          <div class="c-title">Prompt Engineering</div>
+          <div class="c-body">Pelajari cara menulis prompt yang menghasilkan output berkualitas untuk pekerjaan sehari-hari.</div>
+          <div style="margin-top:16px"><button class="btn btn-ghost btn-sm">Pelajari →</button></div>
+        </div>
+        <div class="c-stat">
+          <div class="stat-val">87%</div>
+          <div class="stat-lbl">Peserta menghemat 3+ jam kerja per minggu</div>
+          <div style="margin-top:20px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px">
+            <div style="width:87%;height:100%;background:var(--kerja-orange);border-radius:2px"></div>
+          </div>
+        </div>
+        <div class="c-quote">
+          <div class="c-quote-text">"Sekarang saya bisa bikin laporan yang biasanya 4 jam jadi cuma 45 menit."</div>
+          <div class="c-quote-author">— Dina R., Marketing Manager · Jakarta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Treatment -->
+    <div class="comp-demo">
+      <div class="comp-title">Image Treatment</div>
+      <div class="comp-desc">3 pendekatan visual untuk foto dan ilustrasi di konten Cogni Studio.</div>
+      <div class="img-treat">
+        <div class="it-card">
+          <div class="it-top" style="background:linear-gradient(145deg,#0F2A4A,#0D9BAE)">
+            <div style="color:rgba(255,255,255,0.4);font-size:12px;text-align:center">Photo overlay<br>dark gradient</div>
+            <div class="it-label">OVERLAY GELAP</div>
+          </div>
+          <div class="it-bot">Untuk foto tutorial/how-to. Overlay navy gelap, teks putih di atas.</div>
+        </div>
+        <div class="it-card">
+          <div class="it-top" style="background:var(--gray-100);border:2px dashed var(--gray-200)">
+            <div style="color:var(--gray-400);font-size:12px;text-align:center">16:9 ratio<br>object-fit: cover</div>
+            <div class="it-label" style="background:rgba(15,42,74,0.5)">FULL BLEED</div>
+          </div>
+          <div class="it-bot">Untuk hero image LinkedIn/Twitter. Aspect ratio 16:9, fokus tengah.</div>
+        </div>
+        <div class="it-card">
+          <div class="it-top" style="background:var(--studio-teal-pale)">
+            <div style="width:56px;height:56px;background:var(--studio-teal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px">RR</div>
+            <div class="it-label" style="background:rgba(13,155,174,0.6)">AVATAR CIRCLE</div>
+          </div>
+          <div class="it-bot">Untuk profil Rahman Ramsi. Circle 1:1, always consistent placement.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 05 PLATFORM ═══════════════════════════════════════ -->
+  <section class="section" id="platforms">
+    <div class="sh">
+      <div class="sh-num">05 — Platform</div>
+      <h2 class="sh-title">Platform Adaptation</h2>
+      <p class="sh-desc">Setiap platform punya bahasa visualnya sendiri — tapi identitas Cogni Studio harus tetap konsisten.</p>
+    </div>
+
+    <div class="platform-grid">
+      <!-- IG CAROUSEL 1:1 -->
+      <div class="pf-wrap">
+        <div class="pf-name">Instagram Carousel</div>
+        <div class="pf-spec">1080×1080 · Rasio 1:1 · Square</div>
+        <div class="pf-preview">
+          <div class="ig-p">
+            <div>
+              <div class="pt-tag">Cogni Studio · Tips AI</div>
+              <div style="height:3px;background:var(--kerja-orange);width:32px;border-radius:2px;margin:8px 0 12px"></div>
+              <div class="pt-h" style="font-size:clamp(18px,3vw,28px)">5 Cara AI<br>Bantu Kamu<br>Kerja Lebih<br>Cepat</div>
+            </div>
+            <div style="position:relative">
+              <div style="font-family:'Sora',sans-serif;font-size:64px;font-weight:800;color:var(--studio-teal-light);opacity:0.15;line-height:1;position:absolute;top:-48px;right:0">5</div>
+              <div class="pt-body" style="font-size:12px;margin-bottom:12px">Swipe untuk lihat semuanya →</div>
+              <div style="display:flex;gap:4px">
+                <div style="width:20px;height:3px;background:var(--kerja-orange);border-radius:2px"></div>
+                <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px"></div>
+                <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px"></div>
+                <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px"></div>
+                <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px"></div>
+              </div>
+              <div class="pt-logo" style="font-size:12px;margin-top:10px">@rahmanramsi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKEDIN 1.91:1 -->
+      <div class="pf-wrap">
+        <div class="pf-name">LinkedIn Post</div>
+        <div class="pf-spec">1200×628 · Rasio 1.91:1 · Landscape</div>
+        <div class="pf-preview">
+          <div class="li-p">
+            <div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                <div style="width:32px;height:32px;background:var(--kerja-orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:12px;color:white">RR</div>
+                <div>
+                  <div style="font-family:'Sora',sans-serif;font-size:11px;font-weight:700;color:white">Rahman Ramsi</div>
+                  <div style="font-size:10px;color:rgba(255,255,255,0.5)">AI Educator &amp; Consultant</div>
+                </div>
+              </div>
+              <div class="pt-h" style="font-size:clamp(14px,2.5vw,22px)">"AI bukan tentang teknologi —<br>tapi tentang hasil."</div>
+            </div>
+            <div>
+              <div class="pt-body" style="font-size:11px;margin-bottom:8px">Setelah 2 tahun mengajar 500+ profesional Indonesia tentang AI →</div>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <span class="pt-badge">AI untuk Kerja</span>
+                <div class="pt-logo" style="font-size:11px">Cogni Studio</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TWITTER/X 16:9 -->
+      <div class="pf-wrap">
+        <div class="pf-name">Twitter / X</div>
+        <div class="pf-spec">1200×675 · Rasio 16:9 · Wide</div>
+        <div class="pf-preview">
+          <div class="tw-p">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:700;color:var(--studio-teal-light);letter-spacing:.12em;text-transform:uppercase">THREAD</div>
+                <div style="width:4px;height:4px;background:var(--kerja-orange);border-radius:50%"></div>
+                <div style="font-size:10px;color:rgba(255,255,255,0.4)">1/7</div>
+              </div>
+              <div class="pt-h" style="font-size:clamp(13px,2vw,20px)">Cara saya pakai AI setiap hari<br>(tanpa hype, yang beneran works)</div>
+            </div>
+            <div>
+              <div class="pt-body" style="font-size:11px;margin-bottom:8px">Tools: ChatGPT, Claude, Notion AI · Waktu hemat: ~3 jam/hari</div>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font-size:10px;color:rgba(255,255,255,0.4)">@rahmanramsi19</div>
+                <div style="height:2px;width:28px;background:var(--kerja-orange);border-radius:2px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REEL THUMBNAIL 9:16 -->
+      <div class="pf-wrap">
+        <div class="pf-name">Instagram Reel Thumbnail</div>
+        <div class="pf-spec">1080×1920 · Rasio 9:16 · Portrait</div>
+        <div class="reel-outer">
+          <div class="reel-p">
+            <div>
+              <div style="display:inline-flex;align-items:center;padding:4px 10px;background:var(--kerja-orange);border-radius:9999px;font-size:10px;font-weight:700;color:white;letter-spacing:.05em;margin-bottom:12px">▶ REEL</div>
+              <div class="pt-h" style="font-size:clamp(20px,5vw,32px)">AI untuk<br>Kerja,<br>Bukan<br>untuk<br>Pamer</div>
+            </div>
+            <div>
+              <div style="height:2px;background:var(--studio-teal);border-radius:2px;width:40px;margin-bottom:8px"></div>
+              <div class="pt-body" style="font-size:10px;margin-bottom:8px">5 menit yang mengubah cara kerja kamu</div>
+              <div class="pt-logo" style="font-size:11px">@rahmanramsi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why" style="margin-top:24px"><strong>Panduan Platform →</strong> Instagram: square bold, headline kuat, swipe cue. LinkedIn: quote/insight + face = authority. Twitter/X: thread format, konkret + data. Reel: bold vertical typography, minimal distraction, satu kalimat utama.</div>
+  </section>
+
+  <!-- ══ 06 BRAND VOICE ════════════════════════════════════ -->
+  <section class="section" id="brand-voice">
+    <div class="sh">
+      <div class="sh-num">06 — Brand Voice</div>
+      <h2 class="sh-title">Visual Brand Voice</h2>
+      <p class="sh-desc">Tiga treatment visual untuk memvisualisasikan tagline "AI untuk Kerja, Bukan untuk Pamer".</p>
+    </div>
+
+    <div class="voice-grid">
+      <!-- Educational -->
+      <div class="vc-card" style="background:linear-gradient(145deg,#0F2A4A 0%,#1A3F6E 100%)">
+        <div class="vc-type-badge">Edukatif · How-to</div>
+        <div>
+          <div class="vc-tagline">3 Prompt yang<br>Ganti Cara Kerjamu</div>
+          <div class="vc-sub">Praktis, langsung dicoba, hasil nyata dalam 10 menit</div>
+          <div class="vc-footer">
+            <div class="vc-brand">Cogni Studio</div>
+            <div class="vc-accent"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Motivational -->
+      <div class="vc-card" style="background:linear-gradient(145deg,#D4600A 0%,#F77F2A 50%,#FF9A4A 100%)">
+        <div class="vc-type-badge">Motivasional · Statement</div>
+        <div>
+          <div class="vc-tagline" style="font-size:22px">Kalau AI bisa<br>kerjakan itu,<br>kamu punya<br>waktu untuk apa?</div>
+          <div class="vc-footer">
+            <div class="vc-brand">@rahmanramsi</div>
+            <div style="width:28px;height:3px;background:white;opacity:0.7;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Highlight -->
+      <div class="vc-card" style="background:linear-gradient(145deg,#071929 0%,#0F2A4A 50%,#17526A 100%)">
+        <div class="vc-type-badge">Product · Feature</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:var(--studio-teal-light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px">Workshop Live</div>
+          <div class="vc-tagline">AI Mastery<br>untuk Profesional<br>Indonesia</div>
+          <div class="vc-sub">Batch 5 · 15 Mei 2026</div>
+          <div class="vc-footer">
+            <span style="display:inline-flex;align-items:center;padding:5px 12px;background:var(--kerja-orange);border-radius:9999px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:white">Daftar Sekarang</span>
+            <div class="vc-brand">Cogni Studio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voice notes -->
+    <div class="voice-notes">
+      <div class="vn-card">
+        <div class="vn-title">Tone: Edukatif</div>
+        <div class="vn-body">
+          <strong>Navy background</strong> — konten yang mengedukasi butuh authority. Bold headline dengan angka konkret. Body text kasual tapi berisi. Tidak ada oversell — biarkan kontennya yang berbicara.
+        </div>
+      </div>
+      <div class="vn-card">
+        <div class="vn-title">Tone: Motivasional</div>
+        <div class="vn-body">
+          <strong>Orange gradient</strong> — warna energi dan aksi. Pertanyaan retoris yang membuka pola pikir. Teks besar, bold, minimal. Tidak ada bullet point — satu kalimat kuat lebih dari sepuluh poin.
+        </div>
+      </div>
+      <div class="vn-card">
+        <div class="vn-title">Tone: Product</div>
+        <div class="vn-body">
+          <strong>Deep navy + teal accent</strong> — trust dan credibility. Informasi faktual (tanggal, batch, nama). CTA orange sebagai satu-satunya tombol aksi. Nama brand jelas tapi tidak dominan.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Summary -->
+    <div style="background:linear-gradient(135deg,var(--cogni-navy),var(--cogni-navy-mid));border-radius:var(--r-lg);padding:36px">
+      <div style="font-family:'Sora',sans-serif;font-size:11px;font-weight:700;color:var(--studio-teal-light);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px">Ringkasan Proposal</div>
+      <h3 style="font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:white;line-height:1.2;margin-bottom:16px">Design System ini siap untuk diimplementasikan setelah review</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px">
+        <div style="background:rgba(255,255,255,0.07);border-radius:var(--r-md);padding:16px">
+          <div style="font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--studio-teal-light);margin-bottom:4px">6</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55)">Elemen sistem desain</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.07);border-radius:var(--r-md);padding:16px">
+          <div style="font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--kerja-orange);margin-bottom:4px">4</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55)">Platform yang tercakup</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.07);border-radius:var(--r-md);padding:16px">
+          <div style="font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--studio-teal-light);margin-bottom:4px">3</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55)">Contoh brand voice visual</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7">
+        Langkah selanjutnya: Review proposal ini bersama Rahman Ramsi, berikan feedback di issue <strong style="color:white">AIC-37</strong>,
+        dan tentukan elemen mana yang perlu iterasi sebelum sistem ini digunakan untuk produksi konten.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 07 DESIGN TOKENS ════════════════════════════════════ -->
+  <section class="section" id="tokens">
+    <div class="sh">
+      <div class="sh-num">07 — Tokens</div>
+      <h2 class="sh-title">Design Tokens Lengkap</h2>
+      <p class="sh-desc">Nilai-nilai primitif yang jadi sumber kebenaran tunggal untuk semua implementasi — web, Figma, atau tools apapun.</p>
+    </div>
+
+    <!-- Spacing Scale -->
+    <h3 class="sub-h">Spacing Scale (4px base)</h3>
+    <div style="background:white;border-radius:var(--r-lg);padding:28px;box-shadow:var(--sh-sm);margin-bottom:28px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px">
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:4px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-1: 4px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:8px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-2: 8px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:12px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-3: 12px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:16px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-4: 16px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:20px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-5: 20px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:24px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-6: 24px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:32px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-8: 32px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:40px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-10: 40px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:48px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-12: 48px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-16: 64px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:80px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-20: 80px</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="height:96px;background:var(--studio-teal);border-radius:2px"></div><div style="font-family:monospace;font-size:11px;color:var(--gray-600)">--space-24: 96px</div></div>
+      </div>
+      <div class="why" style="margin-top:20px"><strong>Aturan →</strong> Selalu gunakan kelipatan 4. Gutter internal komponen: 8-16px. Gutter antar section: 48-96px. Padding konten carousel: 32-40px per sisi.</div>
+    </div>
+
+    <!-- Radius + Shadow -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+      <!-- Radius Scale -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:16px">Border Radius Scale</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:40px;height:28px;background:var(--cogni-navy);border-radius:2px;flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:12px;color:var(--gray-900)">--r-xs: 2px</div><div style="font-size:11px;color:var(--gray-400)">Divider, progress bar</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:40px;height:28px;background:var(--cogni-navy);border-radius:4px;flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:12px;color:var(--gray-900)">--r-sm: 6px</div><div style="font-size:11px;color:var(--gray-400)">Badge, tag, label kecil</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:40px;height:28px;background:var(--cogni-navy);border-radius:10px;flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:12px;color:var(--gray-900)">--r-md: 10px</div><div style="font-size:11px;color:var(--gray-400)">Button, input, chip</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:40px;height:28px;background:var(--cogni-navy);border-radius:16px;flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:12px;color:var(--gray-900)">--r-lg: 16px</div><div style="font-size:11px;color:var(--gray-400)">Card, panel, section</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:40px;height:28px;background:var(--cogni-navy);border-radius:24px;flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:12px;color:var(--gray-900)">--r-xl: 24px</div><div style="font-size:11px;color:var(--gray-400)">Hero card, modal</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:40px;height:28px;background:var(--cogni-navy);border-radius:9999px;flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:12px;color:var(--gray-900)">--r-full: 9999px</div><div style="font-size:11px;color:var(--gray-400)">Pill button, avatar</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shadow Scale -->
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:16px">Shadow Scale</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:64px;height:32px;background:white;border:1px solid var(--gray-100);border-radius:6px;box-shadow:0 1px 2px rgba(15,42,74,0.04);flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:11px;color:var(--gray-900)">--sh-xs</div><div style="font-size:11px;color:var(--gray-400)">Subtle separator, divider element</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:64px;height:32px;background:white;border-radius:6px;box-shadow:0 1px 4px rgba(15,42,74,0.07);flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:11px;color:var(--gray-900)">--sh-sm</div><div style="font-size:11px;color:var(--gray-400)">Card resting state</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:64px;height:32px;background:white;border-radius:6px;box-shadow:0 4px 16px rgba(15,42,74,0.10);flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:11px;color:var(--gray-900)">--sh-md</div><div style="font-size:11px;color:var(--gray-400)">Card hover state</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:64px;height:32px;background:white;border-radius:6px;box-shadow:0 8px 40px rgba(15,42,74,0.14);flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:11px;color:var(--gray-900)">--sh-lg</div><div style="font-size:11px;color:var(--gray-400)">Modal, drawer, popover</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:64px;height:32px;background:white;border-radius:6px;box-shadow:0 20px 60px rgba(15,42,74,0.20);flex-shrink:0"></div>
+            <div><div style="font-family:monospace;font-size:11px;color:var(--gray-900)">--sh-xl</div><div style="font-size:11px;color:var(--gray-400)">Overlay, full-page panel</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timing + Focus -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:16px">Transition Tokens</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px">
+          <thead><tr><th style="text-align:left;padding:8px 0;border-bottom:1px solid var(--gray-200);font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.1em">Token</th><th style="text-align:left;padding:8px 0;border-bottom:1px solid var(--gray-200);font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.1em">Value</th><th style="text-align:left;padding:8px 0;border-bottom:1px solid var(--gray-200);font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.1em">Dipakai Untuk</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);font-family:monospace">--t-instant</td><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);font-family:monospace;color:var(--studio-teal)">75ms ease</td><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);color:var(--gray-600)">Focus ring, opacity flash</td></tr>
+            <tr><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);font-family:monospace">--t-fast</td><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);font-family:monospace;color:var(--studio-teal)">150ms ease</td><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);color:var(--gray-600)">Button hover, icon color</td></tr>
+            <tr><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);font-family:monospace">--t-base</td><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);font-family:monospace;color:var(--studio-teal)">250ms ease</td><td style="padding:9px 0;border-bottom:1px solid var(--gray-100);color:var(--gray-600)">Card lift, nav active</td></tr>
+            <tr><td style="padding:9px 0;font-family:monospace">--t-slow</td><td style="padding:9px 0;font-family:monospace;color:var(--studio-teal)">400ms ease</td><td style="padding:9px 0;color:var(--gray-600)">Modal open, page enter</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:white;border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm)">
+        <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:16px">Focus Ring &amp; Border</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <div style="font-family:monospace;font-size:12px;color:var(--gray-900);margin-bottom:4px">--focus-ring</div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <button style="padding:8px 16px;border-radius:8px;background:var(--cogni-navy);color:white;font-size:13px;font-weight:600;outline:3px solid #0D9BAE;outline-offset:2px;border:none">Focus State</button>
+              <div style="font-family:monospace;font-size:11px;color:var(--gray-600)">3px solid #0D9BAE, offset 2px</div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <div style="font-family:monospace;font-size:12px;color:var(--gray-900);margin-bottom:8px">Border tokens</div>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--gray-600)">
+              <div style="font-family:monospace">--bw-1: 1px solid — divider, inactive</div>
+              <div style="font-family:monospace">--bw-2: 2px solid — input, active border</div>
+              <div style="font-family:monospace">--bw-4: 4px solid — accent bar, emphasis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Export Specs -->
+    <h3 class="sub-h">Export Specs untuk Social Content</h3>
+    <table class="usage-table">
+      <thead><tr><th>Platform</th><th>Dimensi</th><th>Format Export</th><th>Resolusi</th><th>Color Profile</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Instagram Carousel</strong></td><td>1080 × 1080 px</td><td>PNG atau JPEG 90%+</td><td>72 ppi (display)</td><td>sRGB</td></tr>
+        <tr><td><strong>Instagram Reel Thumbnail</strong></td><td>1080 × 1920 px</td><td>PNG</td><td>72 ppi</td><td>sRGB</td></tr>
+        <tr><td><strong>LinkedIn Post Image</strong></td><td>1200 × 627 px</td><td>PNG atau JPEG</td><td>72 ppi</td><td>sRGB</td></tr>
+        <tr><td><strong>Twitter / X Image</strong></td><td>1200 × 675 px</td><td>PNG atau JPEG</td><td>72 ppi</td><td>sRGB</td></tr>
+        <tr><td><strong>YouTube Thumbnail</strong></td><td>1280 × 720 px</td><td>PNG atau JPEG</td><td>72 ppi</td><td>sRGB</td></tr>
+      </tbody>
+    </table>
+    <div class="why"><strong>Catatan →</strong> Semua file export harus dalam color profile sRGB (bukan Adobe RGB / P3) agar warna konsisten di semua layar dan platform social media. Saat export dari Figma: aktifkan "Clip content", export @1x untuk social (dimensi sudah di resolusi yang benar).</div>
+  </section>
+
+  <!-- ══ 08 ACCESSIBILITY ══════════════════════════════════════ -->
+  <section class="section" id="accessibility">
+    <div class="sh">
+      <div class="sh-num">08 — Aksesibilitas</div>
+      <h2 class="sh-title">Contrast &amp; Accessibility</h2>
+      <p class="sh-desc">Kontras warna yang cukup bukan hanya soal inklusivitas — konten yang mudah dibaca juga lebih efektif mengkomunikasikan pesan.</p>
+    </div>
+
+    <!-- Contrast Ratios -->
+    <h3 class="sub-h">WCAG Contrast Ratios</h3>
+    <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px;line-height:1.7">AA minimum: 4.5:1 untuk teks normal, 3:1 untuk teks besar (&gt;18px bold atau &gt;24px regular). AAA: 7:1 untuk teks normal.</p>
+    <table class="usage-table" style="margin-bottom:28px">
+      <thead><tr><th>Foreground</th><th>Background</th><th>Rasio</th><th>AA (Normal)</th><th>AA (Large)</th><th>AAA</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="cdot" style="background:#0F2A4A"></span>Cogni Navy</td>
+          <td><span class="cdot" style="background:#FFFFFF;border:1px solid #ddd"></span>White</td>
+          <td style="font-family:monospace;font-weight:700">13.7 : 1</td>
+          <td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#FFFFFF;border:1px solid #ddd"></span>White</td>
+          <td><span class="cdot" style="background:#0F2A4A"></span>Cogni Navy</td>
+          <td style="font-family:monospace;font-weight:700">13.7 : 1</td>
+          <td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#0D9BAE"></span>Studio Teal</td>
+          <td><span class="cdot" style="background:#FFFFFF;border:1px solid #ddd"></span>White</td>
+          <td style="font-family:monospace;font-weight:700">3.8 : 1</td>
+          <td style="color:#991B1B;font-weight:700">✗ Fail</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#991B1B;font-weight:700">✗ Fail</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#FFFFFF;border:1px solid #ddd"></span>White</td>
+          <td><span class="cdot" style="background:#0D9BAE"></span>Studio Teal</td>
+          <td style="font-family:monospace;font-weight:700">3.8 : 1</td>
+          <td style="color:#991B1B;font-weight:700">✗ Fail</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#991B1B;font-weight:700">✗ Fail</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#F77F2A"></span>Kerja Orange</td>
+          <td><span class="cdot" style="background:#FFFFFF;border:1px solid #ddd"></span>White</td>
+          <td style="font-family:monospace;font-weight:700">3.1 : 1</td>
+          <td style="color:#991B1B;font-weight:700">✗ Fail</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#991B1B;font-weight:700">✗ Fail</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#FFFFFF;border:1px solid #ddd"></span>White</td>
+          <td><span class="cdot" style="background:#F77F2A"></span>Kerja Orange</td>
+          <td style="font-family:monospace;font-weight:700">3.1 : 1</td>
+          <td style="color:#991B1B;font-weight:700">✗ Fail</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#991B1B;font-weight:700">✗ Fail</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#0D1F2D"></span>Ink (text)</td>
+          <td><span class="cdot" style="background:#F4F7FA;border:1px solid #ddd"></span>Cloud (bg)</td>
+          <td style="font-family:monospace;font-weight:700">15.1 : 1</td>
+          <td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#4A6175"></span>Slate (body)</td>
+          <td><span class="cdot" style="background:#FFFFFF;border:1px solid #ddd"></span>White</td>
+          <td style="font-family:monospace;font-weight:700">6.0 : 1</td>
+          <td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#991B1B;font-weight:700">✗ Fail</td>
+        </tr>
+        <tr>
+          <td><span class="cdot" style="background:#14B8CE"></span>Teal Light</td>
+          <td><span class="cdot" style="background:#0F2A4A"></span>Cogni Navy</td>
+          <td style="font-family:monospace;font-weight:700">5.9 : 1</td>
+          <td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#065F46;font-weight:700">✓ Pass</td><td style="color:#991B1B;font-weight:700">✗ Fail</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Practical Rules -->
+    <h3 class="sub-h">Aturan Praktis</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px">
+      <div style="background:white;border-radius:var(--r-lg);padding:22px;box-shadow:var(--sh-sm)">
+        <div style="font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--cogni-navy);margin-bottom:12px">Teal &amp; Orange sebagai teks</div>
+        <div style="font-size:13px;color:var(--gray-600);line-height:1.7">Teal dan Orange <strong>tidak memenuhi AA untuk teks kecil di background putih</strong>. Gunakan keduanya hanya untuk:<br>
+          • Label besar (&gt;18px bold) — OK<br>
+          • Elemen dekoratif (border, badge, icon) — OK<br>
+          • Background dengan teks putih di atasnya — OK<br>
+          • Teks body kecil (&lt;18px) — Hindari, ganti dengan Navy atau Ink</div>
+      </div>
+      <div style="background:white;border-radius:var(--r-lg);padding:22px;box-shadow:var(--sh-sm)">
+        <div style="font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--cogni-navy);margin-bottom:12px">Ukuran minimum elemen interaktif</div>
+        <div style="font-size:13px;color:var(--gray-600);line-height:1.7">
+          • Touch target minimum: <strong>44 × 44px</strong> (WCAG 2.5.5)<br>
+          • Ukuran font minimum untuk body: <strong>14px</strong><br>
+          • Ukuran icon minimum: <strong>20px</strong> (inline), <strong>24px</strong> (standalone)<br>
+          • Line height body minimum: <strong>1.5</strong><br>
+          • Letter spacing caption: <strong>+0.02em</strong> untuk keterbacaan
+        </div>
+      </div>
+    </div>
+
+    <!-- Safe Combinations Quick Ref -->
+    <h3 class="sub-h">Kombinasi Aman (Quick Reference)</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px">
+      <div style="background:#0F2A4A;border-radius:var(--r-md);padding:12px 18px;font-family:var(--font-b);font-size:13px;font-weight:600;color:white">Navy / White ✓✓✓</div>
+      <div style="background:#071929;border-radius:var(--r-md);padding:12px 18px;font-family:var(--font-b);font-size:13px;font-weight:600;color:#14B8CE">Navy Deep / Teal Light ✓✓</div>
+      <div style="background:#F4F7FA;border:1px solid var(--gray-200);border-radius:var(--r-md);padding:12px 18px;font-family:var(--font-b);font-size:13px;font-weight:600;color:#0D1F2D">Cloud / Ink ✓✓✓</div>
+      <div style="background:#0D9BAE;border-radius:var(--r-md);padding:12px 18px;font-family:var(--font-b);font-size:13px;font-weight:600;color:white">Teal / White (large only) ✓</div>
+      <div style="background:#F77F2A;border-radius:var(--r-md);padding:12px 18px;font-family:var(--font-b);font-size:13px;font-weight:600;color:white">Orange / White (large only) ✓</div>
+      <div style="background:white;border:1px solid var(--gray-200);border-radius:var(--r-md);padding:12px 18px;font-family:var(--font-b);font-size:13px;font-weight:600;color:#4A6175">White / Slate ✓✓</div>
+    </div>
+
+    <div class="why"><strong>Takeaway →</strong> Untuk teks konten utama, selalu gunakan Ink (#0D1F2D) atau Navy (#0F2A4A) di background terang. Teal dan Orange adalah warna aksen — bukan warna teks. Di background gelap (navy/dark), gunakan White atau Teal Light untuk teks.</div>
+  </section>
+
+</main>
+
+<!-- No inline scripts: workspace.opensynergic.com uses script-src 'self' without 'unsafe-inline'.
+     Interactive features (copy hex, live type demo, scroll nav) require an external .js file
+     served from the same origin, or a relaxed CSP. All design content renders fully without JS. -->
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f43e5bee9236141',t:'MTc3NzUyNDMzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"3b1014966af741f5a415007f1b73d819","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
