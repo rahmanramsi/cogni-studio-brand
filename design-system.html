@@ -6,7 +6,7 @@
   <title>Rahman Ramsi — Design System v3.0 (Impeccable Draft)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -34,6 +34,8 @@
       --font-h: 'Sora', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
       --font-b: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
       --font-hl: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+      --font-hl-script: 'Dancing Script', 'Brush Script MT', cursive;
+      --font-hl-elegant: 'Great Vibes', 'Segoe Script', 'Bradley Hand', cursive;
       --r-xs: 2px; --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-full: 9999px;
       --sh-xs: 0 1px 2px rgba(15,42,74,0.04);
       --sh-sm: 0 1px 4px rgba(15,42,74,0.07);
@@ -332,11 +334,18 @@
     .motif-body { font-size: 11.5px; color: var(--steel); line-height: 1.6; }
 
     /* ── HIGHLIGHT SYSTEM ────────────────────── */
-    .hl {
+    .hl { font-weight: 700; letter-spacing: 0.01em; }
+    .hl-playfair {
       font-family: var(--font-hl);
-      font-weight: 700;
       font-style: italic;
-      letter-spacing: 0.01em;
+    }
+    .hl-script {
+      font-family: var(--font-hl-script);
+      font-style: normal;
+    }
+    .hl-elegant {
+      font-family: var(--font-hl-elegant);
+      font-style: normal;
     }
     .hl-orange { color: var(--kerja-orange); }
     .hl-teal { color: var(--studio-teal); }
@@ -1020,24 +1029,39 @@
 
     <div class="comp-demo">
       <div class="comp-title">Highlight System</div>
-      <div class="comp-desc">Untuk menarik perhatian ke kata kunci: gunakan font <strong>Playfair Display</strong> (italic 700) dengan warna mencolok. Hanya untuk 1-2 kata per paragraf — overuse akan mengurangi efek.</div>
+      <div class="comp-desc">Untuk menarik perhatian ke kata kunci: pilih font fancy/calligraphy + warna mencolok. Hanya 1-2 kata per paragraf.</div>
 
-      <div class="hl-examples">
-        <div class="hl-example" style="color:var(--ink)">
-          AI bukan tentang <span class="hl hl-orange">teknologi</span> &mdash; ini tentang hasil.
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px">
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:20px">
+          <div style="font-size:10px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Serif · Playfair Display</div>
+          <div style="font-size:20px;line-height:1.4;color:var(--ink)">
+            AI bukan tentang <span class="hl hl-playfair hl-orange">teknologi</span>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:var(--steel)">
+            Elegant italic serif — cocok untuk highlight profesional.
+          </div>
         </div>
-        <div class="hl-example" style="color:var(--ink)">
-          Hemat <span class="hl hl-pink">3 jam</span> per hari dengan workflow otomatis.
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:20px">
+          <div style="font-size:10px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Script · Dancing Script</div>
+          <div style="font-size:20px;line-height:1.4;color:var(--ink)">
+            Hemat <span class="hl hl-script hl-pink">3 jam</span> per hari
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:var(--steel)">
+            Casual cursive — playful, energy tinggi.
+          </div>
         </div>
-        <div class="hl-example" style="color:var(--ink)">
-          Gunakan <span class="hl hl-gold">satu tools</span> yang benar-benar kamu butuhkan.
-        </div>
-        <div class="hl-example" style="color:var(--cogni-navy);background:var(--cloud);border-radius:var(--r-md);padding:12px">
-          <span class="hl hl-teal">Mulai</span> dari use case terkecil &mdash; jangan langsung all-in.
+        <div style="background:var(--cloud);border-radius:var(--r-lg);padding:20px">
+          <div style="font-size:10px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Calligraphy · Great Vibes</div>
+          <div style="font-size:20px;line-height:1.4;color:var(--ink)">
+            <span class="hl hl-elegant hl-gold">Mulai</span> dari yang kecil
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:var(--steel)">
+            Formal calligraphy — kesan mewah, premium.
+          </div>
         </div>
       </div>
 
-      <div class="info-box"><strong>Aturan highlight:</strong> Gunakan <code>font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic</code>. Pilih warna kontras — Kerja Orange (#F77F2A), Highlight Pink (#E91E63), Highlight Gold (#F59E0B), atau Studio Teal (#0D9BAE). Maksimal 1-2 kata per kalimat. Jangan highlight lebih dari 20% teks dalam satu layout.</div>
+      <div class="info-box"><strong>Aturan highlight:</strong> Gunakan salah satu font highlight dengan warna kontras — Kerja Orange (#F77F2A), Pink (#E91E63), Gold (#F59E0B), atau Teal (#0D9BAE). Maksimal 1-2 kata per kalimat, jangan lebih dari 20% teks per layout.</div>
     </div>
   </section>
 
