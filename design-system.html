@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rahman Ramsi — Design System v3.0 (Impeccable Draft)</title>
+  <title>Rahman Ramsi — Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
@@ -75,12 +75,6 @@
       font-family: var(--font-h); font-weight: 800; font-size: 14px; color: white;
     }
     .sb-name { font-family: var(--font-h); font-weight: 800; font-size: 15px; color: white; }
-    .sb-ver {
-      font-size: 9px; color: rgba(255,255,255,0.35);
-      background: rgba(13,155,174,0.2);
-      padding: 1px 7px; border-radius: 99px; margin-left: 6px;
-      font-weight: 700; letter-spacing: .05em;
-    }
     .sb-sub  { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 1px; }
     .sb-nav  { list-style: none; flex: 1; }
     .sb-nav li { margin-bottom: 1px; }
@@ -173,11 +167,6 @@
     }
     .cover-desc { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 520px; line-height: 1.7; }
     .cover-meta { margin-top: 24px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-    .cover-badge {
-      display: inline-flex; align-items: center; padding: 6px 14px;
-      background: var(--kerja-orange); border-radius: var(--r-full);
-      font-size: 11px; font-weight: 700; color: white;
-    }
     .cover-date { font-size: 11px; color: rgba(255,255,255,0.4); }
     .cover-compliance {
       margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.6;
@@ -582,8 +571,8 @@
   <div class="sb-brand">
     <div class="sb-logo">CS</div>
     <div>
-      <div class="sb-name">Rahman Ramsi <span class="sb-ver">v3.0</span></div>
-      <div class="sb-sub">Design System · Impeccable Draft</div>
+      <div class="sb-name">Rahman Ramsi</div>
+      <div class="sb-sub">Design System</div>
     </div>
   </div>
   <ul class="sb-nav" id="sidenav">
@@ -593,14 +582,15 @@
     <li><a href="#visual-style"><span class="nn">03</span> Visual Style</a></li>
     <li><a href="#components"><span class="nn">04</span> Components</a></li>
     <li><a href="#platforms"><span class="nn">05</span> Platforms</a></li>
-    <li><a href="#tokens"><span class="nn">06</span> Design Tokens</a></li>
-    <li><a href="#accessibility"><span class="nn">07</span> Accessibility</a></li>
-    <li><a href="#compliance"><span class="nn">08</span> Brand Compliance</a></li>
-    <li><a href="#voice"><span class="nn">09</span> Brand Voice</a></li>
+    <li><a href="#carousel"><span class="nn">06</span> Carousel Production</a></li>
+    <li><a href="#tokens"><span class="nn">07</span> Design Tokens</a></li>
+    <li><a href="#accessibility"><span class="nn">08</span> Accessibility</a></li>
+    <li><a href="#compliance"><span class="nn">09</span> Brand Compliance</a></li>
+    <li><a href="#voice"><span class="nn">10</span> Brand Voice</a></li>
   </ul>
   <div class="sb-foot">
     Rahman Ramsi<br>
-    Impeccable Draft &middot; April 2026
+    April 2026
   </div>
 </nav>
 
@@ -611,14 +601,13 @@
   <div class="cover" id="cover">
     <div class="cover-inner">
       <div class="cover-eyebrow">Rahman Ramsi &middot; Design System</div>
-      <h1 class="cover-title">Impeccable Design System<br>v3.0 Draft</h1>
+      <h1 class="cover-title">Impeccable Design System</h1>
       <p class="cover-desc">
         Sistem desain yang ketat, konsisten, dan scalable untuk seluruh output visual
         Rahman Ramsi &mdash; dari Instagram carousel hingga LinkedIn thought leadership.
       </p>
       <div class="cover-meta">
-        <span class="cover-badge">Impeccable Draft</span>
-        <span class="cover-date">April 2026 &middot; 9 Sections</span>
+        <span class="cover-date">10 Sections &middot; Single source of truth</span>
       </div>
       <div class="cover-compliance">
         <span>▸</span> 100% CSP-compatible &middot;
@@ -1242,10 +1231,100 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
     <div class="info-box" style="margin-top:20px"><strong>Platform guide:</strong> IG = square bold + headline kuat + swipe cue. LinkedIn = quote/insight + face = authority. Twitter = thread format + konkret + data. Reel = bold vertical typography + minimal distraction.</div>
   </section>
 
-  <!-- ══ 06 DESIGN TOKENS ═══════════════════════════════════ -->
+  <!-- ══ 06 CAROUSEL PRODUCTION ═════════════════════════════ -->
+  <section class="section" id="carousel">
+    <div class="sh">
+      <div class="sh-num">06 &mdash; Carousel Production</div>
+      <h2 class="sh-title">Mobile-First Carousel &amp; 9:16 Adaptasi</h2>
+      <p class="sh-desc">Aturan produksi carousel — typography readability di feed HP, IG-master format, safe zones, slide indicator placement, closing slide convention, dan font fallback untuk special characters.</p>
+    </div>
+
+    <h3 class="sub-h">Format Master: IG 1:1</h3>
+    <p style="font-size:14px;color:var(--steel);max-width:680px;line-height:1.7;margin-bottom:14px">Carousel master adalah <strong>1080×1080 (IG-native)</strong> sebagai source-of-truth. TikTok &amp; IG Reels/Stories adalah <strong>derivative</strong> dari master IG via letterbox top + bottom (Cogni Navy bg) ke 1080×1920. Master 1:1 di-place tepat di tengah kanvas 9:16 — letterbox otomatis berfungsi sebagai safe zone TikTok.</p>
+
+    <table class="usage-table">
+      <thead><tr><th>Platform</th><th>Format</th><th>Catatan</th></tr></thead>
+      <tbody>
+        <tr><td><strong>IG Feed Carousel</strong></td><td>1080×1080 (master)</td><td>Source-of-truth — semua content didesain di sini. QC anchor di kanvas ini.</td></tr>
+        <tr><td><strong>IG Reels / Stories</strong></td><td>1080×1920 (derived)</td><td>Letterbox top 420px + bottom 420px (Cogni Navy bg). Master 1:1 di tengah.</td></tr>
+        <tr><td><strong>TikTok Slideshow</strong></td><td>1080×1920 (derived)</td><td>Sama dengan IG Reels — content master di tengah, top/bottom letterbox = safe zone.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box"><strong>Naming:</strong> master gunakan <code>slide-01.png … slide-NN.png</code> (1080×1080). Variant 9:16 boleh ditambah suffix <code>slide-NN-9x16.png</code> bila diperlukan terpisah; default cukup master IG karena letterbox di-generate on-export.</div>
+    <div class="warn-box"><strong>Don't:</strong> Mendesain langsung di kanvas 9:16 lalu meng-crop ke IG 1:1 — content akan terpotong. Selalu mulai dari master IG, lalu letterbox keluar.</div>
+
+    <h3 class="sub-h" style="margin-top:32px">Mobile-Readable Typography Minimums</h3>
+    <p style="font-size:14px;color:var(--steel);max-width:680px;line-height:1.7;margin-bottom:14px">Sizing minimum agar konten kebaca pada feed HP. Render canvas 1080-pixel di-scale ~36-39% pada feed iPhone (lebar 390-420px) — pixel canvas dikalikan ~0.36 untuk dapat ukuran on-screen. <em>Designer melihat 1080-pixel canvas, audience melihat 390-pixel feed.</em></p>
+
+    <table class="usage-table">
+      <thead><tr><th>Role</th><th>IG 1080×1080</th><th>9:16 derived</th><th>On-screen (HP)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Body</strong></td><td>&ge; 32px</td><td>&ge; 48px</td><td>~12px / ~21px</td></tr>
+        <tr><td><strong>Eyebrow / Label</strong></td><td>&ge; 24px</td><td>&ge; 32px</td><td>~9px / ~14px</td></tr>
+        <tr><td><strong>H2 Headline</strong></td><td>56–60px</td><td>88–96px</td><td>~22px / ~38px</td></tr>
+        <tr><td><strong>H1 / Display</strong></td><td>96–120px</td><td>140–160px</td><td>~36–44px / ~62–70px</td></tr>
+        <tr><td><strong>Slide indicator</strong></td><td>&ge; 22px</td><td>&ge; 28px</td><td>~8px / ~12px</td></tr>
+        <tr><td><strong>Pull quote</strong></td><td>48–56px</td><td>72–80px</td><td>~18–21px / ~32–35px</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box"><strong>Don't:</strong> Body &lt; 32px (IG) atau &lt; 48px (9:16). Audience akan zoom in atau scroll past.</div>
+
+    <h3 class="sub-h" style="margin-top:32px">9:16 Safe Zones</h3>
+    <p style="font-size:14px;color:var(--steel);max-width:680px;line-height:1.7;margin-bottom:14px">Saat master IG 1:1 di-letterbox ke 1080×1920, top + bottom letterbox harus mengakomodasi TikTok native UI (status bar, follow button, caption, action stack).</p>
+
+    <table class="usage-table">
+      <thead><tr><th>Zona</th><th>Tinggi</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Top safe zone</strong></td><td>240px</td><td>Status bar + back/follow button</td></tr>
+        <tr><td><strong>Center (content)</strong></td><td>1200px</td><td>Master IG 1:1 + space di atas/bawah master sebelum letterbox</td></tr>
+        <tr><td><strong>Bottom safe zone</strong></td><td>480px</td><td>Caption text + action UI (TikTok)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box"><strong>CSS pattern (untuk render direct 9:16):</strong> <code>padding: 240px 80px 480px 80px</code> + <code>display: flex; flex-direction: column; justify-content: center</code> agar konten vertically centered dalam safe area.</div>
+    <div class="warn-box"><strong>Brand handle &amp; CTA:</strong> Wajib diletakkan di atas bottom safe zone (y &lt; 1440). Jangan andalkan posisi y &gt; 1440 — akan tertutup TikTok caption.</div>
+
+    <h3 class="sub-h" style="margin-top:32px">Slide Indicator Placement</h3>
+    <p style="font-size:14px;color:var(--steel);max-width:680px;line-height:1.7;margin-bottom:14px">Slide indicator (mis. <code>4 / 7</code>) adalah elemen dekoratif yang tidak boleh nabrak konten utama saat content stack lebih panjang.</p>
+
+    <table class="usage-table">
+      <thead><tr><th>Platform</th><th>Posisi</th><th>CSS</th></tr></thead>
+      <tbody>
+        <tr><td><strong>IG 1080×1080</strong></td><td>Bottom-left</td><td><code>position: absolute; left: 56px; bottom: 48px</code></td></tr>
+        <tr><td><strong>9:16 derivative</strong></td><td>Top-right (di safe zone)</td><td><code>position: absolute; right: 80px; top: 120px</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box"><strong>Why 9:16 = top:</strong> dengan content vertically centered dalam safe area, indicator absolute di bottom akan tabrakan dengan footer-line ketika content tinggi. Top-right sudah berada di top safe zone, tidak konflik dengan content.</div>
+
+    <h3 class="sub-h" style="margin-top:32px">Closing Slide Convention</h3>
+    <p style="font-size:14px;color:var(--steel);max-width:680px;line-height:1.7;margin-bottom:14px">Setiap deck wajib punya closing slide dengan stack berikut, dari atas ke bawah:</p>
+
+    <ol style="margin:0 0 14px 20px;padding:0;font-size:13.5px;color:var(--steel);line-height:1.85;max-width:680px">
+      <li><strong>Eyebrow</strong> — context label (mis. "3 Pertanyaan Reflektif")</li>
+      <li><strong>Question stack / list konkret</strong> — pertanyaan refleksi atau action items, bukan abstraksi</li>
+      <li><strong>Footer italic</strong> — anchor pernyataan dalam Playfair italic</li>
+      <li><strong>CTA orange</strong> — momen spesifik kapan pakai (mis. "Simpan buat weekly meeting tim.")</li>
+      <li><strong>Sub-CTA</strong> — prompt refleksi singkat</li>
+      <li><strong>"Follow for more &#8594;"</strong> — Sora 800, Kerja Orange, di atas brand handle</li>
+      <li><strong>Brand handle</strong> — cukup <code>@username</code> (TikTok) atau <code>RAHMAN RAMSI &middot; @username</code> (IG), tanpa tagline panjang</li>
+    </ol>
+
+    <div class="warn-box"><strong>Don't:</strong> Tagline panjang setelah handle. Audience tidak baca tagline — handle saja sudah cukup branding.</div>
+
+    <h3 class="sub-h" style="margin-top:32px">Font Fallback untuk Special Characters</h3>
+    <p style="font-size:14px;color:var(--steel);max-width:680px;line-height:1.7;margin-bottom:14px">Sora variable font tidak punya glyph untuk semua Unicode characters (mis. <code>&#8594;</code> U+2192, <code>&#8599;</code> U+2197). Saat headline pakai Sora 800, special chars tampil sebagai tofu (kotak kosong).</p>
+
+    <div class="warn-box"><strong>Don't:</strong> <code>font-family: 'Sora', sans-serif</code> untuk teks yang mengandung arrow / panah / simbol khusus.</div>
+    <div class="info-box"><strong>Do:</strong> <code>font-family: 'Sora', 'Plus Jakarta Sans', sans-serif</code> — fallback per-character ke PJS yang punya glyph lengkap. Visual tetap dominant Sora untuk huruf, hanya char khusus yang fall back.</div>
+  </section>
+
+  <!-- ══ 07 DESIGN TOKENS ═══════════════════════════════════ -->
   <section class="section" id="tokens">
     <div class="sh">
-      <div class="sh-num">06 &mdash; Design Tokens</div>
+      <div class="sh-num">07 &mdash; Design Tokens</div>
       <h2 class="sh-title">Single Source of Truth</h2>
       <p class="sh-desc">Nilai primitif untuk semua implementasi — web, Figma, atau tools apapun. Token ini adalah kontrak.</p>
     </div>
@@ -1402,7 +1481,7 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
   <!-- ══ 07 ACCESSIBILITY ═══════════════════════════════════ -->
   <section class="section" id="accessibility">
     <div class="sh">
-      <div class="sh-num">07 &mdash; Accessibility</div>
+      <div class="sh-num">08 &mdash; Accessibility</div>
       <h2 class="sh-title">Contrast &amp; Inklusivitas</h2>
       <p class="sh-desc">Kontras cukup bukan hanya inklusivitas — konten mudah dibaca lebih efektif mengomunikasikan pesan.</p>
     </div>
@@ -1459,7 +1538,7 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
   <!-- ══ 08 BRAND COMPLIANCE ═══════════════════════════════ -->
   <section class="section" id="compliance">
     <div class="sh">
-      <div class="sh-num">08 &mdash; Brand Compliance</div>
+      <div class="sh-num">09 &mdash; Brand Compliance</div>
       <h2 class="sh-title">Impeccable Self-Check</h2>
       <p class="sh-desc">Setiap output visual WAJIB melewati checklist ini sebelum diserahkan ke QC. Tidak ada toleransi kelalaian.</p>
     </div>
@@ -1497,6 +1576,42 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
         <div class="check-box"></div>
         <div><strong>Tone anti-hype</strong> — praktis, approachable, fokus pada hasil nyata. Hindari klaim bombastis dan estetika overpromising.</div>
       </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Body &ge; 32px (IG) atau &ge; 48px (9:16)</strong> — agar terbaca di feed HP setelah scaling ~36-39%</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Eyebrow &ge; 24px (IG) / &ge; 32px (9:16)</strong> — UPPERCASE, letter-spacing 0.16em</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Format master IG 1:1</strong> — 1080×1080 sebagai source-of-truth, naming <code>slide-NN.png</code>; 9:16 derived via letterbox bila perlu</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>9:16 safe zones clear</strong> — top 240px + bottom 480px tidak ada teks penting; konten vertically centered</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Slide indicator placement</strong> — IG bottom-left, 9:16 top-right (di top safe zone)</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Brand handle minimal</strong> — di atas bottom safe zone, tanpa tagline panjang setelah handle</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>"Follow for more &#8594;"</strong> hadir di slide penutup — Sora 800 dengan PJS fallback untuk arrow</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Font fallback chain</strong> — <code>'Sora', 'Plus Jakarta Sans', sans-serif</code> agar special chars (panah, simbol) tetap render</div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Closing slide convention</strong> — eyebrow → questions → footer italic → CTA orange → sub-CTA → "Follow for more" → handle</div>
+      </div>
     </div>
 
     <div class="warn-box" style="margin-top:16px"><strong>Critical Rule:</strong> Checklist ini wajib dicopy ke komentar setiap output visual sebagai self-declaration. Jika ditemukan pelanggaran oleh Argus, revisi total dan resubmit.</div>
@@ -1505,7 +1620,7 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
   <!-- ══ 09 BRAND VOICE ════════════════════════════════════ -->
   <section class="section" id="voice">
     <div class="sh">
-      <div class="sh-num">09 &mdash; Brand Voice</div>
+      <div class="sh-num">10 &mdash; Brand Voice</div>
       <h2 class="sh-title">Visual Brand Voice</h2>
       <p class="sh-desc">Tiga treatment visual — masing-masing dengan tone berbeda.</p>
     </div>
@@ -1557,7 +1672,7 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
 
     <div class="summary-card">
       <h3>Design System Summary</h3>
-      <h2>Impeccable Design System v3.0 &mdash; Siap untuk Review</h2>
+      <h2>Impeccable Design System</h2>
       <div class="summary-stats">
         <div class="sum-stat">
           <div class="sum-num">10</div>
@@ -1577,7 +1692,7 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
         </div>
       </div>
       <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7">
-        Langkah selanjutnya: Review oleh Rahman Ramsi dan Argus. Berikan feedback untuk iterasi sebelum sistem digunakan untuk produksi konten.
+        Single source of truth untuk semua produksi visual brand Rahman Ramsi.
       </div>
     </div>
   </section>
