@@ -10,21 +10,21 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
+      /* Approved palette — selaras dengan index.html / design-system.html */
       --cogni-navy:#0F2A4A;--cogni-navy-mid:#1A3F6E;--cogni-navy-deep:#071929;
-      --studio-teal:#0D9BAE;--studio-teal-light:#14B8CE;
+      --studio-teal:#0D9BAE;--studio-teal-light:#14B8CE;--studio-teal-pale:#E3F7FA;
       --kerja-orange:#F77F2A;--kerja-orange-lt:#FF9A4A;
       --white:#FFFFFF;--cloud:#F4F7FA;--mist:#EBF0F5;
-      --gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-300:#CBD5E1;
-      --gray-500:#64748B;--gray-600:#475569;--gray-700:#334155;--gray-900:#0F172A;
+      --gray-200:#D4DCE6;--gray-400:#8FA3B8;--slate:#4A6175;--ink:#0D1F2D;
       --green:#16A34A;--green-pale:#DCFCE7;--red:#DC2626;--red-pale:#FEE2E2;
       --font-h:'Sora',ui-sans-serif,system-ui,sans-serif;
       --font-b:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;
       --font-i:'Playfair Display',Georgia,serif;
     }
-    html,body{background:var(--cloud);font-family:var(--font-b);color:var(--gray-900);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.55}
+    html,body{background:var(--cloud);font-family:var(--font-b);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.55}
     body{padding:48px 24px 96px;max-width:980px;margin:0 auto}
 
-    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;font:600 13px/1 var(--font-b);letter-spacing:.04em;color:var(--gray-500)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;font:600 13px/1 var(--font-b);letter-spacing:.04em;color:var(--gray-400)}
     .topbar a{color:var(--studio-teal);text-decoration:none}
     .topbar a:hover{color:var(--cogni-navy)}
 
@@ -41,21 +41,21 @@
     .hero p{font:500 17px/1.6 var(--font-b);color:rgba(255,255,255,.78);max-width:680px}
 
     section{background:var(--white);border:1px solid var(--mist);border-radius:14px;padding:32px 32px 28px;margin-bottom:24px}
-    .num{display:inline-block;font:700 11px/1 var(--font-b);letter-spacing:.16em;text-transform:uppercase;color:var(--kerja-orange);margin-bottom:8px}
+    .num{display:inline-block;font:700 11px/1 var(--font-b);letter-spacing:.16em;text-transform:uppercase;color:var(--studio-teal);margin-bottom:8px}
     h2{font:800 26px/1.2 var(--font-h);letter-spacing:-.015em;color:var(--cogni-navy);margin-bottom:8px}
-    .sub{font:500 14.5px/1.7 var(--font-b);color:var(--gray-600);margin-bottom:22px;max-width:720px}
+    .sub{font:500 14.5px/1.7 var(--font-b);color:var(--slate);margin-bottom:22px;max-width:720px}
 
     table{width:100%;border-collapse:collapse;margin:16px 0}
     th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--mist);font-size:13.5px;vertical-align:top}
-    th{font:700 11px/1 var(--font-b);letter-spacing:.12em;text-transform:uppercase;color:var(--gray-500);background:var(--cloud)}
+    th{font:700 11px/1 var(--font-b);letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);background:var(--cloud)}
     td strong{color:var(--cogni-navy);font-weight:700}
-    code{font:600 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--gray-100);padding:2px 6px;border-radius:4px;color:var(--cogni-navy)}
+    code{font:600 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--mist);padding:2px 6px;border-radius:4px;color:var(--cogni-navy)}
 
-    .info{background:#EFF8FA;border-left:4px solid var(--studio-teal);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--gray-700)}
+    .info{background:#EFF8FA;border-left:4px solid var(--studio-teal);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--slate)}
     .info strong{color:var(--cogni-navy)}
-    .warn{background:var(--red-pale);border-left:4px solid var(--red);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--gray-700)}
+    .warn{background:var(--red-pale);border-left:4px solid var(--red);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--slate)}
     .warn strong{color:#991B1B}
-    .ok{background:var(--green-pale);border-left:4px solid var(--green);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--gray-700)}
+    .ok{background:var(--green-pale);border-left:4px solid var(--green);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--slate)}
     .ok strong{color:#15803D}
 
     /* Visual safe zone diagram */
@@ -81,23 +81,24 @@
     .canvas .ind{position:absolute;right:16px;top:18px;font:600 8px/1 var(--font-b);color:rgba(255,255,255,.55)}
     .canvas .deco{position:absolute;right:-10px;top:50px;font:800 100px/0.85 var(--font-h);color:rgba(255,255,255,.06);letter-spacing:-.04em}
     .legend{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-    .legend div{font:600 11.5px/1.4 var(--font-b);color:var(--gray-600);padding:8px 12px;border:1px solid var(--mist);border-radius:6px}
+    .legend div{font:600 11.5px/1.4 var(--font-b);color:var(--slate);padding:8px 12px;border:1px solid var(--mist);border-radius:6px}
     .legend strong{color:var(--cogni-navy);font-weight:800}
     .legend .pulse{display:inline-block;width:8px;height:8px;border-radius:99px;background:var(--kerja-orange);margin-right:6px;vertical-align:1px}
     .legend .pulse.t{background:var(--studio-teal-light)}
 
     .checklist{list-style:none;display:flex;flex-direction:column;gap:8px;margin:14px 0}
-    .checklist li{font:500 14px/1.6 var(--font-b);color:var(--gray-700);position:relative;padding-left:30px}
+    .checklist li{font:500 14px/1.6 var(--font-b);color:var(--slate);position:relative;padding-left:30px}
     .checklist li::before{content:'✓';position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:99px;background:var(--green-pale);color:var(--green);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center}
     .checklist li strong{color:var(--cogni-navy)}
 
     .change-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--mist)}
     .change-row:last-child{border-bottom:none}
     .change-row .ver{font:800 13px/1 var(--font-h);color:var(--studio-teal);letter-spacing:-.005em;align-self:start;padding-top:2px}
-    .change-row .body{font:500 13.5px/1.7 var(--font-b);color:var(--gray-700)}
+    .change-row .body{font:500 13.5px/1.7 var(--font-b);color:var(--slate)}
     .change-row .body b{color:var(--cogni-navy);font-weight:800}
 
-    .footer{margin-top:48px;text-align:center;color:var(--gray-500);font-size:12px;line-height:1.7}
+    .footer{margin-top:48px;text-align:center;color:var(--gray-400);font-size:12px;line-height:1.7}
+    .footer strong{color:var(--cogni-navy);font-weight:800;font-family:var(--font-h);letter-spacing:-.005em}
     .footer a{color:var(--studio-teal);text-decoration:none}
 
     @media (max-width:640px){
@@ -113,7 +114,7 @@
 <body>
 
   <div class="topbar">
-    <a href="/">← Cogni Studio Brand</a>
+    <a href="/">← Rahman Ramsi · Brand Hub</a>
     <span>v3.1 · Mobile-First Update</span>
   </div>
 
@@ -302,8 +303,8 @@
   </section>
 
   <div class="footer">
-    Cogni Studio Brand — Mobile-First Update v3.1<br>
-    <a href="/">← Kembali ke Cogni Studio Brand</a> · <a href="/design-system">Design System v3.0</a> · <a href="/sop">SOP v2.1</a>
+    <strong>Rahman Ramsi</strong> — Mobile-First Update v3.1<br>
+    <a href="/">← Kembali ke Brand Hub</a> · <a href="/design-system">Design System v3.0</a> · <a href="/sop">SOP v2.1</a>
   </div>
 
 </body>
