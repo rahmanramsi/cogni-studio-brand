@@ -277,15 +277,6 @@
       display: block; margin-top: 2px; line-height: 1.6;
     }
 
-    .pairing-demo {
-      background: var(--studio-teal-pale); border-radius: var(--r-lg); padding: 24px; margin-top: 16px;
-    }
-    .pairing-demo h3 {
-      font-family: var(--font-h); font-size: 14px; font-weight: 700;
-      color: var(--cogni-navy); margin-bottom: 14px;
-    }
-    .pairing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-
     /* ── 3. VISUAL STYLE ─────────────────────── */
     .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
     .prin-card {
@@ -581,7 +572,6 @@
       .font-pair, .principles, .do-dont, .motif-grid,
       .cards-grid, .platform-grid, .voice-grid,
       .a11y-grid, .checklist, .summary-stats { grid-template-columns: 1fr; }
-      .pairing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -787,56 +777,39 @@
     </div>
 
     <h3 class="sub-h">Type Scale</h3>
+    <p class="sub-desc" style="margin-bottom:16px;color:var(--slate);font-size:13.5px;line-height:1.7;max-width:680px">Contoh di bawah memakai label generik (<code>Heading 1</code>, <code>Body</code>, dll.) — bukan headline brand. Ini agar AI tools yang membaca panduan ini tidak menganggap teks contoh sebagai tagline atau copy resmi.</p>
     <div class="type-scale">
       <div class="type-row">
         <div class="tm"><span class="tm-name">Display</span><span class="tm-spec">Sora 800<br>56px / 1.0</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:clamp(30px,4vw,56px);font-weight:800;color:#0F2A4A;line-height:1.0;letter-spacing:-1.5px">AI untuk Kerja</div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(30px,4vw,56px);font-weight:800;color:#0F2A4A;line-height:1.0;letter-spacing:-1.5px">Display</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H1</span><span class="tm-spec">Sora 800<br>40px / 1.1</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:clamp(22px,3vw,40px);font-weight:800;color:#0F2A4A;line-height:1.1;letter-spacing:-1px">5 Cara AI Bantu Kerja Lebih Cepat</div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(22px,3vw,40px);font-weight:800;color:#0F2A4A;line-height:1.1;letter-spacing:-1px">Heading 1</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H2</span><span class="tm-spec">Sora 700<br>28px / 1.2</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:700;color:#0F2A4A;line-height:1.2">Mengapa AI Masih Terasa Susah?</div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:700;color:#0F2A4A;line-height:1.2">Heading 2</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H3</span><span class="tm-spec">Sora 700<br>20px / 1.3</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:#0F2A4A;line-height:1.3">Mulai dari Use Case yang Relevan</div>
+        <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:#0F2A4A;line-height:1.3">Heading 3</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H4</span><span class="tm-spec">Sora 600<br>16px / 1.4</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#0F2A4A;line-height:1.4">Langkah 1: Identifikasi Tugas Berulang</div>
+        <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#0F2A4A;line-height:1.4">Heading 4</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">Body</span><span class="tm-spec">PJS 400<br>15px / 1.75</span></div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:400;color:#4A6175;line-height:1.75">AI bukan tentang teknologi — ini tentang menghemat waktu untuk hal-hal yang benar-benar penting. Knowledge workers Indonesia bisa mulai dari hal kecil.</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:400;color:#4A6175;line-height:1.75">Body — paragraf teks isi pada ukuran standar untuk readability.</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">Caption</span><span class="tm-spec">PJS 400<br>12px / 1.6</span></div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:400;color:#8FA3B8;line-height:1.6;letter-spacing:0.2px">Sumber: Riset pengguna Rahman Ramsi &middot; April 2026</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:400;color:#8FA3B8;line-height:1.6;letter-spacing:0.2px">Caption · keterangan / metadata kecil</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">Label</span><span class="tm-spec">PJS 700<br>11px / 1.0 / UPPER</span></div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#0D9BAE;line-height:1.0;letter-spacing:0.15em;text-transform:uppercase">Agentic Architect &middot; Tutorial &middot; Indonesia</div>
-      </div>
-    </div>
-
-    <div class="pairing-demo">
-      <h3>Live Pairing Examples</h3>
-      <div class="pairing-grid">
-        <div style="background:white;border-radius:var(--r-md);padding:12px">
-          <div style="font-size:9px;font-weight:700;color:#8FA3B8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Headline &middot; Sora 800</div>
-          <div style="font-family:var(--font-h);font-size:20px;font-weight:800;color:#0F2A4A;line-height:1.15">AI untuk Kerja</div>
-        </div>
-        <div style="background:white;border-radius:var(--r-md);padding:12px">
-          <div style="font-size:9px;font-weight:700;color:#8FA3B8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Subheading &middot; Sora 600</div>
-          <div style="font-family:var(--font-h);font-size:15px;font-weight:600;color:#0F2A4A;line-height:1.35">5 Cara Hemat 3 Jam/Hari</div>
-        </div>
-        <div style="background:white;border-radius:var(--r-md);padding:12px">
-          <div style="font-size:9px;font-weight:700;color:#8FA3B8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Body &middot; PJS 400</div>
-          <div style="font-family:var(--font-b);font-size:13px;font-weight:400;color:#4A6175;line-height:1.7">Pelajari cara kerja lebih efisien dengan AI &mdash; cocok untuk kamu.</div>
-        </div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#0D9BAE;line-height:1.0;letter-spacing:0.15em;text-transform:uppercase">Label · Eyebrow</div>
       </div>
     </div>
   </section>
