@@ -162,11 +162,11 @@
     <div class="ok"><strong>Do:</strong> Trim copy lebih agresif jika perlu untuk muat dengan font size baru. <em>Whitespace = design.</em></div>
   </section>
 
-  <!-- 03 — TikTok safe zones -->
+  <!-- 03 — Safe zones for 9:16 adaptations -->
   <section>
-    <div class="num">03 · Safe Zones</div>
-    <h2>TikTok Native UI Safe Zones</h2>
-    <p class="sub">TikTok UI menutup top dan bottom canvas. Konten penting harus berada di safe zone tengah (1080×1200 dari total 1080×1920).</p>
+    <div class="num">03 · 9:16 Safe Zones</div>
+    <h2>Safe Zones untuk Adaptasi 9:16 (TikTok &amp; IG Reels)</h2>
+    <p class="sub">Saat master IG 1:1 di-letterbox ke 1080×1920 untuk TikTok atau IG Reels/Stories, content master ditempatkan di tengah — top + bottom letterbox berfungsi sebagai safe zone agar konten tidak tertutup TikTok native UI (status bar, follow button, caption, action stack).</p>
 
     <div class="canvas-diagram">
       <div class="canvas">
@@ -210,23 +210,24 @@
     <div class="info"><strong>Why TikTok = top:</strong> dengan content vertically centered dalam safe area, indicator absolute di bottom akan tabrakan dengan footer-line ketika content tinggi (S4 cards stack, S6 disclaimer + lokal-line). Top-right sudah berada di top safe zone, tidak konflik dengan content.</div>
   </section>
 
-  <!-- 05 — Unified carousel format -->
+  <!-- 05 — IG-Master format -->
   <section>
-    <div class="num">05 · Unified Format</div>
-    <h2>Satu Format Carousel untuk IG &amp; TikTok</h2>
-    <p class="sub">Sebelumnya kami produksi dua deck terpisah (1080×1080 IG + 1080×1920 TikTok). Mulai v3.1, gunakan <strong>satu deck 1080×1920</strong> sebagai master, dengan content didesain untuk fit dalam safe zone tengah.</p>
+    <div class="num">05 · IG-Master Format</div>
+    <h2>IG 1:1 sebagai Master, 9:16 sebagai Adaptasi</h2>
+    <p class="sub">Standar carousel adalah <strong>1080×1080 (IG-native)</strong> mengikuti keputusan di <a href="https://github.com/rahmanramsi/cogni-studio-brand">AIC-51</a>. Master IG menjadi source-of-truth — TikTok Slideshow &amp; IG Reels/Stories adalah <strong>derivative</strong> dari master IG dengan letterbox top + bottom (Cogni Navy bg) ke 1080×1920.</p>
 
     <table>
-      <thead><tr><th>Platform</th><th>Penggunaan</th><th>Catatan</th></tr></thead>
+      <thead><tr><th>Platform</th><th>Format</th><th>Catatan</th></tr></thead>
       <tbody>
-        <tr><td><strong>TikTok Slideshow</strong></td><td>Native 9:16 — full canvas</td><td>Optimal — konten center hadir di safe zone</td></tr>
-        <tr><td><strong>IG Reels / Stories</strong></td><td>Native 9:16 — full canvas</td><td>Optimal — sama dengan TikTok</td></tr>
-        <tr><td><strong>IG Feed Carousel</strong></td><td>Auto-cropped ke 4:5 (1080×1350)</td><td>IG memotong top 285px + bottom 285px. Karena konten sudah ada di safe zone tengah, hasil crop tetap utuh.</td></tr>
+        <tr><td><strong>IG Feed Carousel</strong></td><td>1080×1080 (master)</td><td>Source-of-truth — semua content didesain di sini. QC anchor di kanvas ini.</td></tr>
+        <tr><td><strong>IG Reels / Stories</strong></td><td>1080×1920 (derived)</td><td>Letterbox top 420px + bottom 420px (Cogni Navy bg). Master 1:1 di-place tepat di tengah.</td></tr>
+        <tr><td><strong>TikTok Slideshow</strong></td><td>1080×1920 (derived)</td><td>Sama dengan IG Reels — content master di tengah, top/bottom letterbox berfungsi sebagai safe zone (lihat §03).</td></tr>
       </tbody>
     </table>
 
-    <div class="ok"><strong>Benefit:</strong> Satu produksi → multi-platform. Hilangkan duplikasi spec, render, dan QC.</div>
-    <div class="info"><strong>Naming:</strong> file gunakan <code>slide-01.png … slide-07.png</code> (bukan <code>ig-XX</code>/<code>tt-XX</code>) untuk menegaskan format unified.</div>
+    <div class="ok"><strong>Benefit:</strong> Satu master IG 1:1 → multi-platform via letterbox script. QC anchor jelas di IG-native, TikTok adaptasi otomatis hadir di safe zone tengah.</div>
+    <div class="info"><strong>Naming:</strong> master gunakan <code>slide-01.png … slide-NN.png</code> (1080×1080). Variant 9:16 boleh ditambah suffix <code>slide-NN-9x16.png</code> bila diperlukan terpisah; default cukup master IG karena letterbox di-generate on-export.</div>
+    <div class="warn"><strong>Don't:</strong> Mendesain langsung di kanvas 9:16 lalu meng-crop ke IG 1:1 — content akan terpotong. Selalu mulai dari master IG, lalu letterbox keluar.</div>
   </section>
 
   <!-- 06 — Closing slide convention -->
@@ -274,7 +275,7 @@
       <li><strong>Brand handle</strong> di atas bottom safe zone, tanpa tagline panjang</li>
       <li><strong>"Follow for more →"</strong> hadir di slide penutup, font Sora + PJS fallback</li>
       <li><strong>Special chars</strong> punya font fallback (arrow, panah, dll)</li>
-      <li><strong>Format unified</strong> — 1080×1920 master, naming <code>slide-NN.png</code></li>
+      <li><strong>Format IG-master</strong> — 1080×1080 master, naming <code>slide-NN.png</code>; 9:16 variant via letterbox (bila perlu)</li>
     </ul>
   </section>
 
@@ -297,8 +298,12 @@
       <div class="body">Body 22→32px (IG) / 36→48px (TikTok). Eyebrow 13→24px / 22→32px. Headline 56→60px / 84→112px. Display 124→110px / 110→140px. Slide indicator 14→22px / 20→28px. Padding canvas IG 80→56px, TikTok 120→480px bottom-only (safe zone).</div>
     </div>
     <div class="change-row">
-      <div class="ver">v3.1 — Safe zones &amp; unified</div>
-      <div class="body">TikTok top safe zone 240px ditambah (sebelumnya hanya bottom). Content vertically centered via flex justify-content. Slide indicator pindah dari bottom-left ke top-right TikTok (resolve overlap di S4/S6). Brand handle simplified — tagline "AI peta lokal" dihapus, cukup <code>@rhmrmsi</code>. <b>"Follow for more →"</b> CTA ditambah di closing slide. Font fallback <code>'Sora', 'Plus Jakarta Sans'</code> untuk special chars. <b>Carousel format unified</b>: drop separate IG square deck, gunakan 1 master 1080×1920 untuk semua platform.</div>
+      <div class="ver">v3.1 — Safe zones &amp; IG-master</div>
+      <div class="body">TikTok top safe zone 240px ditambah (sebelumnya hanya bottom). Content vertically centered via flex justify-content. Slide indicator: IG bottom-left, TikTok top-right (resolve overlap di S4/S6). Brand handle simplified — tagline "AI peta lokal" dihapus, cukup <code>@rhmrmsi</code>. <b>"Follow for more →"</b> CTA ditambah di closing slide. Font fallback <code>'Sora', 'Plus Jakarta Sans'</code> untuk special chars.</div>
+    </div>
+    <div class="change-row">
+      <div class="ver">v3.1.1 — IG-master format</div>
+      <div class="body"><b>Master carousel = 1080×1080 (IG-native)</b> mengikuti AIC-51 — bukan 1080×1920. TikTok &amp; IG Reels/Stories adalah <b>derivative</b> dari master IG via letterbox top 420px + bottom 420px (Cogni Navy bg). Master 1:1 di-place tepat di tengah kanvas 9:16, sehingga top/bottom letterbox berfungsi otomatis sebagai TikTok safe zone. QC anchor di kanvas IG-native; render 9:16 di-generate on-export. Naming master: <code>slide-NN.png</code>; variant 9:16 (opsional): <code>slide-NN-9x16.png</code>.</div>
     </div>
   </section>
 
