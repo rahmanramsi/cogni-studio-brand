@@ -277,15 +277,6 @@
       display: block; margin-top: 2px; line-height: 1.6;
     }
 
-    .pairing-demo {
-      background: var(--studio-teal-pale); border-radius: var(--r-lg); padding: 24px; margin-top: 16px;
-    }
-    .pairing-demo h3 {
-      font-family: var(--font-h); font-size: 14px; font-weight: 700;
-      color: var(--cogni-navy); margin-bottom: 14px;
-    }
-    .pairing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-
     /* ── 3. VISUAL STYLE ─────────────────────── */
     .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
     .prin-card {
@@ -581,7 +572,6 @@
       .font-pair, .principles, .do-dont, .motif-grid,
       .cards-grid, .platform-grid, .voice-grid,
       .a11y-grid, .checklist, .summary-stats { grid-template-columns: 1fr; }
-      .pairing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -787,56 +777,39 @@
     </div>
 
     <h3 class="sub-h">Type Scale</h3>
+    <p class="sub-desc" style="margin-bottom:16px;color:var(--slate);font-size:13.5px;line-height:1.7;max-width:680px">Contoh di bawah memakai label generik (<code>Heading 1</code>, <code>Body</code>, dll.) — bukan headline brand. Ini agar AI tools yang membaca panduan ini tidak menganggap teks contoh sebagai tagline atau copy resmi.</p>
     <div class="type-scale">
       <div class="type-row">
         <div class="tm"><span class="tm-name">Display</span><span class="tm-spec">Sora 800<br>56px / 1.0</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:clamp(30px,4vw,56px);font-weight:800;color:#0F2A4A;line-height:1.0;letter-spacing:-1.5px">AI untuk Kerja</div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(30px,4vw,56px);font-weight:800;color:#0F2A4A;line-height:1.0;letter-spacing:-1.5px">Display</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H1</span><span class="tm-spec">Sora 800<br>40px / 1.1</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:clamp(22px,3vw,40px);font-weight:800;color:#0F2A4A;line-height:1.1;letter-spacing:-1px">5 Cara AI Bantu Kerja Lebih Cepat</div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(22px,3vw,40px);font-weight:800;color:#0F2A4A;line-height:1.1;letter-spacing:-1px">Heading 1</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H2</span><span class="tm-spec">Sora 700<br>28px / 1.2</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:700;color:#0F2A4A;line-height:1.2">Mengapa AI Masih Terasa Susah?</div>
+        <div style="font-family:'Sora',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:700;color:#0F2A4A;line-height:1.2">Heading 2</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H3</span><span class="tm-spec">Sora 700<br>20px / 1.3</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:#0F2A4A;line-height:1.3">Mulai dari Use Case yang Relevan</div>
+        <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:#0F2A4A;line-height:1.3">Heading 3</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">H4</span><span class="tm-spec">Sora 600<br>16px / 1.4</span></div>
-        <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#0F2A4A;line-height:1.4">Langkah 1: Identifikasi Tugas Berulang</div>
+        <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#0F2A4A;line-height:1.4">Heading 4</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">Body</span><span class="tm-spec">PJS 400<br>15px / 1.75</span></div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:400;color:#4A6175;line-height:1.75">AI bukan tentang teknologi — ini tentang menghemat waktu untuk hal-hal yang benar-benar penting. Knowledge workers Indonesia bisa mulai dari hal kecil.</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:400;color:#4A6175;line-height:1.75">Body — paragraf teks isi pada ukuran standar untuk readability.</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">Caption</span><span class="tm-spec">PJS 400<br>12px / 1.6</span></div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:400;color:#8FA3B8;line-height:1.6;letter-spacing:0.2px">Sumber: Riset pengguna Rahman Ramsi &middot; April 2026</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:400;color:#8FA3B8;line-height:1.6;letter-spacing:0.2px">Caption · keterangan / metadata kecil</div>
       </div>
       <div class="type-row">
         <div class="tm"><span class="tm-name">Label</span><span class="tm-spec">PJS 700<br>11px / 1.0 / UPPER</span></div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#0D9BAE;line-height:1.0;letter-spacing:0.15em;text-transform:uppercase">Agentic Architect &middot; Tutorial &middot; Indonesia</div>
-      </div>
-    </div>
-
-    <div class="pairing-demo">
-      <h3>Live Pairing Examples</h3>
-      <div class="pairing-grid">
-        <div style="background:white;border-radius:var(--r-md);padding:12px">
-          <div style="font-size:9px;font-weight:700;color:#8FA3B8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Headline &middot; Sora 800</div>
-          <div style="font-family:var(--font-h);font-size:20px;font-weight:800;color:#0F2A4A;line-height:1.15">AI untuk Kerja</div>
-        </div>
-        <div style="background:white;border-radius:var(--r-md);padding:12px">
-          <div style="font-size:9px;font-weight:700;color:#8FA3B8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Subheading &middot; Sora 600</div>
-          <div style="font-family:var(--font-h);font-size:15px;font-weight:600;color:#0F2A4A;line-height:1.35">5 Cara Hemat 3 Jam/Hari</div>
-        </div>
-        <div style="background:white;border-radius:var(--r-md);padding:12px">
-          <div style="font-size:9px;font-weight:700;color:#8FA3B8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Body &middot; PJS 400</div>
-          <div style="font-family:var(--font-b);font-size:13px;font-weight:400;color:#4A6175;line-height:1.7">Pelajari cara kerja lebih efisien dengan AI &mdash; cocok untuk kamu.</div>
-        </div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#0D9BAE;line-height:1.0;letter-spacing:0.15em;text-transform:uppercase">Label · Eyebrow</div>
       </div>
     </div>
   </section>
@@ -995,19 +968,19 @@
           <div class="c-icon" style="background:var(--studio-teal-pale);color:var(--studio-teal)">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="8" width="10" height="9" rx="2"/><path d="M12 3v5M7.5 11h-2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h2M16.5 11h2a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-2"/></svg>
           </div>
-          <div class="c-title">Prompt Engineering</div>
-          <div class="c-body">Pelajari cara menulis prompt yang menghasilkan output berkualitas untuk pekerjaan sehari-hari.</div>
+          <div class="c-title">Feature Title</div>
+          <div class="c-body">Body teks placeholder untuk demo card edukasi — 1-2 kalimat singkat menjelaskan fitur atau topik.</div>
         </div>
         <div class="c-stat">
-          <div class="stat-val">87%</div>
-          <div class="stat-lbl">Peserta hemat 3+ jam kerja per minggu</div>
+          <div class="stat-val">00%</div>
+          <div class="stat-lbl">Label statistik placeholder</div>
           <div style="margin-top:16px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px">
-            <div style="width:87%;height:100%;background:var(--kerja-orange);border-radius:2px"></div>
+            <div style="width:60%;height:100%;background:var(--kerja-orange);border-radius:2px"></div>
           </div>
         </div>
         <div class="c-quote">
-          <div class="c-quote-text">"Saya bisa bikin laporan yang biasanya 4 jam jadi cuma 45 menit."</div>
-          <div class="c-quote-author">&mdash; Dina R., Marketing Manager &middot; Jakarta</div>
+          <div class="c-quote-text">"Quote / testimonial placeholder text untuk demo social proof card."</div>
+          <div class="c-quote-author">&mdash; Nama Tester &middot; Role &middot; Lokasi</div>
         </div>
       </div>
     </div>
@@ -1147,13 +1120,13 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
           <div>
             <div style="font-size:10px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px">Normal Text</div>
             <div style="font-size:22px;line-height:1.5;color:var(--ink)">
-              AI bukan tentang teknologi — ini tentang hasil. Hemat 3 jam per hari dengan workflow otomatis.
+              Body teks placeholder — paragraf netral untuk demo highlight, menunjukkan tiga kata yang akan ditandai dengan warna aksen.
             </div>
           </div>
           <div>
             <div style="font-size:10px;font-weight:700;color:var(--studio-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px">With Highlight (Playfair 900 italic)</div>
             <div style="font-size:22px;line-height:1.5;color:var(--ink)">
-              AI bukan tentang <span class="hl hl-orange">teknologi</span> — ini tentang hasil. Hemat <span class="hl hl-pink">3 jam</span> per hari dengan <span class="hl hl-teal">workflow</span> otomatis.
+              Body teks <span class="hl hl-orange">placeholder</span> — paragraf netral untuk demo <span class="hl hl-pink">highlight</span>, menunjukkan tiga kata yang akan ditandai dengan warna <span class="hl hl-teal">aksen</span>.
             </div>
           </div>
         </div>
@@ -1177,13 +1150,13 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
         <div class="pf-preview">
           <div class="ig-p">
             <div>
-              <div class="pt-tag">Rahman Ramsi &middot; Tips AI</div>
+              <div class="pt-tag">Rahman Ramsi &middot; Category</div>
               <div style="height:3px;background:var(--kerja-orange);width:28px;border-radius:2px;margin:6px 0 10px"></div>
-              <div class="pt-h" style="font-size:clamp(16px,3vw,26px)">5 Cara AI<br>Bantu Kamu<br>Kerja Lebih<br>Cepat</div>
+              <div class="pt-h" style="font-size:clamp(16px,3vw,26px)">Carousel<br>Headline<br>Placeholder<br>(4 baris)</div>
             </div>
             <div>
               <div style="font-family:'Sora',sans-serif;font-size:56px;font-weight:800;color:var(--studio-teal-light);opacity:0.12;line-height:1;position:absolute;top:-44px;right:0">5</div>
-              <div class="pt-body" style="font-size:11px;margin-bottom:10px">Swipe untuk lihat semuanya &#8594;</div>
+              <div class="pt-body" style="font-size:11px;margin-bottom:10px">Swipe / scroll cue placeholder &#8594;</div>
               <div style="display:flex;gap:4px;margin-bottom:8px">
                 <div style="width:18px;height:3px;background:var(--kerja-orange);border-radius:2px"></div>
                 <div style="width:6px;height:3px;background:rgba(255,255,255,0.2);border-radius:2px"></div>
@@ -1210,12 +1183,12 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
                   <div style="font-size:9px;color:rgba(255,255,255,0.45)">Agentic Architect &amp; Consultant</div>
                 </div>
               </div>
-              <div class="pt-h" style="font-size:clamp(13px,2.5vw,20px)">"AI bukan tentang teknologi &mdash;<br>tapi tentang hasil."</div>
+              <div class="pt-h" style="font-size:clamp(13px,2.5vw,20px)">"Quote / insight headline &mdash;<br>placeholder text."</div>
             </div>
             <div>
-              <div class="pt-body" style="font-size:10px;margin-bottom:6px">Setelah 2 tahun mengajar 500+ profesional Indonesia tentang AI</div>
+              <div class="pt-body" style="font-size:10px;margin-bottom:6px">Body teks placeholder untuk demo LinkedIn post (1-2 baris).</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
-                <span class="pt-badge">AI untuk Kerja</span>
+                <span class="pt-badge">Brand Tagline</span>
                 <div class="pt-logo" style="font-size:10px">Rahman Ramsi</div>
               </div>
             </div>
@@ -1234,10 +1207,10 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
                 <div style="width:3px;height:3px;background:var(--kerja-orange);border-radius:50%"></div>
                 <div style="font-size:9px;color:rgba(255,255,255,0.35)">1/7</div>
               </div>
-              <div class="pt-h" style="font-size:clamp(12px,2vw,18px)">Cara saya pakai AI setiap hari<br>(tanpa hype, yang beneran works)</div>
+              <div class="pt-h" style="font-size:clamp(12px,2vw,18px)">Thread headline placeholder<br>(2-line variant untuk demo)</div>
             </div>
             <div>
-              <div class="pt-body" style="font-size:10px;margin-bottom:6px">Tools: ChatGPT, Claude, Notion AI &middot; Hemat ~3 jam/hari</div>
+              <div class="pt-body" style="font-size:10px;margin-bottom:6px">Body teks placeholder &middot; metadata pendek</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <div style="font-size:9px;color:rgba(255,255,255,0.35)">@rahmanramsi19</div>
                 <div style="height:2px;width:24px;background:var(--kerja-orange);border-radius:2px"></div>
@@ -1254,11 +1227,11 @@ box-shadow: 0 2px 12px rgba(15,42,74,0.08);
           <div class="reel-p">
             <div>
               <div style="display:inline-flex;align-items:center;padding:3px 8px;background:var(--kerja-orange);border-radius:9999px;font-size:9px;font-weight:700;color:white;letter-spacing:.05em;margin-bottom:10px">REEL</div>
-              <div class="pt-h" style="font-size:clamp(18px,5vw,30px)">AI untuk<br>Kerja,<br>Bukan<br>untuk<br>Pamer</div>
+              <div class="pt-h" style="font-size:clamp(18px,5vw,30px)">Reel<br>Headline<br>Display<br>Placeholder</div>
             </div>
             <div>
               <div style="height:2px;background:var(--studio-teal);border-radius:2px;width:32px;margin-bottom:6px"></div>
-              <div class="pt-body" style="font-size:9px;margin-bottom:6px">5 menit yang mengubah cara kerja</div>
+              <div class="pt-body" style="font-size:9px;margin-bottom:6px">Body cue placeholder</div>
               <div class="pt-logo" style="font-size:10px">@rahmanramsi</div>
             </div>
           </div>
