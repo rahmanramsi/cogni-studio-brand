@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahman Ramsi — Mobile-First Carousel & Safe Zones (v3.1)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --cogni-navy:#0F2A4A;--cogni-navy-mid:#1A3F6E;--cogni-navy-deep:#071929;
+      --studio-teal:#0D9BAE;--studio-teal-light:#14B8CE;
+      --kerja-orange:#F77F2A;--kerja-orange-lt:#FF9A4A;
+      --white:#FFFFFF;--cloud:#F4F7FA;--mist:#EBF0F5;
+      --gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-300:#CBD5E1;
+      --gray-500:#64748B;--gray-600:#475569;--gray-700:#334155;--gray-900:#0F172A;
+      --green:#16A34A;--green-pale:#DCFCE7;--red:#DC2626;--red-pale:#FEE2E2;
+      --font-h:'Sora',ui-sans-serif,system-ui,sans-serif;
+      --font-b:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;
+      --font-i:'Playfair Display',Georgia,serif;
+    }
+    html,body{background:var(--cloud);font-family:var(--font-b);color:var(--gray-900);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.55}
+    body{padding:48px 24px 96px;max-width:980px;margin:0 auto}
+
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;font:600 13px/1 var(--font-b);letter-spacing:.04em;color:var(--gray-500)}
+    .topbar a{color:var(--studio-teal);text-decoration:none}
+    .topbar a:hover{color:var(--cogni-navy)}
+
+    .hero{
+      background:var(--cogni-navy);
+      background-image:radial-gradient(circle,rgba(13,155,174,.15) 1.5px,transparent 1.5px);
+      background-size:36px 36px;
+      border-radius:18px;padding:40px 36px;color:var(--white);margin-bottom:40px;position:relative;overflow:hidden;
+    }
+    .hero::before{content:'';position:absolute;left:0;top:32px;width:5px;height:calc(100% - 64px);background:var(--kerja-orange)}
+    .hero .label{font:700 11px/1 var(--font-b);letter-spacing:.18em;text-transform:uppercase;color:var(--studio-teal-light);margin-bottom:14px}
+    .hero h1{font:800 44px/1.1 var(--font-h);letter-spacing:-.025em;margin-bottom:14px;max-width:720px}
+    .hero h1 em{font-family:var(--font-i);font-style:italic;font-weight:900;color:var(--kerja-orange)}
+    .hero p{font:500 17px/1.6 var(--font-b);color:rgba(255,255,255,.78);max-width:680px}
+
+    section{background:var(--white);border:1px solid var(--mist);border-radius:14px;padding:32px 32px 28px;margin-bottom:24px}
+    .num{display:inline-block;font:700 11px/1 var(--font-b);letter-spacing:.16em;text-transform:uppercase;color:var(--kerja-orange);margin-bottom:8px}
+    h2{font:800 26px/1.2 var(--font-h);letter-spacing:-.015em;color:var(--cogni-navy);margin-bottom:8px}
+    .sub{font:500 14.5px/1.7 var(--font-b);color:var(--gray-600);margin-bottom:22px;max-width:720px}
+
+    table{width:100%;border-collapse:collapse;margin:16px 0}
+    th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--mist);font-size:13.5px;vertical-align:top}
+    th{font:700 11px/1 var(--font-b);letter-spacing:.12em;text-transform:uppercase;color:var(--gray-500);background:var(--cloud)}
+    td strong{color:var(--cogni-navy);font-weight:700}
+    code{font:600 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--gray-100);padding:2px 6px;border-radius:4px;color:var(--cogni-navy)}
+
+    .info{background:#EFF8FA;border-left:4px solid var(--studio-teal);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--gray-700)}
+    .info strong{color:var(--cogni-navy)}
+    .warn{background:var(--red-pale);border-left:4px solid var(--red);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--gray-700)}
+    .warn strong{color:#991B1B}
+    .ok{background:var(--green-pale);border-left:4px solid var(--green);padding:14px 18px;border-radius:6px;font-size:13.5px;line-height:1.7;margin:14px 0;color:var(--gray-700)}
+    .ok strong{color:#15803D}
+
+    /* Visual safe zone diagram */
+    .canvas-diagram{display:flex;justify-content:center;margin:20px 0 8px}
+    .canvas{
+      position:relative;width:230px;height:410px;background:var(--cogni-navy);
+      background-image:radial-gradient(circle,rgba(13,155,174,.18) 1px,transparent 1px);
+      background-size:14px 14px;
+      border-radius:14px;overflow:hidden;color:var(--white);
+      box-shadow:0 12px 30px -10px rgba(0,0,0,.25);
+    }
+    .canvas .zone{position:absolute;left:0;right:0;background:rgba(247,127,42,.18);border:1px dashed rgba(247,127,42,.55);
+      display:flex;align-items:center;justify-content:center;font:700 9px/1 var(--font-b);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+    .canvas .zone.top{top:0;height:51px}
+    .canvas .zone.bottom{bottom:0;height:103px}
+    .canvas .center{position:absolute;left:14px;right:14px;top:60px;bottom:114px;
+      border:1px dashed rgba(20,184,206,.4);border-radius:6px;
+      display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:14px}
+    .canvas .center .eye{font:700 8px/1 var(--font-b);letter-spacing:.16em;color:var(--studio-teal-light);margin-bottom:8px}
+    .canvas .center .head{font:800 22px/1 var(--font-h);letter-spacing:-.02em}
+    .canvas .center .head em{font-family:var(--font-i);font-style:italic;font-weight:900;color:var(--kerja-orange)}
+    .canvas .center .body{font:500 9px/1.4 var(--font-b);color:rgba(255,255,255,.75);margin-top:10px}
+    .canvas .ind{position:absolute;right:16px;top:18px;font:600 8px/1 var(--font-b);color:rgba(255,255,255,.55)}
+    .canvas .deco{position:absolute;right:-10px;top:50px;font:800 100px/0.85 var(--font-h);color:rgba(255,255,255,.06);letter-spacing:-.04em}
+    .legend{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+    .legend div{font:600 11.5px/1.4 var(--font-b);color:var(--gray-600);padding:8px 12px;border:1px solid var(--mist);border-radius:6px}
+    .legend strong{color:var(--cogni-navy);font-weight:800}
+    .legend .pulse{display:inline-block;width:8px;height:8px;border-radius:99px;background:var(--kerja-orange);margin-right:6px;vertical-align:1px}
+    .legend .pulse.t{background:var(--studio-teal-light)}
+
+    .checklist{list-style:none;display:flex;flex-direction:column;gap:8px;margin:14px 0}
+    .checklist li{font:500 14px/1.6 var(--font-b);color:var(--gray-700);position:relative;padding-left:30px}
+    .checklist li::before{content:'✓';position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:99px;background:var(--green-pale);color:var(--green);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center}
+    .checklist li strong{color:var(--cogni-navy)}
+
+    .change-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--mist)}
+    .change-row:last-child{border-bottom:none}
+    .change-row .ver{font:800 13px/1 var(--font-h);color:var(--studio-teal);letter-spacing:-.005em;align-self:start;padding-top:2px}
+    .change-row .body{font:500 13.5px/1.7 var(--font-b);color:var(--gray-700)}
+    .change-row .body b{color:var(--cogni-navy);font-weight:800}
+
+    .footer{margin-top:48px;text-align:center;color:var(--gray-500);font-size:12px;line-height:1.7}
+    .footer a{color:var(--studio-teal);text-decoration:none}
+
+    @media (max-width:640px){
+      body{padding:24px 16px 64px}
+      .hero{padding:28px 24px}
+      .hero h1{font-size:30px;line-height:1.15}
+      section{padding:24px 22px}
+      h2{font-size:22px}
+      .change-row{grid-template-columns:1fr;gap:4px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="/">← Cogni Studio Brand</a>
+    <span>v3.1 · Mobile-First Update</span>
+  </div>
+
+  <div class="hero">
+    <div class="label">Design System v3.1 · 2026-05-01</div>
+    <h1>Mobile-First Carousel <em>&amp;</em> Safe Zones</h1>
+    <p>Update penting setelah produksi deck "OpenAI Workspace Agents" — typography di-bump untuk kebacaan di feed HP, TikTok safe zones formalized, dan format carousel disatukan jadi satu sumber konten untuk IG &amp; TikTok.</p>
+  </div>
+
+  <!-- 01 — Why -->
+  <section>
+    <div class="num">01 · Konteks</div>
+    <h2>Kenapa update ini ada?</h2>
+    <p class="sub">Saat deck pertama (v3.0) di-render ke PNG dan di-view di feed HP (~390-420px lebar), body 18-22px hanya tampil ~6-8px on-screen — tidak terbaca. User feedback: "ukuran text terlalu kecil untuk ukuran HP."</p>
+    <p class="sub">Selain itu, pada TikTok native UI, heading di top canvas tertutup back-button + profile, dan caption di bottom menutup CTA. Konten harus dirancang dengan asumsi safe zone, bukan full canvas.</p>
+    <div class="info"><strong>Prinsip:</strong> Designer melihat 1080-pixel canvas, audience melihat 390-pixel feed. Sizing harus dirancang untuk yang dilihat audience, bukan canvas absolute.</div>
+  </section>
+
+  <!-- 02 — Mobile-readable typography minimums -->
+  <section>
+    <div class="num">02 · Typography</div>
+    <h2>Mobile-Readable Sizing Minimums</h2>
+    <p class="sub">Sizing minimum agar konten kebaca pada feed HP. Render canvas 1080-pixel di-scale ~36-39% pada feed iPhone (lebar 390-420px), maka pixel canvas dikalikan ~0.36 untuk dapat ukuran on-screen.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>IG 1080×1080</th>
+          <th>TikTok 1080×1920</th>
+          <th>On-screen (HP)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Body</strong></td><td>≥ 32px</td><td>≥ 48px</td><td>~12px / ~21px</td></tr>
+        <tr><td><strong>Eyebrow / Label</strong></td><td>≥ 24px</td><td>≥ 32px</td><td>~9px / ~14px</td></tr>
+        <tr><td><strong>H2 Headline</strong></td><td>56–60px</td><td>88–96px</td><td>~22px / ~38px</td></tr>
+        <tr><td><strong>H1 / Display</strong></td><td>96–120px</td><td>140–160px</td><td>~36–44px / ~62–70px</td></tr>
+        <tr><td><strong>Slide indicator</strong></td><td>≥ 22px</td><td>≥ 28px</td><td>~8px / ~12px</td></tr>
+        <tr><td><strong>Pull quote</strong></td><td>48–56px</td><td>72–80px</td><td>~18–21px / ~32–35px</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn"><strong>Don't:</strong> Body &lt; 32px (IG) atau &lt; 48px (TikTok). Audience akan zoom in atau scroll past.</div>
+    <div class="ok"><strong>Do:</strong> Trim copy lebih agresif jika perlu untuk muat dengan font size baru. <em>Whitespace = design.</em></div>
+  </section>
+
+  <!-- 03 — TikTok safe zones -->
+  <section>
+    <div class="num">03 · Safe Zones</div>
+    <h2>TikTok Native UI Safe Zones</h2>
+    <p class="sub">TikTok UI menutup top dan bottom canvas. Konten penting harus berada di safe zone tengah (1080×1200 dari total 1080×1920).</p>
+
+    <div class="canvas-diagram">
+      <div class="canvas">
+        <div class="zone top">Top safe zone — nav</div>
+        <div class="ind">7 / 7</div>
+        <div class="deco">04</div>
+        <div class="center">
+          <div class="eye">PERANG AGENT 2026</div>
+          <div class="head">Tiga<br>raksasa<em>.</em></div>
+          <div class="body">Headline + body<br>tinggal di tengah</div>
+        </div>
+        <div class="zone bottom">Bottom safe zone — caption + UI</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div><span class="pulse"></span><strong>Top: 240px</strong><br>status bar + back/follow button</div>
+      <div><span class="pulse"></span><strong>Bottom: 480px</strong><br>caption text + action UI</div>
+      <div><span class="pulse t"></span><strong>Center: 1200px</strong><br>area konten utama</div>
+    </div>
+
+    <div class="info"><strong>CSS pattern:</strong> <code>padding: 240px 80px 480px 80px</code> + <code>display: flex; flex-direction: column; justify-content: center</code> agar konten vertically centered dalam safe area.</div>
+
+    <div class="warn"><strong>Brand handle &amp; CTA:</strong> Wajib diletakkan di atas bottom safe zone (y &lt; 1440). Jangan andalkan posisi y &gt; 1440 — akan tertutup TikTok caption.</div>
+  </section>
+
+  <!-- 04 — Slide indicator placement -->
+  <section>
+    <div class="num">04 · Indicator</div>
+    <h2>Slide Indicator Placement</h2>
+    <p class="sub">Slide indicator (mis. <code>4 / 7</code>) adalah elemen dekoratif yang tidak boleh nabrak konten utama saat content stack lebih panjang.</p>
+
+    <table>
+      <thead><tr><th>Platform</th><th>Posisi</th><th>CSS</th></tr></thead>
+      <tbody>
+        <tr><td><strong>IG 1080×1080</strong></td><td>Bottom-left</td><td><code>position: absolute; left: 56px; bottom: 48px</code></td></tr>
+        <tr><td><strong>TikTok 1080×1920</strong></td><td>Top-right (di safe zone)</td><td><code>position: absolute; right: 80px; top: 120px</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="info"><strong>Why TikTok = top:</strong> dengan content vertically centered dalam safe area, indicator absolute di bottom akan tabrakan dengan footer-line ketika content tinggi (S4 cards stack, S6 disclaimer + lokal-line). Top-right sudah berada di top safe zone, tidak konflik dengan content.</div>
+  </section>
+
+  <!-- 05 — Unified carousel format -->
+  <section>
+    <div class="num">05 · Unified Format</div>
+    <h2>Satu Format Carousel untuk IG &amp; TikTok</h2>
+    <p class="sub">Sebelumnya kami produksi dua deck terpisah (1080×1080 IG + 1080×1920 TikTok). Mulai v3.1, gunakan <strong>satu deck 1080×1920</strong> sebagai master, dengan content didesain untuk fit dalam safe zone tengah.</p>
+
+    <table>
+      <thead><tr><th>Platform</th><th>Penggunaan</th><th>Catatan</th></tr></thead>
+      <tbody>
+        <tr><td><strong>TikTok Slideshow</strong></td><td>Native 9:16 — full canvas</td><td>Optimal — konten center hadir di safe zone</td></tr>
+        <tr><td><strong>IG Reels / Stories</strong></td><td>Native 9:16 — full canvas</td><td>Optimal — sama dengan TikTok</td></tr>
+        <tr><td><strong>IG Feed Carousel</strong></td><td>Auto-cropped ke 4:5 (1080×1350)</td><td>IG memotong top 285px + bottom 285px. Karena konten sudah ada di safe zone tengah, hasil crop tetap utuh.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ok"><strong>Benefit:</strong> Satu produksi → multi-platform. Hilangkan duplikasi spec, render, dan QC.</div>
+    <div class="info"><strong>Naming:</strong> file gunakan <code>slide-01.png … slide-07.png</code> (bukan <code>ig-XX</code>/<code>tt-XX</code>) untuk menegaskan format unified.</div>
+  </section>
+
+  <!-- 06 — Closing slide convention -->
+  <section>
+    <div class="num">06 · Closing Slide</div>
+    <h2>Konvensi Slide Penutup (Slide N)</h2>
+    <p class="sub">Setiap deck wajib punya closing slide dengan stack berikut, dari atas ke bawah:</p>
+
+    <ol class="checklist" style="counter-reset:item">
+      <li><strong>Eyebrow</strong> — context label (mis. "3 PERTANYAAN BUAT LO")</li>
+      <li><strong>Question stack / list konkret</strong> — pertanyaan refleksi atau action items, bukan abstraksi</li>
+      <li><strong>Footer italic</strong> — anchor pernyataan (mis. "Belum ada jawaban benar. Tapi lo harus mulai *ngelacak*.")</li>
+      <li><strong>CTA orange</strong> — momen spesifik kapan pakai (mis. "Simpan buat weekly meeting tim.")</li>
+      <li><strong>Sub-CTA</strong> — prompt refleksi singkat (mis. "Cek: kantor lo lagi pake AI yang mana?")</li>
+      <li><strong>"Follow for more →"</strong> — Sora 800, Kerja Orange, di atas brand handle</li>
+      <li><strong>Brand handle</strong> — cukup <code>@username</code> (TikTok) atau <code>RAHMAN RAMSI · @username</code> (IG)</li>
+    </ol>
+
+    <div class="warn"><strong>Don't:</strong> Tagline panjang setelah handle ("@username — AI peta lokal"). Audience tidak baca tagline — handle saja sudah cukup branding.</div>
+    <div class="ok"><strong>Do:</strong> "Follow for more →" sebagai CTA eksplisit. TikTok &amp; IG audience punya CTA muscle memory untuk ini.</div>
+  </section>
+
+  <!-- 07 — Font fallback -->
+  <section>
+    <div class="num">07 · Font Fallback</div>
+    <h2>Special Characters &amp; Font Fallback</h2>
+    <p class="sub">Sora variable font tidak punya glyph untuk semua Unicode characters (mis. <code>→</code> U+2192, <code>↗</code> U+2197). Saat headline pakai Sora 800, special chars tampil sebagai tofu (kotak kosong).</p>
+
+    <div class="warn"><strong>Don't:</strong> <code>font-family: 'Sora', sans-serif</code> untuk teks yang mengandung arrow / panah / simbol khusus.</div>
+    <div class="ok"><strong>Do:</strong> <code>font-family: 'Sora', 'Plus Jakarta Sans', sans-serif</code> — fallback per-character ke PJS yang punya glyph lengkap. Visual tetap dominant Sora untuk huruf, hanya char khusus yang fall back.</div>
+  </section>
+
+  <!-- 08 — QC Checklist -->
+  <section>
+    <div class="num">08 · QC Checklist</div>
+    <h2>Self-Check Sebelum Submit (v3.1)</h2>
+    <p class="sub">Tambahan dari brand compliance v3.0 — wajib divalidasi pada setiap output mobile-first.</p>
+
+    <ul class="checklist">
+      <li><strong>Body ≥ 32px</strong> (IG) atau <strong>≥ 48px</strong> (TikTok)</li>
+      <li><strong>Eyebrow ≥ 24px</strong> (IG) atau <strong>≥ 32px</strong> (TikTok), UPPERCASE, letter-spacing 0.16em</li>
+      <li><strong>TikTok safe zones</strong> — top 240px + bottom 480px clear dari teks penting</li>
+      <li><strong>Konten vertikal di-center</strong> dalam safe area (justify-content: center)</li>
+      <li><strong>Slide indicator</strong> tidak nabrak konten — IG bottom-left, TikTok top-right</li>
+      <li><strong>Brand handle</strong> di atas bottom safe zone, tanpa tagline panjang</li>
+      <li><strong>"Follow for more →"</strong> hadir di slide penutup, font Sora + PJS fallback</li>
+      <li><strong>Special chars</strong> punya font fallback (arrow, panah, dll)</li>
+      <li><strong>Format unified</strong> — 1080×1920 master, naming <code>slide-NN.png</code></li>
+    </ul>
+  </section>
+
+  <!-- 09 — Changelog -->
+  <section>
+    <div class="num">09 · Changelog</div>
+    <h2>Histori Revisi Deck OpenAI Workspace Agents</h2>
+    <p class="sub">Lessons learned dari deck pertama yang akhirnya jadi rules baru di v3.1.</p>
+
+    <div class="change-row">
+      <div class="ver">v1 — Initial</div>
+      <div class="body">Spec awal Suara: 7 slide, 18px body IG, 30px body TikTok, narrative arc landscape awareness (Hook → Konteks → Trajectory → Perang Agent → Analogi OS → Disclaimer → CTA).</div>
+    </div>
+    <div class="change-row">
+      <div class="ver">v2 — Argus content review</div>
+      <div class="body">6 content gaps ditutup: <b>Slide 2</b> + Rippling stat callout (5–6 jam evidence); <b>Slide 4</b> cards di-enrich dengan 5-dimensi (strategi · integrasi · pricing); <b>Slide 5</b> + choice-line (fleksibilitas vs ekosistem); <b>Slide 6</b> + KONTEKS INDONESIA line (M365 vs Plus personal); <b>Slide 7</b> CTA generik diganti weekly-meeting anchor + concrete prompt refleksi.</div>
+    </div>
+    <div class="change-row">
+      <div class="ver">v3 — Mobile-readable typography</div>
+      <div class="body">Body 22→32px (IG) / 36→48px (TikTok). Eyebrow 13→24px / 22→32px. Headline 56→60px / 84→112px. Display 124→110px / 110→140px. Slide indicator 14→22px / 20→28px. Padding canvas IG 80→56px, TikTok 120→480px bottom-only (safe zone).</div>
+    </div>
+    <div class="change-row">
+      <div class="ver">v3.1 — Safe zones &amp; unified</div>
+      <div class="body">TikTok top safe zone 240px ditambah (sebelumnya hanya bottom). Content vertically centered via flex justify-content. Slide indicator pindah dari bottom-left ke top-right TikTok (resolve overlap di S4/S6). Brand handle simplified — tagline "AI peta lokal" dihapus, cukup <code>@rhmrmsi</code>. <b>"Follow for more →"</b> CTA ditambah di closing slide. Font fallback <code>'Sora', 'Plus Jakarta Sans'</code> untuk special chars. <b>Carousel format unified</b>: drop separate IG square deck, gunakan 1 master 1080×1920 untuk semua platform.</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Cogni Studio Brand — Mobile-First Update v3.1<br>
+    <a href="/">← Kembali ke Cogni Studio Brand</a> · <a href="/design-system">Design System v3.0</a> · <a href="/sop">SOP v2.1</a>
+  </div>
+
+</body>
+</html>
