@@ -38,14 +38,14 @@ body {
 
 /* ── HEADER ─────────────────── */
 .page-header {
-  background: var(--deep-brown);
+  background: linear-gradient(135deg, var(--warm-cream) 0%, var(--cream-dark) 100%);
   padding: 48px 64px 40px;
   position: relative; overflow: hidden;
 }
 .page-header::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(181,69,44,0.08) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(181,69,44,0.05) 1.5px, transparent 1.5px);
   background-size: 36px 36px;
 }
 .page-header::after {
@@ -56,20 +56,20 @@ body {
 .header-inner { position: relative; z-index: 1; max-width: 900px; }
 .header-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(181,69,44,0.15); border: 1px solid rgba(181,69,44,0.25);
-  color: var(--terracotta-light); font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  background: var(--warm-stone); border: 1px solid var(--warm-stone);
+  color: var(--terracotta); font-size: 11px; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; padding: 5px 12px; border-radius: 99px; margin-bottom: 20px;
 }
 .header-badge::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--terracotta-light); display: block;
+  background: var(--terracotta); display: block;
 }
 .page-header h1 {
-  font-family: var(--font-h); font-size: 36px; font-weight: 800; color: var(--warm-white);
+  font-family: var(--font-h); font-size: 36px; font-weight: 800; color: var(--deep-brown);
   line-height: 1.15; margin-bottom: 12px;
 }
 .page-header p {
-  font-size: 16px; color: var(--brown-muted-dark); max-width: 600px; line-height: 1.7;
+  font-size: 16px; color: var(--brown-muted); max-width: 600px; line-height: 1.7;
 }
 
 /* ── LAYOUT ─────────────────── */
@@ -208,10 +208,12 @@ body {
 .divider { height: 1px; background: var(--warm-stone); margin: 8px 0; }
 
 .footer {
-  background: var(--deep-brown); color: var(--brown-muted-dark);
+  background: var(--warm-cream);
+  border-top: 1px solid var(--warm-stone);
+  color: var(--brown-muted);
   text-align: center; padding: 28px; font-size: 12px;
 }
-.footer strong { color: var(--warm-white); }
+.footer strong { color: var(--body-brown); }
 </style>
 </head>
 <body>

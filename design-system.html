@@ -56,7 +56,8 @@
     /* ── SIDEBAR ─────────────────────────────── */
     .sidebar {
       width: 260px; min-width: 260px;
-      background: var(--deep-brown);
+      background: white;
+      border-right: 1px solid var(--warm-stone);
       height: 100vh; position: sticky; top: 0;
       display: flex; flex-direction: column;
       padding: 24px 16px;
@@ -70,26 +71,26 @@
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-h); font-weight: 800; font-size: 14px; color: var(--warm-white);
     }
-    .sb-name { font-family: var(--font-h); font-weight: 800; font-size: 15px; color: var(--warm-white); }
-    .sb-sub  { font-size: 10px; color: var(--brown-muted-dark); margin-top: 1px; }
+    .sb-name { font-family: var(--font-h); font-weight: 800; font-size: 15px; color: var(--deep-brown); }
+    .sb-sub  { font-size: 10px; color: var(--brown-muted); margin-top: 1px; }
     .sb-nav  { list-style: none; flex: 1; }
     .sb-nav li { margin-bottom: 1px; }
     .sb-nav a {
       display: flex; align-items: center; gap: 10px;
       padding: 8px 10px; border-radius: 7px;
       text-decoration: none; font-size: 12.5px; font-weight: 500;
-      color: var(--brown-muted-dark); transition: all .15s;
+      color: var(--brown-muted); transition: all .15s;
     }
-    .sb-nav a:hover { background: rgba(255,255,255,0.07); color: var(--warm-white); }
+    .sb-nav a:hover { background: var(--warm-stone); color: var(--deep-brown); }
     .sb-nav a.active { background: var(--terracotta); color: var(--warm-white); font-weight: 600; }
     .sb-nav .nn {
-      font-size: 9px; color: rgba(255,255,255,0.2); font-weight: 700;
+      font-size: 9px; color: var(--brown-muted); font-weight: 700;
       min-width: 16px; text-align: right;
     }
     .sb-nav a.active .nn { color: rgba(255,255,255,0.6); }
     .sb-foot {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 16px; font-size: 10px; color: var(--brown-muted-dark); line-height: 1.8;
+      border-top: 1px solid var(--warm-stone);
+      padding-top: 16px; font-size: 10px; color: var(--brown-muted); line-height: 1.8;
     }
 
     /* ── MAIN ────────────────────────────────── */
@@ -134,7 +135,7 @@
 
     /* ── COVER ────────────────────────────────── */
     .cover {
-      background: linear-gradient(135deg, var(--deep-brown) 0%, #2D1810 60%, #281810 100%);
+      background: linear-gradient(135deg, var(--warm-cream) 0%, var(--cream-dark) 100%);
       padding: 60px 56px;
       min-height: 260px;
       display: flex; flex-direction: column; justify-content: center;
@@ -143,7 +144,7 @@
     .cover::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(181,69,44,0.08) 1.5px, transparent 1.5px);
+      background-image: radial-gradient(circle, rgba(181,69,44,0.05) 1.5px, transparent 1.5px);
       background-size: 40px 40px;
       pointer-events: none;
     }
@@ -154,18 +155,18 @@
     }
     .cover-inner { position: relative; z-index: 1; }
     .cover-eyebrow {
-      font-size: 10px; font-weight: 700; color: var(--terracotta-light);
+      font-size: 10px; font-weight: 700; color: var(--terracotta);
       letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px;
     }
     .cover-title {
       font-family: var(--font-h); font-size: 40px; font-weight: 800;
-      color: var(--warm-white); line-height: 1.1; max-width: 600px; margin-bottom: 12px;
+      color: var(--deep-brown); line-height: 1.1; max-width: 600px; margin-bottom: 12px;
     }
-    .cover-desc { font-size: 15px; color: var(--brown-muted-dark); max-width: 520px; line-height: 1.7; }
+    .cover-desc { font-size: 15px; color: var(--brown-muted); max-width: 520px; line-height: 1.7; }
     .cover-meta { margin-top: 24px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-    .cover-date { font-size: 11px; color: rgba(255,255,255,0.3); }
+    .cover-date { font-size: 11px; color: var(--brown-muted); }
     .cover-compliance {
-      margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.25); line-height: 1.6;
+      margin-top: 16px; font-size: 12px; color: var(--brown-muted); line-height: 1.6;
     }
     .cover-compliance span { color: var(--green); }
 
