@@ -10,19 +10,20 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --cogni-navy: #0F2A4A;
-  --cogni-navy-mid: #1A3F6E;
-  --studio-teal: #0D9BAE;
-  --studio-teal-pale: #E3F7FA;
-  --kerja-orange: #F77F2A;
-  --kerja-orange-pale: #FFF0E5;
-  --white: #FFFFFF;
-  --gray-50: #F4F7FA;
-  --gray-100: #EBF0F5;
-  --gray-200: #D4DCE6;
-  --gray-400: #8FA3B8;
-  --gray-600: #4A6175;
-  --gray-900: #0D1F2D;
+  --warm-cream:       #FFF8F0;
+  --deep-brown:       #1E1810;
+  --body-brown:       #3D3025;
+  --terracotta:       #B5452C;
+  --terracotta-light: #D4705A;
+  --gold:             #D4A017;
+  --warm-stone:       #E8DDD3;
+  --brown-muted:      #8B7355;
+  --gray-50: #FFF8F0;
+  --gray-100: #F5EDE3;
+  --gray-200: #E8DDD3;
+  --gray-400: #A09080;
+  --gray-600: #8B7355;
+  --gray-900: #3D3025;
   --font-h: 'Sora', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-b: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
@@ -37,38 +38,38 @@ body {
 
 /* ── HEADER ─────────────────── */
 .page-header {
-  background: var(--cogni-navy);
+  background: var(--deep-brown);
   padding: 48px 64px 40px;
   position: relative; overflow: hidden;
 }
 .page-header::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(13,155,174,0.15) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(181,69,44,0.08) 1.5px, transparent 1.5px);
   background-size: 36px 36px;
 }
 .page-header::after {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--studio-teal), var(--kerja-orange));
+  background: linear-gradient(90deg, var(--terracotta), var(--gold));
 }
 .header-inner { position: relative; z-index: 1; max-width: 900px; }
 .header-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(13,155,174,0.2); border: 1px solid rgba(13,155,174,0.3);
-  color: #14B8CE; font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  background: rgba(181,69,44,0.15); border: 1px solid rgba(181,69,44,0.25);
+  color: var(--terracotta-light); font-size: 11px; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; padding: 5px 12px; border-radius: 99px; margin-bottom: 20px;
 }
 .header-badge::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--studio-teal); display: block;
+  background: var(--terracotta-light); display: block;
 }
 .page-header h1 {
-  font-family: var(--font-h); font-size: 36px; font-weight: 800; color: white;
+  font-family: var(--font-h); font-size: 36px; font-weight: 800; color: var(--warm-white);
   line-height: 1.15; margin-bottom: 12px;
 }
 .page-header p {
-  font-size: 16px; color: rgba(255,255,255,0.55); max-width: 600px; line-height: 1.7;
+  font-size: 16px; color: var(--brown-muted-dark); max-width: 600px; line-height: 1.7;
 }
 
 /* ── LAYOUT ─────────────────── */
@@ -81,40 +82,40 @@ body {
 .section-header { margin-bottom: 24px; display: flex; align-items: flex-start; gap: 16px; }
 .section-num {
   width: 36px; height: 36px; min-width: 36px; border-radius: 9px;
-  background: var(--studio-teal); color: white;
+  background: var(--terracotta); color: var(--warm-white);
   font-family: var(--font-h); font-size: 14px; font-weight: 800;
   display: flex; align-items: center; justify-content: center; margin-top: 2px;
 }
 .section-title-wrap {}
 .section-title {
-  font-family: var(--font-h); font-size: 20px; font-weight: 800; color: var(--cogni-navy);
+  font-family: var(--font-h); font-size: 20px; font-weight: 800; color: var(--deep-brown);
 }
-.section-sub { font-size: 13.5px; color: var(--gray-600); margin-top: 3px; }
+.section-sub { font-size: 13.5px; color: var(--brown-muted); margin-top: 3px; }
 
 /* ── PROMPT CARD ─────────────── */
 .prompt-card {
-  background: white; border: 1px solid var(--gray-200); border-radius: 14px;
+  background: white; border: 1px solid var(--warm-stone); border-radius: 14px;
   overflow: hidden; margin-bottom: 20px;
 }
 .prompt-card:last-child { margin-bottom: 0; }
 
 .prompt-card-header {
-  padding: 18px 24px; border-bottom: 1px solid var(--gray-100);
+  padding: 18px 24px; border-bottom: 1px solid var(--warm-stone);
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
 .prompt-card-header h3 {
-  font-family: var(--font-h); font-size: 15px; font-weight: 700; color: var(--cogni-navy);
+  font-family: var(--font-h); font-size: 15px; font-weight: 700; color: var(--deep-brown);
   display: flex; align-items: center; gap: 10px;
 }
 .platform-tag {
   font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
   padding: 3px 10px; border-radius: 99px; border: 1.5px solid;
 }
-.platform-tag.ig { color: var(--kerja-orange); border-color: rgba(247,127,42,0.3); background: var(--kerja-orange-pale); }
+.platform-tag.ig { color: var(--gold); border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.06); }
 .platform-tag.li { color: #0A66C2; border-color: rgba(10,102,194,0.2); background: #EEF4FC; }
-.platform-tag.tw { color: var(--cogni-navy); border-color: var(--gray-200); background: var(--gray-50); }
-.platform-tag.reel { color: var(--studio-teal); border-color: rgba(13,155,174,0.3); background: var(--studio-teal-pale); }
-.platform-tag.all { color: var(--gray-600); border-color: var(--gray-200); background: var(--gray-100); }
+.platform-tag.tw { color: var(--deep-brown); border-color: var(--warm-stone); background: var(--warm-cream); }
+.platform-tag.reel { color: var(--terracotta); border-color: rgba(181,69,44,0.3); background: rgba(181,69,44,0.06); }
+.platform-tag.all { color: var(--brown-muted); border-color: var(--warm-stone); background: var(--warm-cream); }
 
 .prompt-body { padding: 20px 24px; }
 
@@ -123,59 +124,59 @@ body {
 .field:last-child { margin-bottom: 0; }
 .field-label {
   font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em;
-  color: var(--gray-400); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+  color: var(--brown-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
 }
 .field-label::before {
-  content: ''; width: 3px; height: 12px; background: var(--studio-teal); border-radius: 2px; display: block;
+  content: ''; width: 3px; height: 12px; background: var(--terracotta); border-radius: 2px; display: block;
 }
 
 .prompt-text {
-  background: var(--cogni-navy); color: #B8D4EC;
+  background: var(--deep-brown); color: var(--warm-stone);
   font-family: var(--font-mono); font-size: 12.5px; line-height: 1.8;
   padding: 16px 20px; border-radius: 10px;
   white-space: pre-wrap; word-break: break-word;
   position: relative;
 }
-.prompt-text .var { color: #F77F2A; font-weight: 600; }
-.prompt-text .key { color: #14B8CE; font-weight: 600; }
+.prompt-text .var { color: var(--gold); font-weight: 600; }
+.prompt-text .key { color: var(--terracotta-light); font-weight: 600; }
 .prompt-text .neg { color: #FF7B7B; }
-.prompt-text .comment { color: rgba(184,212,236,0.35); font-style: italic; }
+.prompt-text .comment { color: var(--brown-muted-dark); font-style: italic; }
 
 .copy-btn {
   display: inline-flex; align-items: center; gap: 6px;
-  background: var(--gray-100); border: 1px solid var(--gray-200);
-  color: var(--gray-600); font-size: 11.5px; font-weight: 600; font-family: var(--font-b);
+  background: var(--warm-cream); border: 1px solid var(--warm-stone);
+  color: var(--brown-muted); font-size: 11.5px; font-weight: 600; font-family: var(--font-b);
   padding: 7px 14px; border-radius: 7px; cursor: pointer; transition: all .15s;
   flex-shrink: 0;
 }
-.copy-btn:hover { background: var(--studio-teal-pale); border-color: var(--studio-teal); color: var(--studio-teal); }
+.copy-btn:hover { background: rgba(181,69,44,0.08); border-color: var(--terracotta); color: var(--terracotta); }
 .copy-btn svg { width: 13px; height: 13px; }
 
 .usage-note {
-  background: var(--gray-50); border: 1px solid var(--gray-100);
-  border-radius: 8px; padding: 12px 16px; font-size: 12.5px; color: var(--gray-600); margin-top: 14px;
+  background: var(--warm-cream); border: 1px solid var(--warm-stone);
+  border-radius: 8px; padding: 12px 16px; font-size: 12.5px; color: var(--brown-muted); margin-top: 14px;
   display: flex; gap: 10px;
 }
-.usage-note svg { width: 16px; height: 16px; color: var(--studio-teal); flex-shrink: 0; margin-top: 1px; }
+.usage-note svg { width: 16px; height: 16px; color: var(--terracotta); flex-shrink: 0; margin-top: 1px; }
 
 /* ── TOKEN TABLE ─────────────── */
 .token-table {
   width: 100%; border-collapse: collapse;
-  background: white; border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden;
+  background: white; border: 1px solid var(--warm-stone); border-radius: 10px; overflow: hidden;
 }
 .token-table th {
   text-align: left; padding: 12px 18px;
   font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
-  color: var(--gray-400); background: var(--gray-50); border-bottom: 1px solid var(--gray-200);
+  color: var(--brown-muted); background: var(--warm-cream); border-bottom: 1px solid var(--warm-stone);
 }
 .token-table td {
-  padding: 14px 18px; font-size: 13.5px; border-bottom: 1px solid var(--gray-100);
+  padding: 14px 18px; font-size: 13.5px; border-bottom: 1px solid var(--warm-stone);
   vertical-align: top;
 }
 .token-table tr:last-child td { border-bottom: none; }
 .token-table code {
   font-family: var(--font-mono); font-size: 12px;
-  background: var(--gray-100); padding: 2px 7px; border-radius: 5px; color: var(--cogni-navy);
+  background: var(--warm-stone); padding: 2px 7px; border-radius: 5px; color: var(--deep-brown);
 }
 .color-swatch {
   display: inline-flex; align-items: center; gap: 8px;
@@ -184,33 +185,33 @@ body {
 
 /* ── WARNING BOX ─────────────── */
 .warn-box {
-  background: var(--kerja-orange-pale); border: 1px solid rgba(247,127,42,0.3);
-  border-left: 4px solid var(--kerja-orange);
+  background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25);
+  border-left: 4px solid var(--gold);
   border-radius: 10px; padding: 16px 20px;
   display: flex; gap: 14px;
 }
-.warn-box svg { width: 20px; height: 20px; color: var(--kerja-orange); flex-shrink: 0; margin-top: 1px; }
-.warn-box-body { font-size: 13.5px; color: var(--gray-900); line-height: 1.7; }
-.warn-box-body strong { font-weight: 700; color: var(--kerja-orange); }
+.warn-box svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+.warn-box-body { font-size: 13.5px; color: var(--body-brown); line-height: 1.7; }
+.warn-box-body strong { font-weight: 700; color: var(--gold); }
 
 /* ── INFO BOX ─────────────────── */
 .info-box {
-  background: var(--studio-teal-pale); border: 1px solid rgba(13,155,174,0.25);
-  border-left: 4px solid var(--studio-teal);
+  background: rgba(181,69,44,0.05); border: 1px solid rgba(181,69,44,0.2);
+  border-left: 4px solid var(--terracotta);
   border-radius: 10px; padding: 16px 20px;
   display: flex; gap: 14px;
 }
-.info-box svg { width: 20px; height: 20px; color: var(--studio-teal); flex-shrink: 0; margin-top: 1px; }
-.info-box-body { font-size: 13.5px; color: var(--gray-900); line-height: 1.7; }
-.info-box-body strong { font-weight: 700; color: var(--studio-teal); }
+.info-box svg { width: 20px; height: 20px; color: var(--terracotta); flex-shrink: 0; margin-top: 1px; }
+.info-box-body { font-size: 13.5px; color: var(--body-brown); line-height: 1.7; }
+.info-box-body strong { font-weight: 700; color: var(--terracotta); }
 
-.divider { height: 1px; background: var(--gray-200); margin: 8px 0; }
+.divider { height: 1px; background: var(--warm-stone); margin: 8px 0; }
 
 .footer {
-  background: var(--cogni-navy); color: rgba(255,255,255,0.4);
+  background: var(--deep-brown); color: var(--brown-muted-dark);
   text-align: center; padding: 28px; font-size: 12px;
 }
-.footer strong { color: rgba(255,255,255,0.6); }
+.footer strong { color: var(--warm-white); }
 </style>
 </head>
 <body>
@@ -246,28 +247,34 @@ body {
       </thead>
       <tbody>
         <tr>
-          <td><strong>Cogni Navy</strong></td>
-          <td><div class="color-swatch"><div class="swatch" style="background:#0F2A4A"></div><code>#0F2A4A</code></div></td>
-          <td><code>"deep navy blue #0F2A4A"</code></td>
-          <td>Background utama, area gelap, headline</td>
+          <td><strong>Warm Cream</strong></td>
+          <td><div class="color-swatch"><div class="swatch" style="background:#FFF8F0;border:1px solid #E8DDD3"></div><code>#FFF8F0</code></div></td>
+          <td><code>"warm cream #FFF8F0"</code></td>
+          <td>Background utama, light surface</td>
         </tr>
         <tr>
-          <td><strong>Studio Teal</strong></td>
-          <td><div class="color-swatch"><div class="swatch" style="background:#0D9BAE"></div><code>#0D9BAE</code></div></td>
-          <td><code>"teal accent #0D9BAE"</code></td>
-          <td>Secondary accent, glow effect, icon, link</td>
+          <td><strong>Deep Brown</strong></td>
+          <td><div class="color-swatch"><div class="swatch" style="background:#1E1810"></div><code>#1E1810</code></div></td>
+          <td><code>"deep warm brown #1E1810"</code></td>
+          <td>Headline, area gelap, sidebar</td>
         </tr>
         <tr>
-          <td><strong>Kerja Orange</strong></td>
-          <td><div class="color-swatch"><div class="swatch" style="background:#F77F2A"></div><code>#F77F2A</code></div></td>
-          <td><code>"warm orange accent #F77F2A"</code></td>
-          <td>CTA, accent bar — <strong>maksimal 1× per gambar</strong></td>
+          <td><strong>Terracotta</strong></td>
+          <td><div class="color-swatch"><div class="swatch" style="background:#B5452C"></div><code>#B5452C</code></div></td>
+          <td><code>"warm terracotta accent #B5452C"</code></td>
+          <td>Emphasis, icon, eyebrow, badge</td>
         </tr>
         <tr>
-          <td>Cloud White</td>
-          <td><div class="color-swatch"><div class="swatch" style="background:#F4F7FA;border:1px solid #D4DCE6"></div><code>#F4F7FA</code></div></td>
-          <td><code>"off-white #F4F7FA"</code></td>
-          <td>Background light mode, surface cards</td>
+          <td><strong>Gold</strong></td>
+          <td><div class="color-swatch"><div class="swatch" style="background:#D4A017"></div><code>#D4A017</code></div></td>
+          <td><code>"warm gold accent #D4A017"</code></td>
+          <td>CTA, accent bar — <strong>maksimal 1&times; per gambar</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Body Brown</strong></td>
+          <td><div class="color-swatch"><div class="swatch" style="background:#3D3025"></div><code>#3D3025</code></div></td>
+          <td><code>"warm body brown #3D3025"</code></td>
+          <td>Body text, light mode</td>
         </tr>
         <tr>
           <td>Heading Font</td>
@@ -288,7 +295,7 @@ body {
     <div class="warn-box">
       <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L2 17h16L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 8v4M10 14v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       <div class="warn-box-body">
-        <strong>Aturan Orange:</strong> Warna Kerja Orange (#F77F2A) hanya boleh muncul <strong>1× per layout/gambar</strong> — gunakan untuk elemen CTA atau accent bar saja. Jangan gunakan untuk lebih dari satu elemen dalam satu gambar.
+        <strong>Aturan Gold:</strong> Warna Gold (#D4A017) hanya boleh muncul <strong>1&times; per layout/gambar</strong> — gunakan untuk elemen CTA atau accent bar saja. Jangan gunakan untuk lebih dari satu elemen dalam satu gambar.
       </div>
     </div>
   </section>
@@ -311,13 +318,13 @@ body {
       <div class="prompt-body">
         <div class="field">
           <div class="field-label">Base Style Prompt</div>
-          <div class="prompt-text"><span class="key">Style:</span> clean modern professional, deep navy blue background (#0F2A4A), teal accent highlights (#0D9BAE), minimal warm orange accent (#F77F2A), geometric sans-serif typography, dot grid texture overlay, flat design with subtle depth, Indonesian professional aesthetic, approachable not corporate rigid
+          <div class="prompt-text"><span class="key">Style:</span> clean modern professional, deep warm brown background (#1E1810) or warm cream (#FFF8F0), terracotta accent highlights (#B5452C), minimal warm gold accent (#D4A017), geometric sans-serif typography, dot grid texture overlay, flat design with subtle depth, Indonesian professional aesthetic, approachable not corporate rigid
 
-<span class="key">Visual language:</span> vertical 3px orange accent bar on left edge, subtle radial dot grid pattern, strong typographic hierarchy, Lucide-style SVG line icons (stroke 1.5px)
+<span class="key">Visual language:</span> vertical 3px gold accent bar on left edge, subtle radial dot grid pattern (terracotta dots 8% opacity), strong typographic hierarchy, Lucide-style SVG line icons (stroke 1.5px)
 
 <span class="key">Quality:</span> high resolution, print quality, sharp edges, no blur artifacts, professional layout
 
-<span class="neg">Negative:</span> no emoji, no gradient slop, no neon colors, no excessive decoration, no Comic Sans, no clip art, no watermark, no border frame unless specified</div>
+<span class="neg">Negative:</span> no emoji, no gradient slop, no neon colors, no excessive decoration, no Comic Sans, no clip art, no watermark, no border frame unless specified, no blue/navy/cool tones, no orange #F77F2A</div>
         </div>
         <div class="usage-note">
           <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3M8 11v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -348,22 +355,22 @@ body {
           <div class="field-label">Full Prompt Template</div>
           <div class="prompt-text">Create a square social media post, 1080x1080px, Instagram carousel cover slide.
 
-<span class="key">Background:</span> deep navy blue (#0F2A4A) with subtle radial dot grid pattern (teal dots at 15% opacity, 40px spacing)
+<span class="key">Background:</span> deep warm brown (#1E1810) or warm cream (#FFF8F0) with subtle radial dot grid pattern (terracotta dots at 8% opacity, 40px spacing)
 
 <span class="key">Layout:</span>
-- Top edge: thin teal gradient stripe (6px height)
-- Left side: 4px solid warm orange vertical accent bar (#F77F2A), positioned 80px from left, spanning center 60% of height
-- Large decorative number "<span class="var">[SLIDE_NUMBER]</span>" in bottom-right quadrant, 15% opacity white, massive font size
+- Top edge: thin terracotta gradient stripe (6px height)
+- Left side: 4px solid gold vertical accent bar (#D4A017), positioned 80px from left, spanning center 60% of height
+- Large decorative number "<span class="var">[SLIDE_NUMBER]</span>" in bottom-right quadrant, 8-12% opacity warm white, massive font size
 
 <span class="key">Typography:</span>
-- Small label top: "Slide <span class="var">[N]</span> dari <span class="var">[TOTAL]</span>" in teal (#0D9BAE), uppercase, tracked
-- Large headline: "<span class="var">[JUDUL_SLIDE]</span>" — Sora ExtraBold, white, very large, tight leading
-- Subtitle below: "<span class="var">[SUBTITLE]</span>" — smaller, 65% opacity white, humanist sans
-- Brand line bottom-left: orange dot + "Rahman Ramsi" in muted white
+- Small label top: "Slide <span class="var">[N]</span> dari <span class="var">[TOTAL]</span>" in terracotta (#B5452C), uppercase, tracked
+- Large headline: "<span class="var">[JUDUL_SLIDE]</span>" — Sora ExtraBold, warm white or deep brown, very large, tight leading
+- Subtitle below: "<span class="var">[SUBTITLE]</span>" — smaller, brown muted, humanist sans
+- Brand line bottom-left: gold dot + "Rahman Ramsi" in muted cream
 
 <span class="key">Style block:</span> clean modern, professional, approachable, no emoji icons, dot grid texture, geometric sans-serif
 
-<span class="neg">Negative:</span> no emoji, no decorative borders, no gradients on text, no stock photo background</div>
+<span class="neg">Negative:</span> no emoji, no decorative borders, no gradients on text, no stock photo background, no navy blue, no teal, no orange #F77F2A</div>
         </div>
         <div class="usage-note">
           <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3M8 11v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -383,22 +390,22 @@ body {
           <div class="field-label">Content Slide Prompt</div>
           <div class="prompt-text">Instagram carousel content slide, 1080x1080px, slide <span class="var">[N]</span> of <span class="var">[TOTAL]</span>.
 
-<span class="key">Background:</span> navy (#0F2A4A) with very subtle dot grid
+<span class="key">Background:</span> deep brown (#1E1810) or warm cream (#FFF8F0) with very subtle dot grid
 
 <span class="key">Layout — Step Diagram Style:</span>
-- Numbered box in teal (#0D9BAE), number "<span class="var">[STEP_NUM]</span>", rounded square shape
-- Thin horizontal arrow pointing right from box
-- Main point text: "<span class="var">[MAIN_POINT]</span>" — large, white, bold
-- Supporting detail below: "<span class="var">[DETAIL]</span>" — smaller, 65% white opacity
-- Left accent bar: 4px orange (#F77F2A) on left edge of content block
+- Numbered box in terracotta (#B5452C), number "<span class="var">[STEP_NUM]</span>", rounded square shape
+- Thin gold arrow (#D4A017) pointing right from box
+- Main point text: "<span class="var">[MAIN_POINT]</span>" — large, warm white or deep brown, bold
+- Supporting detail below: "<span class="var">[DETAIL]</span>" — smaller, brown muted opacity
+- Left accent bar: 4px gold (#D4A017) on left edge of content block
 
 <span class="key">Slide counter:</span> bottom right, small dots showing slide position
 
-<span class="key">Typography:</span> Sora for numbers/labels, Plus Jakarta Sans for body. White text hierarchy.
+<span class="key">Typography:</span> Sora for numbers/labels, Plus Jakarta Sans for body. Text hierarchy.
 
 <span class="key">Tone:</span> educational, clear, professional, Indonesian context
 
-<span class="neg">Negative:</span> no emoji icons, no heavy gradients, no stock photography</div>
+<span class="neg">Negative:</span> no emoji icons, no heavy gradients, no stock photography, no navy/teal/orange old palette</div>
         </div>
       </div>
     </div>
@@ -417,25 +424,25 @@ body {
 <span class="key">Layout:</span> two-column grid — left 60% content, right 40% hero visual
 
 <span class="key">Left column:</span>
-- Top: navy header bar (64px) with "RahmanRamsi" logo text (teal accent) + "Agentic Architect Indonesia"
-- Orange 4px left accent bar running full height
-- Content area white/light gray (#F4F7FA):
-  - Teal uppercase meta label: "<span class="var">[KATEGORI]</span>"
+- Top: deep brown header bar (64px) with "RahmanRamsi" logo text (terracotta accent) + "Agentic Architect Indonesia"
+- Gold 4px left accent bar running full height
+- Content area warm cream (#FFF8F0):
+  - Terracotta uppercase meta label: "<span class="var">[KATEGORI]</span>"
   - Large headline (Sora Bold): "<span class="var">[JUDUL_ARTIKEL]</span>"
   - Body text: "<span class="var">[DESKRIPSI_SINGKAT]</span>"
-  - Step diagram: 3 numbered teal boxes with brief labels
-  - Teal CTA button: "<span class="var">[CTA_TEXT]</span> →"
+  - Step diagram: 3 numbered terracotta boxes with brief labels
+  - Terracotta CTA button: "<span class="var">[CTA_TEXT]</span> →"
 
 <span class="key">Right column:</span>
-- Navy-to-teal gradient background (#0F2A4A to #0D9BAE diagonal)
+- Deep brown-to-terracotta gradient background (#1E1810 to #B5452C diagonal)
 - Dot grid overlay
-- Large stat number (Sora ExtraBold, white): "<span class="var">[STAT_NUMBER]</span>"
+- Large stat number (Sora ExtraBold, warm white): "<span class="var">[STAT_NUMBER]</span>"
 - Stat label below in smaller text
 - Subtle tag/badge at bottom
 
 <span class="key">Overall:</span> professional, authoritative yet approachable, LinkedIn business aesthetic
 
-<span class="neg">Negative:</span> no emoji, no purple/pink, no casual fonts, no clip art</div>
+<span class="neg">Negative:</span> no emoji, no navy/teal, no casual fonts, no clip art</div>
         </div>
         <div class="usage-note">
           <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3M8 11v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -455,23 +462,23 @@ body {
           <div class="field-label">Full Prompt Template</div>
           <div class="prompt-text">Twitter/X post image, 1200x675px, landscape orientation.
 
-<span class="key">Background:</span> very dark navy (#071929) with subtle teal dot grid pattern
+<span class="key">Background:</span> deep earth (#1C1410) with subtle terracotta dot grid pattern
 
 <span class="key">Layout:</span>
-- Top bar: semi-transparent navy, "RahmanRamsi" text logo left, Twitter handle right
-- 4px orange accent bar (#F77F2A) on right edge (decorative, subtle)
+- Top bar: semi-transparent deep brown, "RahmanRamsi" text logo left, Twitter handle right
+- 4px gold accent bar (#D4A017) on right edge (decorative, subtle)
 - Center content (vertical center):
-  - 64px wide teal rule line at top of content block
-  - Large decorative opening quote mark (teal, 15% opacity)
-  - Pull quote text (Sora Bold): "<span class="var">[KUTIPAN]</span>" — very large, white, tight leading
-  - Teal highlight on key word: "<span class="var">[KATA_KUNCI]</span>"
-  - Orange bold on action word: "<span class="var">[KATA_AKSI]</span>"
+  - 64px wide terracotta rule line at top of content block
+  - Large decorative opening quote mark (terracotta, 15% opacity)
+  - Pull quote text (Sora Bold): "<span class="var">[KUTIPAN]</span>" — very large, warm white, tight leading
+  - Terracotta highlight on key word: "<span class="var">[KATA_KUNCI]</span>"
+  - Gold bold on action word: "<span class="var">[KATA_AKSI]</span>"
   - Attribution below: thin line + "— <span class="var">[NAMA]</span>, <span class="var">[JABATAN]</span>" italic style
 - Bottom bar: thin separator + hashtag + brand name
 
 <span class="key">Mood:</span> dark, authoritative, cinematic, thought-provoking
 
-<span class="neg">Negative:</span> no light backgrounds, no busy patterns, no emoji, no gradient overload</div>
+<span class="neg">Negative:</span> no light backgrounds, no busy patterns, no emoji, no gradient overload, no navy/teal</div>
         </div>
         <div class="usage-note">
           <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3M8 11v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -492,30 +499,30 @@ body {
           <div class="prompt-text">Instagram Reels / TikTok thumbnail, 1080x1920px, vertical portrait orientation.
 
 <span class="key">Background:</span>
-- Deep gradient: navy (#0F2A4A) top → very dark navy (#020E18) center-bottom
-- Subtle teal radial glow on right side (atmosphere)
+- Deep gradient: deep brown (#1E1810) top → deep earth (#1C1410) center-bottom
+- Subtle terracotta radial glow on right side (atmosphere)
 - Dot grid texture throughout
-- 5px orange accent bar (#F77F2A) on far left edge
+- 5px gold accent bar (#D4A017) on far left edge
 
 <span class="key">Center content (hero area):</span>
-- Small eyebrow label: "<span class="var">[KATEGORI]</span>" — teal uppercase tracked
-- MASSIVE hook text (Sora ExtraBold, white): "<span class="var">[HOOK_LINE_1]</span>"
-- Orange highlight on number/key: "<span class="var">[ANGKA_KUNCI]</span>" in orange (#F77F2A)
-- Sub hook: "<span class="var">[HOOK_LINE_2]</span>" — large, 65% opacity white
-- Decorative large number in background: "<span class="var">[DECO_NUM]</span>" — 5% opacity, massive
+- Small eyebrow label: "<span class="var">[KATEGORI]</span>" — terracotta-light uppercase tracked
+- MASSIVE hook text (Sora ExtraBold, warm white): "<span class="var">[HOOK_LINE_1]</span>"
+- Gold highlight on number/key: "<span class="var">[ANGKA_KUNCI]</span>" in gold (#D4A017)
+- Sub hook: "<span class="var">[HOOK_LINE_2]</span>" — large, brown-muted-dark
+- Decorative large number in background: "<span class="var">[DECO_NUM]</span>" — 3% opacity, massive
 
 <span class="key">Bottom area (profile):</span>
 - Bottom gradient overlay (dark, transparent to solid)
-- Profile circle: teal-to-navy gradient placeholder circle (100px diameter)
-- Name: "<span class="var">[NAMA_PROFIL]</span>" bold white
-- Handle/role: "<span class="var">[HANDLE_ATAU_JABATAN]</span>" muted white
-- Optional: small orange CTA pill "Tonton →"
+- Profile circle: terracotta-to-deep-brown gradient placeholder circle (100px diameter)
+- Name: "<span class="var">[NAMA_PROFIL]</span>" bold warm white
+- Handle/role: "<span class="var">[HANDLE_ATAU_JABATAN]</span>" brown-muted-dark
+- Optional: small gold CTA pill "Tonton →"
 
-<span class="key">Chips/tags:</span> 2–3 small teal-tinted rounded tags below sub hook
+<span class="key">Chips/tags:</span> 2–3 small terracotta-tinted rounded tags below sub hook
 
-<span class="key">Mood:</span> bold, engaging, YouTube-thumbnail energy but professional, dark aesthetic
+<span class="key">Mood:</span> bold, engaging, YouTube-thumbnail energy but professional, warm dark aesthetic
 
-<span class="neg">Negative:</span> no light background, no small text at top edge, no clutter above hook text</div>
+<span class="neg">Negative:</span> no light background, no small text at top edge, no clutter above hook text, no navy/teal/blue tones</div>
         </div>
         <div class="usage-note">
           <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3M8 11v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -640,10 +647,10 @@ emoji as icons, neon colors, purple gradients, pink tones, Comic Sans, Arial, Ti
           <div class="field-label">Tambahkan di awal prompt saat generate batch baru</div>
           <div class="prompt-text"><span class="comment">// Gunakan ini untuk mempertahankan konsistensi dengan konten sebelumnya</span>
 
-Maintain the same visual style as the Rahman Ramsi brand system:
-- Same deep navy (#0F2A4A) background palette established in previous slides
-- Consistent teal (#0D9BAE) accent tone — same saturation level
-- Only one warm orange element (#F77F2A) per frame
+Maintain the same visual style as the Rahman Ramsi brand system (Direction B — Warm Light):
+- Same deep brown (#1E1810) or warm cream (#FFF8F0) background palette
+- Consistent terracotta (#B5452C) accent tone — same saturation level
+- Only one warm gold element (#D4A017) per frame
 - Same dot grid background texture density (subtle, not overwhelming)
 - Same typographic weight hierarchy (very bold headline, lighter body)
 - Same clean modern Indonesian professional aesthetic
