@@ -8,21 +8,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --cogni-navy: #0F2A4A;
-  --cogni-navy-mid: #1A3F6E;
-  --studio-teal: #0D9BAE;
-  --studio-teal-pale: #E3F7FA;
-  --kerja-orange: #F77F2A;
-  --kerja-orange-pale: #FFF0E5;
+  --warm-cream:       #FFF8F0;
+  --deep-brown:       #1E1810;
+  --body-brown:       #3D3025;
+  --terracotta:       #B5452C;
+  --terracotta-light: #D4705A;
+  --gold:             #D4A017;
+  --warm-stone:       #E8DDD3;
+  --brown-muted:      #8B7355;
   --white: #FFFFFF;
-  --gray-50: #F4F7FA;
-  --gray-100: #EBF0F5;
-  --gray-200: #D4DCE6;
-  --gray-400: #8FA3B8;
-  --gray-600: #4A6175;
-  --gray-900: #0D1F2D;
+  --gray-50:  #FFF8F0;
+  --gray-100: #F5EDE3;
+  --gray-200: #E8DDD3;
+  --gray-400: #A09080;
+  --gray-600: #8B7355;
+  --gray-700: #6B5742;
+  --gray-900: #3D3025;
   --green: #059669;
   --green-pale: #ECFDF5;
   --font-h: 'Sora', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -37,39 +40,39 @@ body {
 }
 
 .page-header {
-  background: var(--cogni-navy);
+  background: linear-gradient(135deg, var(--warm-cream) 0%, var(--cream-dark) 100%);
   padding: 48px 64px 40px;
   position: relative; overflow: hidden;
 }
 .page-header::before {
   content: ''; position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(13,155,174,0.15) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(181,69,44,0.05) 1.5px, transparent 1.5px);
   background-size: 36px 36px;
 }
 .page-header::after {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--kerja-orange), var(--studio-teal));
+  background: linear-gradient(90deg, var(--gold), var(--terracotta));
 }
 .header-inner { position: relative; z-index: 1; max-width: 900px; }
 .header-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(247,127,42,0.2); border: 1px solid rgba(247,127,42,0.35);
-  color: #FF9A4A; font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  background: var(--warm-stone); border: 1px solid var(--warm-stone);
+  color: var(--terracotta); font-size: 11px; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; padding: 5px 12px; border-radius: 99px; margin-bottom: 20px;
 }
 .page-header h1 {
-  font-family: var(--font-h); font-size: 36px; font-weight: 800; color: white;
+  font-family: var(--font-h); font-size: 36px; font-weight: 800; color: var(--deep-brown);
   line-height: 1.15; margin-bottom: 12px;
 }
-.page-header p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 600px; }
+.page-header p { font-size: 16px; color: var(--brown-muted); max-width: 600px; }
 .page-header .meta {
   margin-top: 24px; display: flex; gap: 20px; flex-wrap: wrap;
 }
 .meta-item {
   display: flex; align-items: center; gap: 8px;
-  font-size: 12px; color: rgba(255,255,255,0.4);
+  font-size: 12px; color: var(--brown-muted);
 }
-.meta-item strong { color: rgba(255,255,255,0.6); }
+.meta-item strong { color: var(--body-brown); }
 
 /* Layout */
 .layout { display: flex; min-height: calc(100vh - 220px); }
@@ -86,10 +89,10 @@ body {
 .toc-nav li { margin-bottom: 2px; }
 .toc-nav a {
   display: block; padding: 8px 12px; border-radius: 7px;
-  font-size: 13px; color: var(--gray-600); text-decoration: none; transition: all .15s;
+  font-size: 13px; color: var(--brown-muted); text-decoration: none; transition: all .15s;
 }
-.toc-nav a:hover { background: var(--gray-100); color: var(--cogni-navy); }
-.toc-nav a.active { background: var(--studio-teal-pale); color: var(--studio-teal); font-weight: 600; }
+.toc-nav a:hover { background: var(--warm-stone); color: var(--deep-brown); }
+.toc-nav a.active { background: rgba(181,69,44,0.08); color: var(--terracotta); font-weight: 600; }
 .toc-sep { height: 1px; background: var(--gray-200); margin: 12px 0; }
 
 .content { flex: 1; padding: 56px 64px; max-width: 800px; }
@@ -100,54 +103,54 @@ body {
 .section-header { margin-bottom: 28px; }
 .section-num-label {
   font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .16em;
-  color: var(--studio-teal); margin-bottom: 6px;
+  color: var(--terracotta); margin-bottom: 6px;
 }
 h2 {
   font-family: var(--font-h); font-size: 24px; font-weight: 800;
-  color: var(--cogni-navy); margin-bottom: 8px; line-height: 1.2;
+  color: var(--deep-brown); margin-bottom: 8px; line-height: 1.2;
 }
-.section-desc { font-size: 14.5px; color: var(--gray-600); }
+.section-desc { font-size: 14.5px; color: var(--brown-muted); }
 
 /* Process flow */
 .flow { display: flex; flex-direction: column; gap: 0; }
 .flow-step {
   display: flex; align-items: flex-start; gap: 20px;
   padding: 20px 0;
-  border-bottom: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--warm-stone);
   position: relative;
 }
 .flow-step:last-child { border-bottom: none; }
 .flow-step::before {
   content: ''; position: absolute;
   left: 20px; top: 56px; bottom: -20px;
-  width: 2px; background: var(--gray-200);
+  width: 2px; background: var(--warm-stone);
 }
 .flow-step:last-child::before { display: none; }
 .step-circle {
   width: 40px; height: 40px; min-width: 40px; border-radius: 50%;
-  background: var(--studio-teal); color: white;
+  background: var(--terracotta); color: var(--warm-white);
   font-family: var(--font-h); font-size: 15px; font-weight: 800;
   display: flex; align-items: center; justify-content: center;
   position: relative; z-index: 1;
 }
-.step-circle.orange { background: var(--kerja-orange); }
+.step-circle.orange { background: var(--gold); color: var(--deep-brown); }
 .step-circle.green { background: var(--green); }
 .step-body { flex: 1; }
-.step-title { font-family: var(--font-h); font-size: 16px; font-weight: 700; color: var(--cogni-navy); margin-bottom: 6px; }
-.step-desc { font-size: 13.5px; color: var(--gray-600); line-height: 1.7; }
+.step-title { font-family: var(--font-h); font-size: 16px; font-weight: 700; color: var(--deep-brown); margin-bottom: 6px; }
+.step-desc { font-size: 13.5px; color: var(--brown-muted); line-height: 1.7; }
 .step-tag {
   display: inline-block; margin-top: 10px;
   font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 99px;
   border: 1.5px solid;
 }
-.step-tag.agent { color: var(--studio-teal); border-color: rgba(13,155,174,0.3); background: var(--studio-teal-pale); }
-.step-tag.human { color: var(--kerja-orange); border-color: rgba(247,127,42,0.3); background: var(--kerja-orange-pale); }
-.step-tag.optional { color: var(--gray-400); border-color: var(--gray-200); background: var(--gray-100); }
+.step-tag.agent { color: var(--terracotta); border-color: rgba(181,69,44,0.3); background: rgba(181,69,44,0.06); }
+.step-tag.human { color: var(--gold); border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.06); }
+.step-tag.optional { color: var(--brown-muted); border-color: var(--warm-stone); background: var(--warm-cream); }
 
 /* Do/Don't */
 .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .do-col, .dont-col {
-  background: white; border: 1px solid var(--gray-200); border-radius: 12px;
+  background: white; border: 1px solid var(--warm-stone); border-radius: 12px;
   overflow: hidden;
 }
 .do-col { border-top: 3px solid var(--green); }
@@ -162,7 +165,7 @@ h2 {
 .col-item {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 10px 18px; font-size: 13px; color: var(--gray-700);
-  border-bottom: 1px solid var(--gray-50); line-height: 1.5;
+  border-bottom: 1px solid var(--warm-stone); line-height: 1.5;
 }
 .col-item:last-child { border-bottom: none; }
 .col-item svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; }
@@ -173,67 +176,69 @@ h2 {
 .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
 .color-tile {
   border-radius: 10px; overflow: hidden;
-  border: 1px solid var(--gray-200); background: white;
+  border: 1px solid var(--warm-stone); background: white;
 }
 .color-swatch-lg { height: 72px; }
 .color-info { padding: 12px 14px; }
 .color-name { font-family: var(--font-h); font-size: 13px; font-weight: 700; color: var(--gray-900); }
-.color-hex { font-size: 12px; color: var(--gray-400); margin-top: 2px; font-family: monospace; }
-.color-use { font-size: 11px; color: var(--gray-500); margin-top: 4px; }
+.color-hex { font-size: 12px; color: var(--brown-muted); margin-top: 2px; font-family: monospace; }
+.color-use { font-size: 11px; color: var(--brown-muted); margin-top: 4px; }
 
 /* Typography spec */
 .type-spec { display: flex; flex-direction: column; gap: 16px; }
 .type-row {
-  background: white; border: 1px solid var(--gray-200); border-radius: 10px;
+  background: white; border: 1px solid var(--warm-stone); border-radius: 10px;
   padding: 20px 24px; display: flex; align-items: center; gap: 24px;
 }
 .type-preview { flex: 0 0 200px; }
 .type-info { flex: 1; }
-.type-info h4 { font-family: var(--font-h); font-size: 14px; font-weight: 700; color: var(--cogni-navy); margin-bottom: 4px; }
-.type-info p { font-size: 12.5px; color: var(--gray-600); line-height: 1.7; }
-.type-info code { font-size: 11px; background: var(--gray-100); padding: 1px 6px; border-radius: 4px; }
+.type-info h4 { font-family: var(--font-h); font-size: 14px; font-weight: 700; color: var(--deep-brown); margin-bottom: 4px; }
+.type-info p { font-size: 12.5px; color: var(--brown-muted); line-height: 1.7; }
+.type-info code { font-size: 11px; background: var(--warm-stone); padding: 1px 6px; border-radius: 4px; }
 
 /* Responsibility matrix */
-.matrix { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; border: 1px solid var(--gray-200); }
+.matrix { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; border: 1px solid var(--warm-stone); }
 .matrix th {
   text-align: left; padding: 12px 18px;
   font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
-  color: var(--gray-400); background: var(--cogni-navy); color: rgba(255,255,255,0.5);
+  color: var(--brown-muted); background: var(--warm-cream); border-bottom: 1px solid var(--warm-stone);
 }
-.matrix td { padding: 13px 18px; font-size: 13.5px; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+.matrix td { padding: 13px 18px; font-size: 13.5px; border-bottom: 1px solid var(--warm-stone); vertical-align: top; }
 .matrix tr:last-child td { border-bottom: none; }
 .raci {
   display: inline-block; font-size: 11px; font-weight: 800;
   width: 28px; text-align: center; padding: 2px 0; border-radius: 4px;
 }
-.raci.R { background: var(--studio-teal); color: white; }
-.raci.A { background: var(--kerja-orange); color: white; }
-.raci.C { background: var(--gray-200); color: var(--gray-600); }
-.raci.I { background: var(--gray-100); color: var(--gray-400); }
+.raci.R { background: var(--terracotta); color: var(--warm-white); }
+.raci.A { background: var(--gold); color: var(--deep-brown); }
+.raci.C { background: var(--warm-stone); color: var(--brown-muted); }
+.raci.I { background: var(--warm-cream); color: var(--brown-muted); }
 
 .info-box {
-  background: var(--studio-teal-pale); border: 1px solid rgba(13,155,174,0.25);
-  border-left: 4px solid var(--studio-teal);
+  background: rgba(181,69,44,0.05); border: 1px solid rgba(181,69,44,0.2);
+  border-left: 4px solid var(--terracotta);
   border-radius: 10px; padding: 16px 20px;
   display: flex; gap: 14px; margin-top: 20px;
 }
-.info-box svg { width: 20px; height: 20px; color: var(--studio-teal); flex-shrink: 0; margin-top: 1px; }
-.info-box-body { font-size: 13.5px; color: var(--gray-900); line-height: 1.7; }
+.info-box svg { width: 20px; height: 20px; color: var(--terracotta); flex-shrink: 0; margin-top: 1px; }
+.info-box-body { font-size: 13.5px; color: var(--body-brown); line-height: 1.7; }
 
 .warn-box {
-  background: var(--kerja-orange-pale); border: 1px solid rgba(247,127,42,0.3);
-  border-left: 4px solid var(--kerja-orange);
+  background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25);
+  border-left: 4px solid var(--gold);
   border-radius: 10px; padding: 16px 20px;
   display: flex; gap: 14px; margin-top: 20px;
 }
-.warn-box svg { width: 20px; height: 20px; color: var(--kerja-orange); flex-shrink: 0; margin-top: 1px; }
-.warn-box-body { font-size: 13.5px; color: var(--gray-900); line-height: 1.7; }
+.warn-box svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+.warn-box-body { font-size: 13.5px; color: var(--body-brown); line-height: 1.7; }
 
 footer {
-  background: var(--cogni-navy); color: rgba(255,255,255,0.4);
+  background: var(--warm-cream);
+  border-top: 1px solid var(--warm-stone);
+  color: var(--brown-muted);
   text-align: center; padding: 28px; font-size: 12px;
 }
-footer strong { color: rgba(255,255,255,0.6); }
+footer strong { color: var(--body-brown); }
 </style>
 </head>
 <body>
@@ -264,7 +269,8 @@ footer strong { color: rgba(255,255,255,0.6); }
       <li><a href="#s6">6. Do's &amp; Don'ts</a></li>
       <li><a href="#s7">7. Tanggung Jawab</a></li>
       <li><a href="#s8">8. Penanganan Pelanggaran</a></li>
-      <li><a href="#s9">9. Alt Design System Light</a></li>
+      <li><a href="#s85">8.5. Stop-Slop Copy Rules</a></li>
+      <li><a href="#s9">9. Warm Light (Direction B)</a></li>
     </ul>
     <div class="toc-sep"></div>
     <div class="toc-label">Dokumen Terkait</div>
@@ -296,7 +302,7 @@ footer strong { color: rgba(255,255,255,0.6); }
           <div style="background:white;border:1px solid var(--gray-200);border-radius:10px;padding:18px 22px;">
             <div style="font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--cogni-navy);margin-bottom:8px;">Target Audience</div>
             <div style="font-size:13px;color:var(--gray-600);line-height:1.8;">
-              • Knowledge workers Indonesia<br>
+              • Masyarakat umum<br>
               • UMKM yang ingin adopsi AI<br>
               • Profesional usia 25–45 tahun<br>
               • Bukan developer/tech geek
@@ -326,67 +332,67 @@ footer strong { color: rgba(255,255,255,0.6); }
 
       <div class="color-grid">
         <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#0F2A4A;"></div>
+          <div class="color-swatch-lg" style="background:#FFF8F0;border-bottom:1px solid var(--warm-stone);"></div>
           <div class="color-info">
-            <div class="color-name">Cogni Navy</div>
-            <div class="color-hex">#0F2A4A</div>
-            <div class="color-use">Primary · Headline · Authority</div>
+            <div class="color-name">Warm Cream</div>
+            <div class="color-hex">#FFF8F0</div>
+            <div class="color-use">Light bg &middot; Card surface</div>
           </div>
         </div>
         <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#1A3F6E;"></div>
+          <div class="color-swatch-lg" style="background:#1E1810;"></div>
           <div class="color-info">
-            <div class="color-name">Navy Mid</div>
-            <div class="color-hex">#1A3F6E</div>
-            <div class="color-use">Background variasi · Overlay</div>
+            <div class="color-name">Deep Brown</div>
+            <div class="color-hex">#1E1810</div>
+            <div class="color-use">Primary &middot; Headline &middot; Authority</div>
           </div>
         </div>
         <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#0D9BAE;"></div>
+          <div class="color-swatch-lg" style="background:#B5452C;"></div>
           <div class="color-info">
-            <div class="color-name">Studio Teal</div>
-            <div class="color-hex">#0D9BAE</div>
-            <div class="color-use">Secondary · Clarity · Links</div>
+            <div class="color-name">Terracotta</div>
+            <div class="color-hex">#B5452C</div>
+            <div class="color-use">Secondary &middot; Emphasis &middot; Icon</div>
           </div>
         </div>
         <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#F77F2A;"></div>
+          <div class="color-swatch-lg" style="background:#D4A017;"></div>
           <div class="color-info">
-            <div class="color-name">Kerja Orange</div>
-            <div class="color-hex">#F77F2A</div>
-            <div class="color-use">Accent CTA · Maks 1× per layout</div>
+            <div class="color-name">Gold</div>
+            <div class="color-hex">#D4A017</div>
+            <div class="color-use">Accent CTA &middot; Maks 1&times; per layout</div>
           </div>
         </div>
         <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#F4F7FA;border-bottom:1px solid var(--gray-200);"></div>
+          <div class="color-swatch-lg" style="background:#E8DDD3;"></div>
           <div class="color-info">
-            <div class="color-name">Cloud</div>
-            <div class="color-hex">#F4F7FA</div>
-            <div class="color-use">Light bg · Card surface</div>
+            <div class="color-name">Warm Stone</div>
+            <div class="color-hex">#E8DDD3</div>
+            <div class="color-use">Border &middot; Divider &middot; Card bg</div>
           </div>
         </div>
         <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#D4DCE6;"></div>
+          <div class="color-swatch-lg" style="background:#8B7355;"></div>
           <div class="color-info">
-            <div class="color-name">Mist</div>
-            <div class="color-hex">#D4DCE6</div>
-            <div class="color-use">Border · Divider</div>
-          </div>
-        </div>
-        <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#4A6175;"></div>
-          <div class="color-info">
-            <div class="color-name">Steel</div>
-            <div class="color-hex">#4A6175</div>
+            <div class="color-name">Brown Muted</div>
+            <div class="color-hex">#8B7355</div>
             <div class="color-use">Secondary text</div>
           </div>
         </div>
         <div class="color-tile">
-          <div class="color-swatch-lg" style="background:#0D1F2D;"></div>
+          <div class="color-swatch-lg" style="background:#3D3025;"></div>
           <div class="color-info">
-            <div class="color-name">Ink</div>
-            <div class="color-hex">#0D1F2D</div>
-            <div class="color-use">Dark body text</div>
+            <div class="color-name">Body Brown</div>
+            <div class="color-hex">#3D3025</div>
+            <div class="color-use">Body text &middot; Sub-headline</div>
+          </div>
+        </div>
+        <div class="color-tile">
+          <div class="color-swatch-lg" style="background:#1C1410;"></div>
+          <div class="color-info">
+            <div class="color-name">Deep Earth</div>
+            <div class="color-hex">#1C1410</div>
+            <div class="color-use">Dark mode bg</div>
           </div>
         </div>
       </div>
@@ -394,7 +400,7 @@ footer strong { color: rgba(255,255,255,0.6); }
       <div class="warn-box">
         <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L2 17h16L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 8v4M10 14v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         <div class="warn-box-body">
-          <strong>Aturan Kritis Orange (#F77F2A):</strong> Warna ini memiliki aturan "1× per layout" yang WAJIB diikuti. Artinya dalam satu frame/gambar/slide, orange hanya boleh muncul di satu elemen saja — biasanya CTA button atau accent bar. Melanggar aturan ini akan mengurangi kekuatan visual dan dilution brand.
+          <strong>Aturan Kritis Gold (#D4A017):</strong> Warna ini memiliki aturan "1&times; per layout" yang WAJIB diikuti. Artinya dalam satu frame/gambar/slide, gold hanya boleh muncul di satu elemen saja — biasanya CTA button atau accent bar. Melanggar aturan ini akan mengurangi kekuatan visual dan dilution brand.
         </div>
       </div>
     </div>
@@ -458,61 +464,61 @@ footer strong { color: rgba(255,255,255,0.6); }
 
       <div style="display:flex;flex-direction:column;gap:16px;">
 
-        <div style="background:white;border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--cogni-navy);display:flex;align-items:center;justify-content:center;">
-            <div style="width:36px;height:36px;background-image:radial-gradient(circle,rgba(13,155,174,0.6) 2px,transparent 2px);background-size:9px 9px;"></div>
+        <div style="background:white;border:1px solid var(--warm-stone);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--warm-cream);border:1px solid var(--warm-stone);display:flex;align-items:center;justify-content:center;">
+            <div style="width:36px;height:36px;background-image:radial-gradient(circle,rgba(181,69,44,0.15) 2px,transparent 2px);background-size:9px 9px;"></div>
           </div>
           <div>
-            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px;">1. Dot Grid Background</div>
-            <div style="font-size:13.5px;color:var(--gray-600);line-height:1.7;">Pola radial dot kecil di background dengan warna teal pada opacity 12–18%. Jarak antar dot: 36–50px. Beri kedalaman tanpa berlebihan. CSS: <code style="font-size:11px;background:var(--gray-100);padding:1px 5px;border-radius:4px;">radial-gradient(circle, rgba(13,155,174,0.15) 1.5px, transparent 1.5px)</code></div>
+            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--deep-brown);margin-bottom:4px;">1. Dot Grid Background</div>
+            <div style="font-size:13.5px;color:var(--brown-muted);line-height:1.7;">Pola radial dot kecil di background dengan warna terracotta pada opacity 8-12%. Jarak antar dot: 36-50px. Beri kedalaman tanpa berlebihan. Hanya di Card Grid &amp; Asymmetric layout. CSS: <code style="font-size:11px;background:var(--warm-stone);padding:1px 5px;border-radius:4px;">radial-gradient(circle, rgba(181,69,44,0.08) 1.5px, transparent 1.5px)</code></div>
           </div>
         </div>
 
-        <div style="background:white;border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--cogni-navy);display:flex;align-items:center;justify-content:center;">
-            <div style="width:4px;height:40px;background:var(--kerja-orange);border-radius:2px;"></div>
+        <div style="background:white;border:1px solid var(--warm-stone);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--warm-cream);display:flex;align-items:center;justify-content:center;">
+            <div style="width:4px;height:40px;background:var(--gold);border-radius:2px;"></div>
           </div>
           <div>
-            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px;">2. Vertical Accent Bar (Orange)</div>
-            <div style="font-size:13.5px;color:var(--gray-600);line-height:1.7;">Garis vertikal 3–5px berwarna Kerja Orange (#F77F2A) di tepi kiri content block atau slide. Ini adalah satu-satunya penggunaan orange yang diizinkan (selain CTA). Tinggi: 40–70% dari tinggi konten.</div>
+            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--deep-brown);margin-bottom:4px;">2. Vertical Accent Bar (Gold)</div>
+            <div style="font-size:13.5px;color:var(--brown-muted);line-height:1.7;">Garis vertikal 3-5px berwarna Gold (#D4A017) di tepi kiri content block. Ini adalah satu-satunya penggunaan gold yang diizinkan (selain CTA). Hanya di Card Grid layout. Tinggi: 40-70% dari tinggi konten.</div>
           </div>
         </div>
 
-        <div style="background:white;border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--cogni-navy);display:flex;align-items:center;justify-content:center;">
-            <div style="font-family:var(--font-h);font-size:42px;font-weight:900;color:rgba(255,255,255,0.15);line-height:1;">3</div>
+        <div style="background:white;border:1px solid var(--warm-stone);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--deep-brown);display:flex;align-items:center;justify-content:center;">
+            <div style="font-family:var(--font-h);font-size:42px;font-weight:900;color:var(--terracotta-light);opacity:0.15;line-height:1;">3</div>
           </div>
           <div>
-            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px;">3. Decorative Large Number</div>
-            <div style="font-size:13.5px;color:var(--gray-600);line-height:1.7;">Angka besar di background dengan opacity 10–15%. Font: Sora ExtraBold. Ukuran: 300–600px pada canvas 1080px. Warna: putih di background gelap. Digunakan sebagai elemen grafis, bukan tipografi utama.</div>
+            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--deep-brown);margin-bottom:4px;">3. Decorative Large Number</div>
+            <div style="font-size:13.5px;color:var(--brown-muted);line-height:1.7;">Angka besar di background dengan opacity 8-12%. Font: Sora ExtraBold. Ukuran: 300-600px pada canvas 1080px. Warna: terracotta-light di background gelap. Digunakan sebagai elemen grafis, bukan tipografi utama.</div>
           </div>
         </div>
 
-        <div style="background:white;border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
-          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--cogni-navy);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
+        <div style="background:white;border:1px solid var(--warm-stone);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;border-radius:10px;background:var(--warm-cream);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
             <div style="display:flex;align-items:center;gap:4px;">
-              <div style="width:16px;height:16px;background:var(--studio-teal);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:9px;font-weight:800;color:white;">1</div>
-              <div style="width:12px;height:1px;background:rgba(255,255,255,0.4);"></div>
+              <div style="width:16px;height:16px;background:var(--terracotta);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:9px;font-weight:800;color:var(--warm-white);">1</div>
+              <div style="width:12px;height:1px;background:var(--gold);"></div>
             </div>
             <div style="display:flex;align-items:center;gap:4px;">
-              <div style="width:16px;height:16px;background:var(--studio-teal);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:9px;font-weight:800;color:white;">2</div>
-              <div style="width:12px;height:1px;background:rgba(255,255,255,0.4);"></div>
+              <div style="width:16px;height:16px;background:var(--terracotta);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:9px;font-weight:800;color:var(--warm-white);">2</div>
+              <div style="width:12px;height:1px;background:var(--gold);"></div>
             </div>
           </div>
           <div>
-            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px;">4. Step Diagram Style</div>
-            <div style="font-size:13.5px;color:var(--gray-600);line-height:1.7;">Kotak bernomor (teal, rounded) + panah tipis atau garis konektor. Menampilkan proses berurutan. Nomor: font Sora Bold, teal background. Teks step: Plus Jakarta Sans. Ideal untuk konten "Cara melakukan X" atau "Langkah Y".</div>
+            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--deep-brown);margin-bottom:4px;">4. Step Diagram Style</div>
+            <div style="font-size:13.5px;color:var(--brown-muted);line-height:1.7;">Kotak bernomor (terracotta, rounded) + gold arrow. Menampilkan proses berurutan. Nomor: font Sora Bold, terracotta background. Teks step: Plus Jakarta Sans. Ideal untuk konten "Cara melakukan X" atau "Langkah Y".</div>
           </div>
         </div>
 
-        <div style="background:white;border:1px solid var(--gray-200);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
+        <div style="background:white;border:1px solid var(--warm-stone);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:flex-start;">
           <div style="width:60px;height:60px;min-width:60px;border-radius:10px;overflow:hidden;position:relative;">
-            <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--cogni-navy),var(--studio-teal));"></div>
-            <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,42,74,0.8),rgba(13,155,174,0.3));"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--deep-brown),var(--terracotta));"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(30,24,16,0.8),rgba(181,69,44,0.3));"></div>
           </div>
           <div>
-            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--cogni-navy);margin-bottom:4px;">5. Photo Treatment Overlay</div>
-            <div style="font-size:13.5px;color:var(--gray-600);line-height:1.7;">Untuk konten yang menyertakan foto: gunakan gradient overlay navy-ke-teal dengan opacity 70–85%. Formula: <code style="font-size:11px;background:var(--gray-100);padding:1px 5px;border-radius:4px;">linear-gradient(135deg, rgba(15,42,74,0.85) 0%, rgba(13,155,174,0.4) 100%)</code>. Teks di atas foto harus putih.</div>
+            <div style="font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--deep-brown);margin-bottom:4px;">5. Photo Treatment Overlay</div>
+            <div style="font-size:13.5px;color:var(--brown-muted);line-height:1.7;">Untuk konten yang menyertakan foto: gunakan gradient overlay deep-brown-ke-terracotta dengan opacity 70-85%. Formula: <code style="font-size:11px;background:var(--warm-stone);padding:1px 5px;border-radius:4px;">linear-gradient(135deg, rgba(30,24,16,0.85) 0%, rgba(181,69,44,0.4) 100%)</code>. Teks di atas foto harus warm white.</div>
           </div>
         </div>
 
@@ -622,7 +628,7 @@ footer strong { color: rgba(255,255,255,0.6); }
             Lakukan (DO)
           </div>
           <div class="col-items">
-            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gunakan Cogni Navy sebagai background utama untuk visual gelap</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gunakan Deep Brown sebagai background utama (dark system) atau Warm Cream (light system)</div>
             <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sertakan minimal 2 elemen visual language per output</div>
             <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gunakan hierarchy tipografi yang kuat (heading Sora ExtraBold)</div>
             <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gunakan angka konkret dalam konten (100+, 70%, 5 cara)</div>
@@ -637,8 +643,8 @@ footer strong { color: rgba(255,255,255,0.6); }
           </div>
           <div class="col-items">
             <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Gunakan emoji sebagai ikon dalam output visual profesional</div>
-            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Orange (#F77F2A) lebih dari 1× dalam satu layout</div>
-            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Warna di luar approved palette (pink, hijau, kuning dominan)</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Gold (#D4A017) lebih dari 1&times; dalam satu layout</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Warna di luar approved palette (navy, teal lama, hijau dominan)</div>
             <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Font selain Sora + Plus Jakarta Sans</div>
             <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Gradien berlebihan atau "gradient slop" (purple, rainbow)</div>
             <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Publish tanpa review Argus dan validasi checklist</div>
@@ -753,36 +759,84 @@ footer strong { color: rgba(255,255,255,0.6); }
 
     </div>
 
+    <!-- SECTION 8.5 — Stop-Slop Copy Rules -->
+    <div class="section">
+      <span class="section-anchor" id="s85"></span>
+      <div class="section-header">
+        <div class="section-num-label">Bagian 8.5</div>
+        <h2>Stop-Slop — Aturan Copywriting</h2>
+        <p class="section-desc">Copy untuk semua konten visual wajib mengikuti aturan stop-slop. Tujuan: teks yang langsung, spesifik, dan tidak seperti template AI.</p>
+      </div>
+
+      <div class="do-dont">
+        <div class="do-col">
+          <div class="col-header">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Lakukan (DO)
+          </div>
+          <div class="col-items">
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Direct statements — langsung ke poin tanpa preamble</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Conversational Indonesian — "gue", "lo", "ngaruh", natural</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Angka konkret — "3 tools", "2 menit", bukan "beberapa" atau "banyak"</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sentence rhythm — variasi panjang kalimat, tidak monoton</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Satu ide per slide — jangan cram multiple messages</div>
+          </div>
+        </div>
+        <div class="dont-col">
+          <div class="col-header">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Hindari (DON'T)
+          </div>
+          <div class="col-items">
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Binary contrasts — "bukan X tapi Y", "bukan soal A, tapi B"</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Jargon — "deliverable", "landscape", "navigate", "leverage"</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Filler words — "semuanya", "semua", "sangat", "benar-benar"</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Adverbs — akhiran "-nya" berlebihan, "tentunya", "jelasnya"</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Lazy extremes — "10x", "selamanya", "revolusioner", "game-changer"</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Pull-quote sounding — kalimat yang terlalu "quotable" dan dibuat-buat</div>
+            <div class="col-item"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><strong>BANNED:</strong> frase "AI untuk Kerja, Bukan untuk Pamer" — tidak boleh muncul di konten apapun</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v4M10 13v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="info-box-body">
+          <strong>CTA exempt:</strong> "Follow for more →" adalah CTA standar — tidak termasuk lazy extreme.
+        </div>
+      </div>
+    </div>
+
     <!-- SECTION 9 -->
     <div class="section">
       <span class="section-anchor" id="s9"></span>
       <div class="section-header">
         <div class="section-num-label">Bagian 9</div>
-        <h2>Alt Design System Light — Kapan Digunakan</h2>
-        <p class="section-desc">Rahman Ramsi memiliki dua design system yang saling melengkapi. SOP ini menentukan kondisi kapan menggunakan masing-masing.</p>
+        <h2>Warm Light (Direction B) — Kapan Digunakan</h2>
+        <p class="section-desc">Rahman Ramsi memiliki dua design system yang saling melengkapi: Dark (Deep Brown) dan Light (Warm Cream). SOP ini menentukan kondisi kapan menggunakan masing-masing.</p>
       </div>
 
       <!-- Side-by-side comparison cards -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
-        <div style="background:var(--cogni-navy);border-radius:12px;padding:22px;position:relative;overflow:hidden;">
-          <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(13,155,174,0.15) 1.5px,transparent 1.5px);background-size:28px 28px;"></div>
+        <div style="background:var(--deep-brown);border-radius:12px;padding:22px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(181,69,44,0.08) 1.5px,transparent 1.5px);background-size:28px 28px;"></div>
           <div style="position:relative;z-index:1;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(13,155,174,0.8);margin-bottom:8px;">Sistem Utama (Dark)</div>
-            <div style="font-family:var(--font-h);font-size:17px;font-weight:800;color:white;margin-bottom:12px;">Design System</div>
-            <div style="font-size:12.5px;color:rgba(255,255,255,0.6);line-height:1.8;">
-              Background: Navy <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">#0F2A4A</code><br>
-              Accent: Teal + Orange<br>
-              Mood: Authoritative, Expert<br>
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--terracotta-light);margin-bottom:8px;">Sistem Utama (Dark)</div>
+            <div style="font-family:var(--font-h);font-size:17px;font-weight:800;color:var(--warm-white);margin-bottom:12px;">Design System</div>
+            <div style="font-size:12.5px;color:var(--brown-muted-dark);line-height:1.8;">
+              Background: Deep Brown <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">#1E1810</code><br>
+              Accent: Terracotta + Gold<br>
+              Mood: Authoritative, Warm<br>
               Cocok untuk: konten berat, edukasi
             </div>
           </div>
         </div>
-        <div style="background:#F8F9FC;border:2px solid var(--gray-200);border-radius:12px;padding:22px;">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--studio-teal);margin-bottom:8px;">Alt System (Light)</div>
-          <div style="font-family:var(--font-h);font-size:17px;font-weight:800;color:var(--cogni-navy);margin-bottom:12px;">Alt Design System Light</div>
-          <div style="font-size:12.5px;color:var(--gray-600);line-height:1.8;">
-            Background: Cloud <code style="background:var(--gray-100);padding:1px 5px;border-radius:3px;font-size:10px;">#F4F7FA</code><br>
-            Accent: Teal + Navy text<br>
+        <div style="background:var(--warm-cream);border:2px solid var(--warm-stone);border-radius:12px;padding:22px;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--terracotta);margin-bottom:8px;">Direction B (Light)</div>
+          <div style="font-family:var(--font-h);font-size:17px;font-weight:800;color:var(--deep-brown);margin-bottom:12px;">Warm Light Design System</div>
+          <div style="font-size:12.5px;color:var(--brown-muted);line-height:1.8;">
+            Background: Warm Cream <code style="background:var(--warm-stone);padding:1px 5px;border-radius:3px;font-size:10px;">#FFF8F0</code><br>
+            Accent: Terracotta + Gold<br>
             Mood: Friendly, Approachable<br>
             Cocok untuk: konten ringan, tips harian
           </div>
@@ -790,79 +844,79 @@ footer strong { color: rgba(255,255,255,0.6); }
       </div>
 
       <!-- Decision table -->
-      <div style="font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--cogni-navy);margin-bottom:12px;">Tabel Keputusan: Sistem Mana yang Digunakan?</div>
+      <div style="font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--deep-brown);margin-bottom:12px;">Tabel Keputusan: Sistem Mana yang Digunakan?</div>
       <table class="matrix" style="margin-bottom:24px;">
         <thead>
           <tr>
             <th>Kondisi / Jenis Konten</th>
             <th>Sistem Utama (Dark)</th>
-            <th>Alt Light</th>
+            <th>Warm Light</th>
             <th>Catatan</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Tips harian AI singkat</strong><br><span style="font-size:12px;color:var(--gray-600);">1–2 poin, bahasa kasual</span></td>
+            <td><strong>Tips harian AI singkat</strong><br><span style="font-size:12px;color:var(--brown-muted);">1–2 poin, bahasa kasual</span></td>
             <td style="text-align:center;">—</td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Tone ringan lebih cocok dengan Alt Light yang tidak "berat"</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Tone ringan lebih cocok dengan Warm Light yang tidak "berat"</td>
           </tr>
           <tr>
-            <td><strong>Carousel edukasi mendalam</strong><br><span style="font-size:12px;color:var(--gray-600);">5+ slide, konten teknis</span></td>
+            <td><strong>Carousel edukasi mendalam</strong><br><span style="font-size:12px;color:var(--brown-muted);">5+ slide, konten teknis</span></td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
             <td style="text-align:center;">—</td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Authority &amp; credibility butuh background gelap</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Authority &amp; credibility butuh background gelap</td>
           </tr>
           <tr>
-            <td><strong>Quote motivasi / inspirasi</strong><br><span style="font-size:12px;color:var(--gray-600);">Pull quote tunggal</span></td>
+            <td><strong>Quote motivasi / inspirasi</strong><br><span style="font-size:12px;color:var(--brown-muted);">Pull quote tunggal</span></td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
             <td style="text-align:center;">—</td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Dark quote card lebih impactful dan shareable</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Dark quote card lebih impactful dan shareable</td>
           </tr>
           <tr>
-            <td><strong>Checklist / How-to cepat</strong><br><span style="font-size:12px;color:var(--gray-600);">3–5 item, format listicle</span></td>
+            <td><strong>Checklist / How-to cepat</strong><br><span style="font-size:12px;color:var(--brown-muted);">3–5 item, format listicle</span></td>
             <td style="text-align:center;">—</td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Light background lebih readable untuk konten list-heavy</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Light background lebih readable untuk konten list-heavy</td>
           </tr>
           <tr>
-            <td><strong>Announcement / Pengumuman</strong><br><span style="font-size:12px;color:var(--gray-600);">Event, launch, info penting</span></td>
+            <td><strong>Announcement / Pengumuman</strong><br><span style="font-size:12px;color:var(--brown-muted);">Event, launch, info penting</span></td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
             <td style="text-align:center;">—</td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Announcement butuh emphasis — sistem utama lebih berwibawa</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Announcement butuh emphasis — sistem utama lebih berwibawa</td>
           </tr>
           <tr>
-            <td><strong>FAQ / Tanya Jawab</strong><br><span style="font-size:12px;color:var(--gray-600);">Format Q&amp;A, relatable</span></td>
+            <td><strong>FAQ / Tanya Jawab</strong><br><span style="font-size:12px;color:var(--brown-muted);">Format Q&amp;A, relatable</span></td>
             <td style="text-align:center;">—</td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Conversational content lebih natural di light background</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Conversational content lebih natural di light background</td>
           </tr>
           <tr>
-            <td><strong>Reel Thumbnail / Video Cover</strong><br><span style="font-size:12px;color:var(--gray-600);">Hook-driven, bold</span></td>
+            <td><strong>Reel Thumbnail / Video Cover</strong><br><span style="font-size:12px;color:var(--brown-muted);">Hook-driven, bold</span></td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
             <td style="text-align:center;">—</td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Dark high-contrast thumbnail performs better in feeds</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Dark high-contrast thumbnail performs better in feeds</td>
           </tr>
           <tr>
-            <td><strong>LinkedIn Thought Leadership</strong><br><span style="font-size:12px;color:var(--gray-600);">Professional post panjang</span></td>
+            <td><strong>LinkedIn Thought Leadership</strong><br><span style="font-size:12px;color:var(--brown-muted);">Professional post panjang</span></td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
             <td style="text-align:center;">—</td>
-            <td style="font-size:12.5px;color:var(--gray-600);">LinkedIn audience ekspektasi professional tone = dark system</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">LinkedIn audience ekspektasi professional tone = dark system</td>
           </tr>
           <tr>
-            <td><strong>Infografis / Data visual</strong><br><span style="font-size:12px;color:var(--gray-600);">Chart, statistik, diagram</span></td>
+            <td><strong>Infografis / Data visual</strong><br><span style="font-size:12px;color:var(--brown-muted);">Chart, statistik, diagram</span></td>
             <td style="text-align:center;">—</td>
             <td style="text-align:center;"><span style="background:var(--green-pale);color:var(--green);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;">✓ Gunakan</span></td>
-            <td style="font-size:12.5px;color:var(--gray-600);">Light background membuat data/chart lebih mudah dibaca</td>
+            <td style="font-size:12.5px;color:var(--brown-muted);">Light background membuat data/chart lebih mudah dibaca</td>
           </tr>
         </tbody>
       </table>
 
       <!-- Decision rule summary -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
-        <div style="background:var(--cogni-navy);border-radius:10px;padding:18px 20px;">
-          <div style="font-family:var(--font-h);font-size:13px;font-weight:800;color:white;margin-bottom:10px;">Gunakan Sistem Utama (Dark) jika:</div>
-          <div style="font-size:12.5px;color:rgba(255,255,255,0.65);line-height:1.9;">
+        <div style="background:var(--deep-brown);border-radius:10px;padding:18px 20px;">
+          <div style="font-family:var(--font-h);font-size:13px;font-weight:800;color:var(--warm-white);margin-bottom:10px;">Gunakan Sistem Utama (Dark) jika:</div>
+          <div style="font-size:12.5px;color:var(--brown-muted-dark);line-height:1.9;">
             • Konten berat / teknis / mendalam<br>
             • Membutuhkan authority &amp; credibility<br>
             • Quote atau statement yang bold<br>
@@ -871,9 +925,9 @@ footer strong { color: rgba(255,255,255,0.6); }
             • LinkedIn atau Twitter/X post
           </div>
         </div>
-        <div style="background:var(--gray-50);border:2px solid var(--gray-200);border-radius:10px;padding:18px 20px;">
-          <div style="font-family:var(--font-h);font-size:13px;font-weight:800;color:var(--cogni-navy);margin-bottom:10px;">Gunakan Alt Design System Light jika:</div>
-          <div style="font-size:12.5px;color:var(--gray-600);line-height:1.9;">
+        <div style="background:var(--warm-cream);border:2px solid var(--warm-stone);border-radius:10px;padding:18px 20px;">
+          <div style="font-family:var(--font-h);font-size:13px;font-weight:800;color:var(--deep-brown);margin-bottom:10px;">Gunakan Warm Light jika:</div>
+          <div style="font-size:12.5px;color:var(--brown-muted);line-height:1.9;">
             • Konten ringan / tips harian<br>
             • Format listicle atau checklist<br>
             • FAQ / Q&amp;A yang conversational<br>
@@ -888,7 +942,81 @@ footer strong { color: rgba(255,255,255,0.6); }
         <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v4M10 13v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         <div class="info-box-body">
           <strong>Aturan Konsistensi Batch:</strong> Dalam satu series/batch konten (misalnya satu set carousel 5 slide), <strong>jangan campur</strong> kedua sistem. Pilih satu sistem per series dan pertahankan hingga selesai. Pergantian sistem hanya boleh antar series yang berbeda atau saat ada brief yang secara eksplisit meminta sistem lain.<br><br>
-          <strong>File referensi Alt Light:</strong> <code>cogni-studio-design-system-light.html</code> (tersedia di attachment AIC-37).
+          <strong>Direction B — Warm Light:</strong> Hasil rebrand dari AIC-60. Alt Light sebelumnya (Cloud bg) sekarang menggunakan Warm Cream (#FFF8F0) sebagai alternatif light mode.
+        </div>
+      </div>
+
+      <!-- Layout Decision Table -->
+      <div style="font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--deep-brown);margin:28px 0 12px;">Tabel Keputusan Layout — Kapan Pakai yang Mana</div>
+      <p style="font-size:13.5px;color:var(--brown-muted);margin-bottom:16px;">6 layout template tersedia untuk IG carousel. Dalam 1 carousel 5-7 slide, minimal 2 layout berbeda. Jangan semua slide pakai pola yang sama.</p>
+
+      <table class="matrix" style="margin-bottom:16px;">
+        <thead>
+          <tr>
+            <th>Layout</th>
+            <th>Struktur</th>
+            <th>Cocok Untuk</th>
+            <th>Visual Elements</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Split</strong></td>
+            <td>50/50 — teks kiri, visual kanan, gold divider</td>
+            <td>Hook slide (1), personal branding, tool review</td>
+            <td>Gold divider 2px, foto/screenshot</td>
+          </tr>
+          <tr>
+            <td><strong>2. Card Grid</strong></td>
+            <td>3 kartu horizontal + dot grid</td>
+            <td>Listicle, 3 tips, perbandingan tools, overview</td>
+            <td>Dot grid, icon SVG, gold accent bar</td>
+          </tr>
+          <tr>
+            <td><strong>3. Pull Quote</strong></td>
+            <td>Satu kalimat besar, centered</td>
+            <td>Key insight, hook emosional, closing slide</td>
+            <td>Quote mark dekoratif, gold highlight (PJS 900 italic)</td>
+          </tr>
+          <tr>
+            <td><strong>4. Screenshot Hero</strong></td>
+            <td>Screenshot 68% area + overlay teks</td>
+            <td>Tool demo, tutorial, "ini tools-nya"</td>
+            <td>Gradient overlay, gold accent line</td>
+          </tr>
+          <tr>
+            <td><strong>5. Asymmetric</strong></td>
+            <td>Headline top-right, body bottom-left, diagonal</td>
+            <td>Re-engage perhatian, slide 3-5, surprise</td>
+            <td>Dot grid, diagonal gold line, deco number</td>
+          </tr>
+          <tr>
+            <td><strong>6. Process Flow</strong></td>
+            <td>3 step box horizontal + gold arrow</td>
+            <td>Tutorial step-by-step, workflow AI</td>
+            <td>Step boxes, gold arrow connector</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--deep-brown);margin-bottom:10px;">Rekomendasi Urutan Carousel (7 slide)</div>
+      <table class="matrix" style="margin-bottom:20px;">
+        <thead>
+          <tr><th>Slide</th><th>Layout</th><th>Kenapa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1 (Hook)</td><td>Split atau Asymmetric</td><td>Menarik perhatian — "ini bukan template biasa"</td></tr>
+          <tr><td>2-4 (Edukasi)</td><td>Card Grid atau Process Flow</td><td>Informasi terstruktur dan scan-able</td></tr>
+          <tr><td>5 (Proof)</td><td>Screenshot Hero</td><td>Visual-first, bukti tool-nya works</td></tr>
+          <tr><td>6 (Insight)</td><td>Pull Quote</td><td>Statement kuat yang memorable</td></tr>
+          <tr><td>7 (Closing)</td><td>Pull Quote + CTA</td><td>Simpel, memorable, action-oriented</td></tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v4M10 13v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="info-box-body">
+          <strong>Aturan variasi layout:</strong> Dalam 1 carousel, <strong>minimal 2 layout harus berbeda</strong>. Dot grid hanya digunakan di Card Grid &amp; Asymmetric. Accent bar hanya di Card Grid. Layout lain tidak pakai dot grid maupun accent bar.
         </div>
       </div>
 

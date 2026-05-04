@@ -11,19 +11,25 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cogni-navy:        #0F2A4A;
-  --cogni-navy-mid:    #1A3F6E;
-  --cogni-navy-deep:   #071929;
-  --studio-teal:       #0D9BAE;
-  --studio-teal-light: #14B8CE;
-  --kerja-orange:      #F77F2A;
+  --warm-cream:       #FFF8F0;
+  --deep-brown:       #1E1810;
+  --body-brown:       #3D3025;
+  --terracotta:       #B5452C;
+  --terracotta-light: #D4705A;
+  --gold:             #D4A017;
+  --warm-stone:       #E8DDD3;
+  --brown-muted:      #8B7355;
+  --cream-dark:       #F5EDE3;
   --white:    #FFFFFF;
-  --gray-50:  #F4F7FA;
-  --gray-100: #EBF0F5;
-  --gray-200: #D4DCE6;
-  --gray-400: #8FA3B8;
-  --gray-600: #4A6175;
-  --gray-900: #0D1F2D;
+  --deep-earth:       #1C1410;
+  --warm-white:       #FEF9F4;
+  --brown-muted-dark: #A09080;
+  --gray-50:  #FFF8F0;
+  --gray-100: #F5EDE3;
+  --gray-200: #E8DDD3;
+  --gray-400: #A09080;
+  --gray-600: #8B7355;
+  --gray-900: #3D3025;
   --font-h: 'Sora', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --font-b: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -41,7 +47,8 @@ body {
 /* ── SIDEBAR ─────────────────── */
 .sidebar {
   width: 260px; min-width: 260px;
-  background: var(--cogni-navy);
+  background: white;
+  border-right: 1px solid var(--warm-stone);
   height: 100vh; position: sticky; top: 0;
   display: flex; flex-direction: column;
   padding: 28px 20px;
@@ -50,17 +57,17 @@ body {
 .sb-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 36px; }
 .sb-logo {
   width: 36px; height: 36px;
-  background: var(--studio-teal);
+  background: var(--terracotta);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
 }
 .sb-logo svg { width: 20px; height: 20px; }
-.sb-name { font-family: var(--font-h); font-weight: 700; font-size: 14px; color: white; line-height: 1.3; }
-.sb-sub  { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 1px; }
+.sb-name { font-family: var(--font-h); font-weight: 700; font-size: 14px; color: var(--deep-brown); line-height: 1.3; }
+.sb-sub  { font-size: 10px; color: var(--brown-muted); margin-top: 1px; }
 
 .sb-section-label {
   font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-  color: rgba(255,255,255,0.28); margin-bottom: 8px; margin-top: 4px;
+  color: var(--brown-muted); margin-bottom: 8px; margin-top: 4px;
 }
 .sb-nav { list-style: none; margin-bottom: 28px; }
 .sb-nav li { margin-bottom: 2px; }
@@ -68,34 +75,34 @@ body {
   display: flex; align-items: center; gap: 10px; width: 100%;
   padding: 10px 12px; border-radius: 8px; border: none; cursor: pointer;
   text-align: left; font-size: 13px; font-weight: 500; font-family: var(--font-b);
-  color: rgba(255,255,255,0.55); background: transparent; transition: all .15s;
+  color: var(--brown-muted); background: transparent; transition: all .15s;
 }
-.sb-nav button:hover { background: rgba(255,255,255,0.08); color: white; }
-.sb-nav button.active { background: var(--studio-teal); color: white; }
-.sb-nav .tab-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: .7; }
+.sb-nav button:hover { background: var(--warm-stone); color: var(--deep-brown); }
+.sb-nav button.active { background: var(--terracotta); color: var(--warm-white); }
+.sb-nav .tab-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: .6; }
 .sb-nav button.active .tab-icon { opacity: 1; }
 .tab-spec {
   margin-left: auto; font-size: 10px; font-weight: 400;
-  background: rgba(255,255,255,0.12); padding: 2px 7px; border-radius: 99px;
+  background: var(--warm-stone); padding: 2px 7px; border-radius: 99px;
   white-space: nowrap;
 }
 .sb-nav button.active .tab-spec { background: rgba(255,255,255,0.22); }
 
-.sb-divider { height: 1px; background: rgba(255,255,255,0.09); margin: 20px 0; }
+.sb-divider { height: 1px; background: var(--warm-stone); margin: 20px 0; }
 
 .sb-info {
-  font-size: 11.5px; color: rgba(255,255,255,0.38); line-height: 1.8;
+  font-size: 11.5px; color: var(--brown-muted); line-height: 1.8;
 }
-.sb-info strong { color: rgba(255,255,255,0.6); font-weight: 600; }
-.sb-info a { color: var(--studio-teal-light); text-decoration: none; }
+.sb-info strong { color: var(--body-brown); font-weight: 600; }
+.sb-info a { color: var(--terracotta); text-decoration: none; }
 
 .sb-foot {
-  margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.09);
-  font-size: 10.5px; color: rgba(255,255,255,0.25); line-height: 1.9;
+  margin-top: auto; padding-top: 20px; border-top: 1px solid var(--warm-stone);
+  font-size: 10.5px; color: var(--brown-muted); line-height: 1.9;
 }
 .sb-version {
   display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(13,155,174,0.18); color: var(--studio-teal-light);
+  background: var(--warm-stone); color: var(--terracotta);
   padding: 3px 8px; border-radius: 99px; font-size: 10px; font-weight: 600;
   margin-bottom: 8px;
 }
@@ -112,9 +119,9 @@ body {
 .panel-header { margin-bottom: 36px; }
 .panel-header h1 {
   font-family: var(--font-h); font-size: 26px; font-weight: 800;
-  color: var(--cogni-navy); margin-bottom: 6px;
+  color: var(--deep-brown); margin-bottom: 6px;
 }
-.panel-header p { font-size: 14px; color: var(--gray-600); }
+.panel-header p { font-size: 14px; color: var(--brown-muted); }
 
 .canvas-wrap {
   display: flex; align-items: flex-start; gap: 40px;
@@ -151,7 +158,7 @@ body {
 .hint-box strong { color: var(--gray-900); }
 .hint-box code {
   background: var(--gray-100); padding: 1px 5px; border-radius: 4px;
-  font-size: 11px; color: var(--cogni-navy);
+  font-size: 11px; color: var(--deep-brown);
 }
 
 /* ── COMPLIANCE PANEL ─────────── */
@@ -160,25 +167,25 @@ body {
   margin-top: 8px;
 }
 .check-card {
-  background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 20px;
+  background: white; border: 1px solid var(--warm-stone); border-radius: 10px; padding: 20px;
 }
-.check-card h3 { font-family: var(--font-h); font-size: 13px; font-weight: 700; color: var(--cogni-navy); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-.check-card h3 svg { width: 16px; height: 16px; color: var(--studio-teal); }
+.check-card h3 { font-family: var(--font-h); font-size: 13px; font-weight: 700; color: var(--deep-brown); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.check-card h3 svg { width: 16px; height: 16px; color: var(--terracotta); }
 .check-item {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: 13px; color: var(--gray-600); padding: 7px 0;
-  border-bottom: 1px solid var(--gray-100);
+  font-size: 13px; color: var(--brown-muted); padding: 7px 0;
+  border-bottom: 1px solid var(--warm-stone);
 }
 .check-item:last-child { border-bottom: none; }
 .check-box {
   width: 18px; height: 18px; min-width: 18px; border-radius: 4px;
-  border: 1.5px solid var(--gray-200); margin-top: 1px;
+  border: 1.5px solid var(--warm-stone); margin-top: 1px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: all .15s; background: white;
 }
-.check-box.checked { background: var(--studio-teal); border-color: var(--studio-teal); }
+.check-box.checked { background: var(--terracotta); border-color: var(--terracotta); }
 .check-box.checked svg { display: block; }
-.check-box svg { display: none; width: 11px; height: 11px; color: white; }
+.check-box svg { display: none; width: 11px; height: 11px; color: var(--warm-white); }
 
 /* ════════════════════════════════════════
    CANVAS DESIGNS — actual social media templates
@@ -187,7 +194,7 @@ body {
 /* ── IG CAROUSEL 1080×1080 ────── */
 .ig-canvas {
   width: 1080px; height: 1080px;
-  background: var(--cogni-navy);
+  background: var(--deep-brown);
   position: relative; overflow: hidden;
   font-family: var(--font-b);
 }
@@ -195,7 +202,7 @@ body {
 /* Dot grid bg */
 .ig-canvas .dot-grid {
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(13,155,174,0.18) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(181,69,44,0.08) 1.5px, transparent 1.5px);
   background-size: 40px 40px;
 }
 
@@ -203,20 +210,20 @@ body {
 .ig-canvas .deco-num {
   position: absolute; right: -20px; bottom: -40px;
   font-family: var(--font-h); font-size: 560px; font-weight: 900; line-height: 1;
-  color: rgba(255,255,255,0.07); pointer-events: none; user-select: none;
+  color: rgba(255,255,255,0.05); pointer-events: none; user-select: none;
   letter-spacing: -0.06em;
 }
 
-/* Teal stripe top */
+/* Terracotta stripe top */
 .ig-canvas .top-stripe {
   position: absolute; top: 0; left: 0; right: 0; height: 6px;
-  background: linear-gradient(90deg, var(--studio-teal), var(--studio-teal-light));
+  background: linear-gradient(90deg, var(--terracotta), var(--terracotta-light));
 }
 
-/* Orange vertical accent bar */
+/* Gold vertical accent bar */
 .ig-canvas .accent-bar {
   position: absolute; left: 80px; top: 240px; bottom: 240px;
-  width: 4px; background: var(--kerja-orange); border-radius: 2px;
+  width: 4px; background: var(--gold); border-radius: 2px;
 }
 
 /* Content area */
@@ -227,18 +234,18 @@ body {
 
 .ig-canvas .slide-label {
   font-size: 22px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--studio-teal); margin-bottom: 40px;
+  color: var(--terracotta-light); margin-bottom: 40px;
 }
 
 .ig-canvas .title {
   font-family: var(--font-h); font-size: 88px; font-weight: 800;
-  color: white; line-height: 1.05; margin-bottom: 48px;
+  color: var(--warm-white); line-height: 1.05; margin-bottom: 48px;
   letter-spacing: -0.02em;
 }
-.ig-canvas .title em { color: var(--studio-teal); font-style: normal; }
+.ig-canvas .title em { color: var(--terracotta-light); font-style: normal; }
 
 .ig-canvas .subtitle {
-  font-size: 30px; color: rgba(255,255,255,0.65); line-height: 1.5;
+  font-size: 30px; color: var(--brown-muted-dark); line-height: 1.5;
   max-width: 780px; margin-bottom: 80px;
 }
 
@@ -246,11 +253,11 @@ body {
   display: flex; align-items: center; gap: 20px;
 }
 .ig-canvas .brand-dot {
-  width: 10px; height: 10px; background: var(--kerja-orange); border-radius: 50%;
+  width: 10px; height: 10px; background: var(--gold); border-radius: 50%;
 }
 .ig-canvas .brand-text {
   font-family: var(--font-h); font-size: 22px; font-weight: 700;
-  color: rgba(255,255,255,0.55); letter-spacing: .04em;
+  color: var(--brown-muted-dark); letter-spacing: .04em;
 }
 
 /* Slide counter bottom right */
@@ -261,29 +268,29 @@ body {
 .ig-canvas .slide-counter span {
   width: 44px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.2);
 }
-.ig-canvas .slide-counter span.active { background: var(--kerja-orange); }
+.ig-canvas .slide-counter span.active { background: var(--gold); }
 
 /* ── LINKEDIN 1200×627 ────────── */
 .li-canvas {
   width: 1200px; height: 627px;
-  background: var(--gray-50);
+  background: var(--warm-cream);
   position: relative; overflow: hidden;
   font-family: var(--font-b);
   display: flex; flex-direction: column;
 }
 
 .li-canvas .header-bar {
-  background: var(--cogni-navy); height: 64px;
+  background: var(--deep-brown); height: 64px;
   display: flex; align-items: center; padding: 0 48px;
   gap: 16px; flex-shrink: 0;
 }
 .li-canvas .header-logo {
-  font-family: var(--font-h); font-weight: 800; font-size: 18px; color: white;
+  font-family: var(--font-h); font-weight: 800; font-size: 18px; color: var(--warm-white);
 }
-.li-canvas .header-logo span { color: var(--studio-teal); }
+.li-canvas .header-logo span { color: var(--terracotta-light); }
 .li-canvas .header-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
 .li-canvas .header-tag {
-  font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: .05em;
+  font-size: 12px; color: var(--brown-muted-dark); letter-spacing: .05em;
 }
 
 .li-canvas .body {
@@ -297,20 +304,20 @@ body {
 .li-canvas .meta-tag {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .14em;
-  color: var(--studio-teal); margin-bottom: 16px;
+  color: var(--terracotta); margin-bottom: 16px;
 }
 .li-canvas .meta-tag::before {
   content: ''; display: inline-block;
-  width: 24px; height: 2px; background: var(--studio-teal); border-radius: 1px;
+  width: 24px; height: 2px; background: var(--terracotta); border-radius: 1px;
 }
 
 .li-canvas .main-title {
   font-family: var(--font-h); font-size: 34px; font-weight: 800; line-height: 1.15;
-  color: var(--cogni-navy); margin-bottom: 16px; letter-spacing: -0.01em;
+  color: var(--deep-brown); margin-bottom: 16px; letter-spacing: -0.01em;
 }
 
 .li-canvas .body-text {
-  font-size: 16px; color: var(--gray-600); line-height: 1.6; margin-bottom: 24px;
+  font-size: 16px; color: var(--body-brown); line-height: 1.6; margin-bottom: 24px;
 }
 
 /* Step diagram */
@@ -318,20 +325,20 @@ body {
 .li-canvas .step { display: flex; align-items: flex-start; gap: 12px; position: relative; }
 .li-canvas .step + .step::before {
   content: ''; position: absolute; left: 14px; top: -14px;
-  width: 1px; height: 14px; background: var(--gray-200);
+  width: 1px; height: 14px; background: var(--warm-stone);
 }
 .li-canvas .step-num {
   width: 28px; height: 28px; min-width: 28px; border-radius: 7px;
-  background: var(--studio-teal); color: white;
+  background: var(--terracotta); color: var(--warm-white);
   font-family: var(--font-h); font-size: 13px; font-weight: 700;
   display: flex; align-items: center; justify-content: center; margin-top: 1px;
 }
-.li-canvas .step-text { font-size: 14px; color: var(--gray-600); line-height: 1.5; padding: 4px 0; }
-.li-canvas .step-text strong { color: var(--gray-900); font-weight: 600; }
+.li-canvas .step-text { font-size: 14px; color: var(--brown-muted); line-height: 1.5; padding: 4px 0; }
+.li-canvas .step-text strong { color: var(--deep-brown); font-weight: 600; }
 
 .li-canvas .cta-btn {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--studio-teal); color: white;
+  background: var(--terracotta); color: var(--warm-white);
   font-family: var(--font-h); font-size: 14px; font-weight: 700;
   padding: 12px 24px; border-radius: 8px;
   width: fit-content;
@@ -343,29 +350,29 @@ body {
 }
 .li-canvas .hero-img {
   width: 100%; height: 100%;
-  background: linear-gradient(135deg, var(--cogni-navy-mid) 0%, var(--studio-teal) 100%);
+  background: linear-gradient(135deg, var(--deep-brown) 0%, var(--terracotta) 100%);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 16px;
 }
 .li-canvas .hero-img .overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(15,42,74,0.85) 0%, rgba(13,155,174,0.4) 100%);
+  background: linear-gradient(135deg, rgba(30,24,16,0.85) 0%, rgba(181,69,44,0.4) 100%);
 }
 /* Dot grid on hero */
 .li-canvas .hero-img .dot-grid {
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 .li-canvas .hero-stat {
   position: relative; z-index: 2; text-align: center;
 }
 .li-canvas .hero-stat .stat-num {
-  font-family: var(--font-h); font-size: 72px; font-weight: 900; color: white; line-height: 1;
+  font-family: var(--font-h); font-size: 72px; font-weight: 900; color: var(--warm-white); line-height: 1;
 }
-.li-canvas .hero-stat .stat-num span { color: var(--kerja-orange); }
+.li-canvas .hero-stat .stat-num span { color: var(--gold); }
 .li-canvas .hero-stat .stat-label {
-  font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 4px;
+  font-size: 15px; color: var(--brown-muted-dark); margin-top: 4px;
 }
 .li-canvas .hero-tag {
   position: relative; z-index: 2;
@@ -373,16 +380,16 @@ body {
   color: rgba(255,255,255,0.8); font-size: 13px; padding: 8px 16px; border-radius: 99px;
 }
 
-/* Orange accent bar left of left-col */
+/* Gold accent bar left of left-col */
 .li-canvas .left-accent {
   position: absolute; left: 0; top: 64px; bottom: 0; width: 4px;
-  background: var(--kerja-orange);
+  background: var(--gold);
 }
 
 /* ── TWITTER/X 1200×675 ──────── */
 .tw-canvas {
   width: 1200px; height: 675px;
-  background: var(--cogni-navy-deep);
+  background: var(--deep-earth);
   position: relative; overflow: hidden;
   font-family: var(--font-b);
   display: flex; flex-direction: column;
@@ -390,24 +397,24 @@ body {
 
 .tw-canvas .dot-grid {
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(13,155,174,0.12) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(181,69,44,0.08) 1px, transparent 1px);
   background-size: 36px 36px;
 }
 
 .tw-canvas .top-bar {
   position: relative; z-index: 2;
-  background: rgba(15,42,74,0.9); backdrop-filter: blur(10px);
+  background: rgba(30,24,16,0.9); backdrop-filter: blur(10px);
   height: 60px; display: flex; align-items: center; padding: 0 56px;
-  border-bottom: 1px solid rgba(13,155,174,0.2);
+  border-bottom: 1px solid rgba(181,69,44,0.2);
   gap: 14px; flex-shrink: 0;
 }
 .tw-canvas .top-bar .logo-text {
-  font-family: var(--font-h); font-weight: 800; font-size: 17px; color: white;
+  font-family: var(--font-h); font-weight: 800; font-size: 17px; color: var(--warm-white);
 }
-.tw-canvas .top-bar .logo-text span { color: var(--studio-teal); }
+.tw-canvas .top-bar .logo-text span { color: var(--terracotta-light); }
 .tw-canvas .top-bar .sep { flex: 1; }
 .tw-canvas .top-bar .handle {
-  font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 500;
+  font-size: 13px; color: var(--brown-muted-dark); font-weight: 500;
 }
 
 .tw-canvas .content {
@@ -417,30 +424,30 @@ body {
 }
 
 .tw-canvas .teal-rule {
-  width: 64px; height: 3px; background: var(--studio-teal); border-radius: 2px;
+  width: 64px; height: 3px; background: var(--terracotta); border-radius: 2px;
   margin-bottom: 36px;
 }
 
 .tw-canvas .quote-mark {
   font-family: var(--font-h); font-size: 120px; font-weight: 900; line-height: 0.6;
-  color: rgba(13,155,174,0.25); float: left; margin-right: 8px; margin-top: 24px;
+  color: rgba(181,69,44,0.2); float: left; margin-right: 8px; margin-top: 24px;
 }
 
 .tw-canvas .quote-text {
   font-family: var(--font-h); font-size: 56px; font-weight: 800; line-height: 1.2;
-  color: white; letter-spacing: -0.02em; margin-bottom: 40px;
+  color: var(--warm-white); letter-spacing: -0.02em; margin-bottom: 40px;
 }
-.tw-canvas .quote-text em { color: var(--studio-teal); font-style: normal; }
-.tw-canvas .quote-text strong { color: var(--kerja-orange); font-style: normal; }
+.tw-canvas .quote-text em { color: var(--terracotta-light); font-style: normal; }
+.tw-canvas .quote-text strong { color: var(--gold); font-style: normal; }
 
 .tw-canvas .attribution {
   display: flex; align-items: center; gap: 16px;
 }
 .tw-canvas .attr-line { width: 40px; height: 2px; background: rgba(255,255,255,0.2); border-radius: 1px; }
 .tw-canvas .attr-text {
-  font-size: 17px; color: rgba(255,255,255,0.5); font-style: italic;
+  font-size: 17px; color: var(--brown-muted-dark); font-style: italic;
 }
-.tw-canvas .attr-text strong { color: rgba(255,255,255,0.75); font-style: normal; font-weight: 600; }
+.tw-canvas .attr-text strong { color: var(--warm-white); font-style: normal; font-weight: 600; }
 
 .tw-canvas .bottom-bar {
   position: relative; z-index: 2; flex-shrink: 0;
@@ -448,20 +455,20 @@ body {
   display: flex; align-items: center; padding: 0 56px; gap: 24px;
 }
 .tw-canvas .bottom-tag {
-  font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: .12em; text-transform: uppercase;
+  font-size: 12px; color: var(--brown-muted-dark); letter-spacing: .12em; text-transform: uppercase;
 }
-.tw-canvas .bottom-tag strong { color: rgba(13,155,174,0.7); }
+.tw-canvas .bottom-tag strong { color: var(--terracotta-light); }
 
-/* Deco orange bar right */
+/* Deco gold bar right */
 .tw-canvas .deco-bar {
   position: absolute; right: 0; top: 60px; bottom: 52px;
-  width: 4px; background: var(--kerja-orange); opacity: .7;
+  width: 4px; background: var(--gold); opacity: .7;
 }
 
 /* ── REEL THUMBNAIL 1080×1920 ── */
 .reel-canvas {
   width: 1080px; height: 1920px;
-  background: var(--cogni-navy-deep);
+  background: var(--deep-earth);
   position: relative; overflow: hidden;
   font-family: var(--font-b);
 }
@@ -469,34 +476,34 @@ body {
 /* Background gradient */
 .reel-canvas .bg-grad {
   position: absolute; inset: 0;
-  background: linear-gradient(160deg, var(--cogni-navy) 0%, var(--cogni-navy-deep) 55%, #020e18 100%);
+  background: linear-gradient(160deg, var(--deep-brown) 0%, var(--deep-earth) 55%, #0E0A08 100%);
 }
 
 /* Dot grid */
 .reel-canvas .dot-grid {
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(13,155,174,0.14) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(181,69,44,0.08) 1.5px, transparent 1.5px);
   background-size: 50px 50px;
 }
 
-/* Teal glowy circle accent */
+/* Terracotta glowy circle accent */
 .reel-canvas .glow-circle {
   position: absolute; right: -200px; top: 300px;
   width: 700px; height: 700px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(13,155,174,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(181,69,44,0.08) 0%, transparent 70%);
 }
 
-/* Orange vertical accent bar */
+/* Gold vertical accent bar */
 .reel-canvas .accent-bar {
   position: absolute; left: 0; top: 200px; bottom: 200px;
-  width: 5px; background: var(--kerja-orange); border-radius: 0 2px 2px 0;
+  width: 5px; background: var(--gold); border-radius: 0 2px 2px 0;
 }
 
 /* Decorative large number */
 .reel-canvas .deco-num {
   position: absolute; right: -60px; top: 160px;
   font-family: var(--font-h); font-size: 800px; font-weight: 900; line-height: 1;
-  color: rgba(255,255,255,0.05); pointer-events: none; user-select: none;
+  color: rgba(255,255,255,0.03); pointer-events: none; user-select: none;
   letter-spacing: -0.06em;
 }
 
@@ -506,12 +513,12 @@ body {
   display: flex; align-items: center; gap: 12px;
 }
 .reel-canvas .badge-logo {
-  width: 52px; height: 52px; background: var(--studio-teal); border-radius: 12px;
+  width: 52px; height: 52px; background: var(--terracotta); border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
 }
 .reel-canvas .badge-logo svg { width: 28px; height: 28px; }
 .reel-canvas .badge-text {
-  font-family: var(--font-h); font-weight: 800; font-size: 18px; color: rgba(255,255,255,0.8);
+  font-family: var(--font-h); font-weight: 800; font-size: 18px; color: var(--warm-white);
 }
 
 /* Main content */
@@ -522,34 +529,34 @@ body {
 
 .reel-canvas .eyebrow {
   font-size: 26px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--studio-teal); margin-bottom: 32px;
+  color: var(--terracotta-light); margin-bottom: 32px;
 }
 
 .reel-canvas .hook-text {
   font-family: var(--font-h); font-size: 116px; font-weight: 900; line-height: 1.0;
-  color: white; letter-spacing: -0.03em; margin-bottom: 36px;
+  color: var(--warm-white); letter-spacing: -0.03em; margin-bottom: 36px;
 }
-.reel-canvas .hook-text em { color: var(--kerja-orange); font-style: normal; }
+.reel-canvas .hook-text em { color: var(--gold); font-style: normal; }
 
 .reel-canvas .sub-text {
-  font-size: 42px; font-weight: 500; color: rgba(255,255,255,0.65);
+  font-size: 42px; font-weight: 500; color: var(--brown-muted-dark);
   line-height: 1.4; max-width: 840px; margin-bottom: 64px;
 }
-.reel-canvas .sub-text strong { color: rgba(255,255,255,0.9); font-weight: 700; }
+.reel-canvas .sub-text strong { color: var(--warm-white); font-weight: 700; }
 
 .reel-canvas .result-chips {
   display: flex; flex-wrap: wrap; gap: 16px;
 }
 .reel-canvas .chip {
-  background: rgba(13,155,174,0.15); border: 1px solid rgba(13,155,174,0.3);
-  color: rgba(255,255,255,0.7); font-size: 22px; font-weight: 600;
+  background: rgba(181,69,44,0.12); border: 1px solid rgba(181,69,44,0.25);
+  color: var(--brown-muted-dark); font-size: 22px; font-weight: 600;
   padding: 12px 28px; border-radius: 99px;
 }
 
 /* Bottom gradient overlay */
 .reel-canvas .bottom-overlay {
   position: absolute; left: 0; right: 0; bottom: 0; height: 400px;
-  background: linear-gradient(0deg, rgba(2,14,24,0.97) 0%, rgba(2,14,24,0.7) 50%, transparent 100%);
+  background: linear-gradient(0deg, rgba(14,10,8,0.97) 0%, rgba(14,10,8,0.7) 50%, transparent 100%);
 }
 
 /* Profile area */
@@ -559,8 +566,8 @@ body {
 }
 .reel-canvas .profile-pic {
   width: 100px; height: 100px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--studio-teal) 0%, var(--cogni-navy-mid) 100%);
-  border: 3px solid rgba(13,155,174,0.5);
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--deep-brown) 100%);
+  border: 3px solid rgba(181,69,44,0.4);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   overflow: hidden; position: relative;
 }
@@ -569,19 +576,304 @@ body {
 }
 .reel-canvas .profile-info {}
 .reel-canvas .profile-name {
-  font-family: var(--font-h); font-weight: 800; font-size: 30px; color: white;
+  font-family: var(--font-h); font-weight: 800; font-size: 30px; color: var(--warm-white);
 }
 .reel-canvas .profile-handle {
-  font-size: 20px; color: rgba(255,255,255,0.45); margin-top: 2px;
+  font-size: 20px; color: var(--brown-muted-dark); margin-top: 2px;
 }
 .reel-canvas .follow-btn {
   margin-left: auto;
-  background: var(--kerja-orange); color: white;
+  background: var(--gold); color: var(--deep-brown);
   font-family: var(--font-h); font-size: 20px; font-weight: 700;
   padding: 16px 40px; border-radius: 10px;
 }
 
 /* ─────────────────────────────── */
+
+/* ══ 6 NEW LAYOUT TEMPLATES — Direction B Warm Light ══ */
+
+/* ── LAYOUT 1: SPLIT — Half Visual, Half Text ── */
+.split-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+  display: flex;
+}
+.split-canvas .split-left {
+  width: 50%; display: flex; flex-direction: column; justify-content: center;
+  padding: 60px 48px; position: relative; z-index: 1;
+}
+.split-canvas .split-right {
+  width: 50%; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--deep-brown) 0%, var(--terracotta) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.split-canvas .split-right .visual-placeholder {
+  font-family: var(--font-h); font-weight: 800; font-size: 40px; color: var(--warm-white); opacity: 0.5;
+  text-align: center;
+}
+.split-canvas .gold-divider {
+  position: absolute; left: 50%; top: 120px; bottom: 120px;
+  width: 2px; background: var(--gold); z-index: 2;
+}
+.split-canvas .split-eyebrow {
+  font-size: 22px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 24px;
+}
+.split-canvas .split-headline {
+  font-family: var(--font-h); font-size: 62px; font-weight: 800;
+  color: var(--deep-brown); line-height: 1.1; margin-bottom: 24px;
+}
+.split-canvas .split-body {
+  font-size: 24px; color: var(--body-brown); line-height: 1.5; margin-bottom: 40px;
+}
+.split-canvas .split-handle {
+  font-family: var(--font-h); font-weight: 700; font-size: 18px; color: var(--brown-muted);
+}
+.split-canvas .slide-counter {
+  position: absolute; left: 48px; bottom: 48px;
+  display: flex; gap: 8px;
+}
+.split-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.split-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 2: CARD GRID — 3 Poin Horizontal ── */
+.cardgrid-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+/* Dot grid subdued — only Card Grid & Asymmetric */
+.cardgrid-canvas .dot-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(181,69,44,0.06) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+}
+.cardgrid-canvas .cg-eyebrow {
+  position: absolute; top: 80px; left: 80px;
+  font-size: 24px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--terracotta);
+}
+.cardgrid-canvas .cg-cards {
+  position: absolute; left: 56px; right: 56px; top: 50%; transform: translateY(-50%);
+  display: flex; gap: 16px;
+}
+.cardgrid-canvas .cg-card {
+  flex: 1; background: var(--warm-stone); border-radius: 16px;
+  padding: 32px 24px;
+}
+.cardgrid-canvas .cg-card-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.cardgrid-canvas .cg-card-title {
+  font-family: var(--font-h); font-size: 24px; font-weight: 700;
+  color: var(--deep-brown); margin-bottom: 10px; line-height: 1.2;
+}
+.cardgrid-canvas .cg-card-desc {
+  font-size: 18px; color: var(--brown-muted); line-height: 1.5;
+}
+.cardgrid-canvas .cg-handle {
+  position: absolute; left: 80px; bottom: 64px;
+  font-family: var(--font-h); font-weight: 700; font-size: 20px; color: var(--brown-muted);
+}
+.cardgrid-canvas .slide-counter {
+  position: absolute; right: 80px; bottom: 64px;
+  display: flex; gap: 8px;
+}
+.cardgrid-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.cardgrid-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 3: PULL QUOTE — Satu Kalimat Besar ── */
+.quote-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+  display: flex; align-items: center; justify-content: center;
+}
+.quote-canvas .quote-mark-deco {
+  position: absolute; top: -80px; left: 20px;
+  font-family: var(--font-h); font-size: 500px; font-weight: 800; line-height: 1;
+  color: rgba(181,69,44,0.06); pointer-events: none; user-select: none;
+}
+.quote-canvas .quote-content {
+  position: relative; z-index: 1; text-align: center; max-width: 800px;
+}
+.quote-canvas .quote-text {
+  font-family: var(--font-h); font-size: 64px; font-weight: 800; line-height: 1.1;
+  color: var(--deep-brown); margin-bottom: 32px; letter-spacing: -0.02em;
+}
+.quote-canvas .quote-text em { font-family: var(--font-b); font-weight: 900; font-style: italic; color: var(--gold); }
+.quote-canvas .quote-attr {
+  font-size: 20px; color: var(--brown-muted);
+}
+.quote-canvas .slide-counter {
+  position: absolute; right: 80px; bottom: 64px;
+  display: flex; gap: 8px;
+}
+.quote-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.quote-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 4: SCREENSHOT HERO — Tool Preview Dominant ── */
+.sshero-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--deep-earth);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+.sshero-canvas .ss-img-area {
+  position: absolute; top: 0; left: 0; right: 0; height: 68%;
+  background: linear-gradient(135deg, var(--deep-brown) 0%, #2D1810 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.sshero-canvas .ss-img-area .ss-placeholder {
+  font-family: var(--font-h); font-weight: 800; font-size: 32px; color: var(--brown-muted-dark); opacity: 0.6;
+}
+.sshero-canvas .ss-overlay {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 35%;
+  background: linear-gradient(transparent, var(--deep-earth) 40%);
+}
+.sshero-canvas .ss-content {
+  position: absolute; left: 80px; right: 80px; bottom: 60px;
+}
+.sshero-canvas .ss-headline {
+  font-family: var(--font-h); font-size: 48px; font-weight: 800;
+  color: var(--warm-white); line-height: 1.15; margin-bottom: 12px;
+}
+.sshero-canvas .ss-gold-line {
+  width: 64px; height: 3px; background: var(--gold); border-radius: 2px;
+  margin-bottom: 16px;
+}
+.sshero-canvas .ss-desc {
+  font-size: 24px; color: var(--brown-muted-dark); line-height: 1.4; margin-bottom: 24px;
+}
+.sshero-canvas .slide-counter {
+  position: absolute; top: 60px; right: 80px;
+  display: flex; gap: 8px;
+}
+.sshero-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.2);
+}
+.sshero-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 5: ASYMMETRIC — Break the Grid ── */
+.asym-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+.asym-canvas .dot-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(181,69,44,0.05) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+}
+.asym-canvas .asym-diagonal {
+  position: absolute; top: 0; left: 0; width: 50%; height: 60%;
+  background: linear-gradient(135deg, transparent 95%, var(--gold) 95%, var(--gold) 96%, transparent 96%);
+  pointer-events: none;
+}
+.asym-canvas .asym-headline {
+  position: absolute; right: 80px; top: 160px;
+  font-family: var(--font-h); font-size: 60px; font-weight: 800;
+  color: var(--deep-brown); text-align: right; line-height: 1.1;
+  max-width: 600px;
+}
+.asym-canvas .asym-body {
+  position: absolute; left: 80px; bottom: 200px;
+  font-size: 28px; color: var(--body-brown); line-height: 1.5; max-width: 55%;
+}
+.asym-canvas .asym-deco-num {
+  position: absolute; right: -20px; bottom: -40px;
+  font-family: var(--font-h); font-size: 400px; font-weight: 900; line-height: 1;
+  color: rgba(181,69,44,0.08); pointer-events: none; user-select: none;
+}
+.asym-canvas .asym-handle {
+  position: absolute; left: 80px; bottom: 80px;
+  font-family: var(--font-h); font-weight: 700; font-size: 20px; color: var(--brown-muted);
+}
+.asym-canvas .slide-counter {
+  position: absolute; right: 80px; top: 80px;
+  display: flex; gap: 8px;
+}
+.asym-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.asym-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 6: PROCESS FLOW — 3 Step Horizontal ── */
+.flow-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+.flow-canvas .flow-eyebrow {
+  position: absolute; top: 80px; left: 80px;
+  font-size: 24px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--terracotta);
+}
+.flow-canvas .flow-headline {
+  position: absolute; top: 130px; left: 80px; right: 80px;
+  font-family: var(--font-h); font-size: 32px; font-weight: 800;
+  color: var(--deep-brown); line-height: 1.2;
+}
+.flow-canvas .flow-steps {
+  position: absolute; left: 60px; right: 60px; top: 50%; transform: translateY(-50%);
+  display: flex; align-items: center; gap: 20px;
+}
+.flow-canvas .flow-step-box {
+  flex: 1; background: var(--warm-stone); border-radius: 12px;
+  padding: 32px 24px; text-align: center;
+}
+.flow-canvas .flow-step-box.active {
+  background: var(--deep-earth);
+}
+.flow-canvas .flow-step-num {
+  font-family: var(--font-h); font-size: 56px; font-weight: 800; line-height: 1;
+  color: var(--gold); margin-bottom: 12px;
+}
+.flow-canvas .flow-step-box:not(.active) .flow-step-num {
+  color: var(--brown-muted);
+}
+.flow-canvas .flow-step-label {
+  font-size: 20px; font-weight: 600;
+  color: var(--warm-white);
+}
+.flow-canvas .flow-step-box:not(.active) .flow-step-label {
+  color: var(--body-brown);
+}
+.flow-canvas .flow-arrow {
+  width: 32px; height: 2px; background: var(--gold); flex-shrink: 0;
+  position: relative;
+}
+.flow-canvas .flow-arrow::after {
+  content: '';
+  position: absolute; right: -4px; top: -4px;
+  border: 5px solid transparent; border-left-color: var(--gold);
+}
+.flow-canvas .flow-handle {
+  position: absolute; left: 80px; bottom: 64px;
+  font-family: var(--font-h); font-weight: 700; font-size: 20px; color: var(--brown-muted);
+}
+.flow-canvas .slide-counter {
+  position: absolute; right: 80px; bottom: 64px;
+  display: flex; gap: 8px;
+}
+.flow-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.flow-canvas .slide-counter span.active { background: var(--gold); }
 </style>
 </head>
 <body>
@@ -651,6 +943,73 @@ body {
         </svg>
         Brand Compliance
         <span class="tab-spec">QC</span>
+      </button>
+    </li>
+  </ul>
+
+  <div class="sb-divider"></div>
+  <div class="sb-section-label">Layout Templates</div>
+  <ul class="sb-nav" id="layout-tabs">
+    <li>
+      <button data-tab="split" onclick="switchTab('split')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="6" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="9" y="1" width="6" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Split
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="cardgrid" onclick="switchTab('cardgrid')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="3" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="6" y="3" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="3" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        Card Grid
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="quote" onclick="switchTab('quote')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <path d="M3 6V2h4v4L5 14H2l2-8H3zM11 6V2h4v4l-2 8h-3l2-8h-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        Pull Quote
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="sshero" onclick="switchTab('sshero')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M4 14h8M8 12v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Screenshot Hero
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="asym" onclick="switchTab('asym')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <path d="M2 2l12 12M4 14L2 12M14 4l-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Asymmetric
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="flow" onclick="switchTab('flow')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="2" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="6" y="7" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="12" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 5v4l2.5 1M8 10v4l2.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Process Flow
+        <span class="tab-spec">1080²</span>
       </button>
     </li>
   </ul>
@@ -894,9 +1253,9 @@ body {
           <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Warna
         </h3>
-        <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>Primary: Cogni Navy <code>#0F2A4A</code> digunakan untuk headline</div></div>
-        <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>Secondary: Studio Teal <code>#0D9BAE</code> digunakan untuk aksen &amp; link</div></div>
-        <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>Kerja Orange <code>#F77F2A</code> maksimal <strong>1×</strong> per layout (CTA saja)</div></div>
+        <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>Primary: Deep Brown <code>#1E1810</code> digunakan untuk headline</div></div>
+        <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>Secondary: Terracotta <code>#B5452C</code> digunakan untuk aksen &amp; link</div></div>
+        <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>Gold <code>#D4A017</code> maksimal <strong>1×</strong> per layout (CTA saja)</div></div>
         <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"><svg viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>Tidak ada warna di luar palette brand yang disetujui</div></div>
       </div>
 
@@ -958,14 +1317,224 @@ body {
     </div>
   </section>
 
+<!-- ══ NEW LAYOUT PANELS (Direction B) ══════════════════════ -->
+<!-- LAYOUT 1: Split -->
+<section class="panel" id="panel-split">
+  <div class="panel-header">
+    <h1>Layout 1: Split — Half Visual, Half Text</h1>
+    <p>Canvas 1080×1080px · Gold divider di tengah · Tidak ada dot grid</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Hook Slide — Personal Branding <span>Split + Gold Divider</span></div>
+      <div class="scale-wrap" id="wrap-split" style="transform-origin:top left;">
+        <div class="split-canvas" id="canvas-split">
+          <div class="gold-divider"></div>
+          <div class="split-left">
+            <div class="split-eyebrow">Toolkit Gue</div>
+            <h2 class="split-headline">3 Tools AI yang Gue Pake Sehari-hari</h2>
+            <p class="split-body">Bukan review — ini yang beneran kepake. Buat riset, nulis, sama bikin visual.</p>
+            <div class="split-handle">Rahman Ramsi</div>
+          </div>
+          <div class="split-right">
+            <div class="visual-placeholder">📸 Foto / Screenshot</div>
+          </div>
+          <div class="slide-counter">
+            <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Split layout:</strong> Kiri 50% teks (cream), kanan 50% visual (foto/screenshot dengan deep brown→terracotta gradient). Gold divider 2px di tengah. Cocok untuk slide hook (slide 1) dan personal branding.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 2: Card Grid -->
+<section class="panel" id="panel-cardgrid">
+  <div class="panel-header">
+    <h1>Layout 2: Card Grid — 3 Poin Horizontal</h1>
+    <p>Canvas 1080×1080px · 3 kartu · Dot grid subtle</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Listicle / Overview <span>Card Grid + Dot Grid</span></div>
+      <div class="scale-wrap" id="wrap-cardgrid" style="transform-origin:top left;">
+        <div class="cardgrid-canvas" id="canvas-cardgrid">
+          <div class="dot-grid"></div>
+          <div class="cg-eyebrow">Toolkit Gue</div>
+          <div class="cg-cards">
+            <div class="cg-card">
+              <div class="cg-card-icon" style="background:var(--terracotta)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3"/></svg></div>
+              <div class="cg-card-title">Claude</div>
+              <div class="cg-card-desc">Riset &amp; drafting konten panjang</div>
+            </div>
+            <div class="cg-card">
+              <div class="cg-card-icon" style="background:var(--terracotta)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+              <div class="cg-card-title">Perplexity</div>
+              <div class="cg-card-desc">Research + fact-check otomatis</div>
+            </div>
+            <div class="cg-card">
+              <div class="cg-card-icon" style="background:var(--terracotta)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+              <div class="cg-card-title">Gamma</div>
+              <div class="cg-card-desc">Deck &amp; visual presentasi instan</div>
+            </div>
+          </div>
+          <div class="cg-handle">Rahman Ramsi</div>
+          <div class="slide-counter">
+            <span></span><span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Card Grid layout:</strong> 3 kartu horizontal dengan icon SVG (terracotta bg). Dot grid hadir sebagai subtle texture. Cocok untuk listicle, perbandingan tools, 3 tips.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 3: Pull Quote -->
+<section class="panel" id="panel-quote">
+  <div class="panel-header">
+    <h1>Layout 3: Pull Quote — Satu Kalimat Besar</h1>
+    <p>Canvas 1080×1080px · Centered bold text · Only text</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Key Insight / Closing <span>Pull Quote + Gold Highlight</span></div>
+      <div class="scale-wrap" id="wrap-quote" style="transform-origin:top left;">
+        <div class="quote-canvas" id="canvas-quote">
+          <div class="quote-mark-deco">"</div>
+          <div class="quote-content">
+            <div class="quote-text">AI bukan soal tools <em>terbaru</em>. Lo cuma perlu 3 yang beneran kepake.</div>
+            <div class="quote-attr">— Rahman Ramsi</div>
+          </div>
+          <div class="slide-counter">
+            <span></span><span></span><span></span><span></span><span></span><span class="active"></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Pull Quote layout:</strong> Satu kalimat besar, centered, cream background bersih. Tidak ada dot grid, tidak ada accent bar. Quote mark dekoratif terracotta 6% opacity. Highlight kata pake PJS 900 italic + Gold. Cocok untuk key insight atau closing slide.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 4: Screenshot Hero -->
+<section class="panel" id="panel-sshero">
+  <div class="panel-header">
+    <h1>Layout 4: Screenshot Hero — Tool in Action</h1>
+    <p>Canvas 1080×1080px · Tool preview 68% area · Deep Earth bg</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Tool Demo / Tutorial <span>Screenshot Hero + Gradient Overlay</span></div>
+      <div class="scale-wrap" id="wrap-sshero" style="transform-origin:top left;">
+        <div class="sshero-canvas" id="canvas-sshero">
+          <div class="ss-img-area">
+            <div class="ss-placeholder">[Screenshot Tool AI]</div>
+          </div>
+          <div class="ss-overlay"></div>
+          <div class="ss-content">
+            <h2 class="ss-headline">Satu chat. Satu draft. Selesai.</h2>
+            <div class="ss-gold-line"></div>
+            <p class="ss-desc">Claude bikin draft artikel 1000 kata dalam 2 menit.</p>
+          </div>
+          <div class="slide-counter">
+            <span></span><span></span><span class="active"></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Screenshot Hero layout:</strong> Screenshot tool full-width 68% area atas. Overlay gradient deep earth di 32% bawah. Headline warm white + gold accent line + deskripsi 1 baris. Slide counter di top-right. Cocok untuk demo tools dan tutorial visual-first.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 5: Asymmetric -->
+<section class="panel" id="panel-asym">
+  <div class="panel-header">
+    <h1>Layout 5: Asymmetric — Break the Grid</h1>
+    <p>Canvas 1080×1080px · Diagonal gold line · Dot grid subtle</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Surprise / Re-engage <span>Asymmetric + Diagonal Gold Line</span></div>
+      <div class="scale-wrap" id="wrap-asym" style="transform-origin:top left;">
+        <div class="asym-canvas" id="canvas-asym">
+          <div class="dot-grid"></div>
+          <div class="asym-diagonal"></div>
+          <h2 class="asym-headline">Tools lo ganti tiap bulan.</h2>
+          <p class="asym-body">Konsistensi yang bikin beda.<br>Bukan tools-nya.</p>
+          <div class="asym-deco-num">05</div>
+          <div class="asym-handle">Rahman Ramsi</div>
+          <div class="slide-counter">
+            <span></span><span></span><span></span><span></span><span class="active"></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Asymmetric layout:</strong> Headline top-right, body bottom-left. Diagonal gold line 2px dari top-left ke tengah. Decorative number bottom-right. Dot grid subtle. Cocok untuk slide yang memecah ekspektasi (slide 3-5) untuk re-engage perhatian.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 6: Process Flow -->
+<section class="panel" id="panel-flow">
+  <div class="panel-header">
+    <h1>Layout 6: Process Flow — 3 Step Horizontal</h1>
+    <p>Canvas 1080×1080px · Step boxes + gold arrows</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Workflow / Tutorial <span>Process Flow + Gold Arrows</span></div>
+      <div class="scale-wrap" id="wrap-flow" style="transform-origin:top left;">
+        <div class="flow-canvas" id="canvas-flow">
+          <div class="flow-eyebrow">Workflow</div>
+          <div class="flow-headline">Dari ide ke publish dalam 3 langkah</div>
+          <div class="flow-steps">
+            <div class="flow-step-box active">
+              <div class="flow-step-num">1</div>
+              <div class="flow-step-label">Brainstorm pake Claude</div>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step-box">
+              <div class="flow-step-num">2</div>
+              <div class="flow-step-label">Validasi pake Perplexity</div>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step-box">
+              <div class="flow-step-num">3</div>
+              <div class="flow-step-label">Visual + post pake Gamma</div>
+            </div>
+          </div>
+          <div class="flow-handle">Rahman Ramsi</div>
+          <div class="slide-counter">
+            <span></span><span></span><span></span><span class="active"></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Process Flow layout:</strong> 3 step box horizontal dengan gold arrow connector. Active step: Deep Earth bg + gold number. Inactive: Warm Stone bg + brown muted number. Cocok untuk tutorial step-by-step, workflow AI, "cara pakai tool X".
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <script>
 function switchTab(id) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('#tabs button').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  document.querySelector('[data-tab="' + id + '"]').classList.add('active');
+  document.querySelectorAll('#tabs button, #layout-tabs button').forEach(b => b.classList.remove('active'));
+  var panel = document.getElementById('panel-' + id);
+  if (panel) panel.classList.add('active');
+  var btn = document.querySelector('[data-tab="' + id + '"]');
+  if (btn) btn.classList.add('active');
 }
 
 function toggleCheck(el) {
@@ -979,6 +1548,12 @@ function scaleCanvases() {
     { wrap: 'wrap-li',   canvas: 'canvas-li',   w: 1200, h: 627  },
     { wrap: 'wrap-tw',   canvas: 'canvas-tw',   w: 1200, h: 675  },
     { wrap: 'wrap-reel', canvas: 'canvas-reel',  w: 1080, h: 1920 },
+    { wrap: 'wrap-split',   canvas: 'canvas-split',   w: 1080, h: 1080 },
+    { wrap: 'wrap-cardgrid',canvas: 'canvas-cardgrid',w: 1080, h: 1080 },
+    { wrap: 'wrap-quote',   canvas: 'canvas-quote',   w: 1080, h: 1080 },
+    { wrap: 'wrap-sshero',  canvas: 'canvas-sshero',  w: 1080, h: 1080 },
+    { wrap: 'wrap-asym',    canvas: 'canvas-asym',    w: 1080, h: 1080 },
+    { wrap: 'wrap-flow',    canvas: 'canvas-flow',    w: 1080, h: 1080 },
   ];
   const maxW = Math.min(window.innerWidth - 340, 900);
   const maxH = window.innerHeight - 200;
