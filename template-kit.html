@@ -1317,8 +1317,6 @@ body {
     </div>
   </section>
 
-</main>
-
 <!-- ══ NEW LAYOUT PANELS (Direction B) ══════════════════════ -->
 <!-- LAYOUT 1: Split -->
 <section class="panel" id="panel-split">
@@ -1527,12 +1525,16 @@ body {
   </div>
 </section>
 
+</main>
+
 <script>
 function switchTab(id) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('#tabs button').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  document.querySelector('[data-tab="' + id + '"]').classList.add('active');
+  document.querySelectorAll('#tabs button, #layout-tabs button').forEach(b => b.classList.remove('active'));
+  var panel = document.getElementById('panel-' + id);
+  if (panel) panel.classList.add('active');
+  var btn = document.querySelector('[data-tab="' + id + '"]');
+  if (btn) btn.classList.add('active');
 }
 
 function toggleCheck(el) {
