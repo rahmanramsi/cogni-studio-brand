@@ -589,6 +589,291 @@ body {
 }
 
 /* ─────────────────────────────── */
+
+/* ══ 6 NEW LAYOUT TEMPLATES — Direction B Warm Light ══ */
+
+/* ── LAYOUT 1: SPLIT — Half Visual, Half Text ── */
+.split-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+  display: flex;
+}
+.split-canvas .split-left {
+  width: 50%; display: flex; flex-direction: column; justify-content: center;
+  padding: 60px 48px; position: relative; z-index: 1;
+}
+.split-canvas .split-right {
+  width: 50%; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--deep-brown) 0%, var(--terracotta) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.split-canvas .split-right .visual-placeholder {
+  font-family: var(--font-h); font-weight: 800; font-size: 40px; color: var(--warm-white); opacity: 0.5;
+  text-align: center;
+}
+.split-canvas .gold-divider {
+  position: absolute; left: 50%; top: 120px; bottom: 120px;
+  width: 2px; background: var(--gold); z-index: 2;
+}
+.split-canvas .split-eyebrow {
+  font-size: 22px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 24px;
+}
+.split-canvas .split-headline {
+  font-family: var(--font-h); font-size: 62px; font-weight: 800;
+  color: var(--deep-brown); line-height: 1.1; margin-bottom: 24px;
+}
+.split-canvas .split-body {
+  font-size: 24px; color: var(--body-brown); line-height: 1.5; margin-bottom: 40px;
+}
+.split-canvas .split-handle {
+  font-family: var(--font-h); font-weight: 700; font-size: 18px; color: var(--brown-muted);
+}
+.split-canvas .slide-counter {
+  position: absolute; left: 48px; bottom: 48px;
+  display: flex; gap: 8px;
+}
+.split-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.split-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 2: CARD GRID — 3 Poin Horizontal ── */
+.cardgrid-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+/* Dot grid subdued — only Card Grid & Asymmetric */
+.cardgrid-canvas .dot-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(181,69,44,0.06) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+}
+.cardgrid-canvas .cg-eyebrow {
+  position: absolute; top: 80px; left: 80px;
+  font-size: 24px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--terracotta);
+}
+.cardgrid-canvas .cg-cards {
+  position: absolute; left: 56px; right: 56px; top: 50%; transform: translateY(-50%);
+  display: flex; gap: 16px;
+}
+.cardgrid-canvas .cg-card {
+  flex: 1; background: var(--warm-stone); border-radius: 16px;
+  padding: 32px 24px;
+}
+.cardgrid-canvas .cg-card-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.cardgrid-canvas .cg-card-title {
+  font-family: var(--font-h); font-size: 24px; font-weight: 700;
+  color: var(--deep-brown); margin-bottom: 10px; line-height: 1.2;
+}
+.cardgrid-canvas .cg-card-desc {
+  font-size: 18px; color: var(--brown-muted); line-height: 1.5;
+}
+.cardgrid-canvas .cg-handle {
+  position: absolute; left: 80px; bottom: 64px;
+  font-family: var(--font-h); font-weight: 700; font-size: 20px; color: var(--brown-muted);
+}
+.cardgrid-canvas .slide-counter {
+  position: absolute; right: 80px; bottom: 64px;
+  display: flex; gap: 8px;
+}
+.cardgrid-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.cardgrid-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 3: PULL QUOTE — Satu Kalimat Besar ── */
+.quote-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+  display: flex; align-items: center; justify-content: center;
+}
+.quote-canvas .quote-mark-deco {
+  position: absolute; top: -80px; left: 20px;
+  font-family: var(--font-h); font-size: 500px; font-weight: 800; line-height: 1;
+  color: rgba(181,69,44,0.06); pointer-events: none; user-select: none;
+}
+.quote-canvas .quote-content {
+  position: relative; z-index: 1; text-align: center; max-width: 800px;
+}
+.quote-canvas .quote-text {
+  font-family: var(--font-h); font-size: 64px; font-weight: 800; line-height: 1.1;
+  color: var(--deep-brown); margin-bottom: 32px; letter-spacing: -0.02em;
+}
+.quote-canvas .quote-text em { font-family: var(--font-b); font-weight: 900; font-style: italic; color: var(--gold); }
+.quote-canvas .quote-attr {
+  font-size: 20px; color: var(--brown-muted);
+}
+.quote-canvas .slide-counter {
+  position: absolute; right: 80px; bottom: 64px;
+  display: flex; gap: 8px;
+}
+.quote-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.quote-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 4: SCREENSHOT HERO — Tool Preview Dominant ── */
+.sshero-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--deep-earth);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+.sshero-canvas .ss-img-area {
+  position: absolute; top: 0; left: 0; right: 0; height: 68%;
+  background: linear-gradient(135deg, var(--deep-brown) 0%, #2D1810 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.sshero-canvas .ss-img-area .ss-placeholder {
+  font-family: var(--font-h); font-weight: 800; font-size: 32px; color: var(--brown-muted-dark); opacity: 0.6;
+}
+.sshero-canvas .ss-overlay {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 35%;
+  background: linear-gradient(transparent, var(--deep-earth) 40%);
+}
+.sshero-canvas .ss-content {
+  position: absolute; left: 80px; right: 80px; bottom: 60px;
+}
+.sshero-canvas .ss-headline {
+  font-family: var(--font-h); font-size: 48px; font-weight: 800;
+  color: var(--warm-white); line-height: 1.15; margin-bottom: 12px;
+}
+.sshero-canvas .ss-gold-line {
+  width: 64px; height: 3px; background: var(--gold); border-radius: 2px;
+  margin-bottom: 16px;
+}
+.sshero-canvas .ss-desc {
+  font-size: 24px; color: var(--brown-muted-dark); line-height: 1.4; margin-bottom: 24px;
+}
+.sshero-canvas .slide-counter {
+  position: absolute; top: 60px; right: 80px;
+  display: flex; gap: 8px;
+}
+.sshero-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.2);
+}
+.sshero-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 5: ASYMMETRIC — Break the Grid ── */
+.asym-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+.asym-canvas .dot-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(181,69,44,0.05) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+}
+.asym-canvas .asym-diagonal {
+  position: absolute; top: 0; left: 0; width: 50%; height: 60%;
+  background: linear-gradient(135deg, transparent 95%, var(--gold) 95%, var(--gold) 96%, transparent 96%);
+  pointer-events: none;
+}
+.asym-canvas .asym-headline {
+  position: absolute; right: 80px; top: 160px;
+  font-family: var(--font-h); font-size: 60px; font-weight: 800;
+  color: var(--deep-brown); text-align: right; line-height: 1.1;
+  max-width: 600px;
+}
+.asym-canvas .asym-body {
+  position: absolute; left: 80px; bottom: 200px;
+  font-size: 28px; color: var(--body-brown); line-height: 1.5; max-width: 55%;
+}
+.asym-canvas .asym-deco-num {
+  position: absolute; right: -20px; bottom: -40px;
+  font-family: var(--font-h); font-size: 400px; font-weight: 900; line-height: 1;
+  color: rgba(181,69,44,0.08); pointer-events: none; user-select: none;
+}
+.asym-canvas .asym-handle {
+  position: absolute; left: 80px; bottom: 80px;
+  font-family: var(--font-h); font-weight: 700; font-size: 20px; color: var(--brown-muted);
+}
+.asym-canvas .slide-counter {
+  position: absolute; right: 80px; top: 80px;
+  display: flex; gap: 8px;
+}
+.asym-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.asym-canvas .slide-counter span.active { background: var(--gold); }
+
+/* ── LAYOUT 6: PROCESS FLOW — 3 Step Horizontal ── */
+.flow-canvas {
+  width: 1080px; height: 1080px;
+  background: var(--warm-cream);
+  position: relative; overflow: hidden;
+  font-family: var(--font-b);
+}
+.flow-canvas .flow-eyebrow {
+  position: absolute; top: 80px; left: 80px;
+  font-size: 24px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--terracotta);
+}
+.flow-canvas .flow-headline {
+  position: absolute; top: 130px; left: 80px; right: 80px;
+  font-family: var(--font-h); font-size: 32px; font-weight: 800;
+  color: var(--deep-brown); line-height: 1.2;
+}
+.flow-canvas .flow-steps {
+  position: absolute; left: 60px; right: 60px; top: 50%; transform: translateY(-50%);
+  display: flex; align-items: center; gap: 20px;
+}
+.flow-canvas .flow-step-box {
+  flex: 1; background: var(--warm-stone); border-radius: 12px;
+  padding: 32px 24px; text-align: center;
+}
+.flow-canvas .flow-step-box.active {
+  background: var(--deep-earth);
+}
+.flow-canvas .flow-step-num {
+  font-family: var(--font-h); font-size: 56px; font-weight: 800; line-height: 1;
+  color: var(--gold); margin-bottom: 12px;
+}
+.flow-canvas .flow-step-box:not(.active) .flow-step-num {
+  color: var(--brown-muted);
+}
+.flow-canvas .flow-step-label {
+  font-size: 20px; font-weight: 600;
+  color: var(--warm-white);
+}
+.flow-canvas .flow-step-box:not(.active) .flow-step-label {
+  color: var(--body-brown);
+}
+.flow-canvas .flow-arrow {
+  width: 32px; height: 2px; background: var(--gold); flex-shrink: 0;
+  position: relative;
+}
+.flow-canvas .flow-arrow::after {
+  content: '';
+  position: absolute; right: -4px; top: -4px;
+  border: 5px solid transparent; border-left-color: var(--gold);
+}
+.flow-canvas .flow-handle {
+  position: absolute; left: 80px; bottom: 64px;
+  font-family: var(--font-h); font-weight: 700; font-size: 20px; color: var(--brown-muted);
+}
+.flow-canvas .slide-counter {
+  position: absolute; right: 80px; bottom: 64px;
+  display: flex; gap: 8px;
+}
+.flow-canvas .slide-counter span {
+  width: 32px; height: 5px; border-radius: 3px; background: var(--warm-stone);
+}
+.flow-canvas .slide-counter span.active { background: var(--gold); }
 </style>
 </head>
 <body>
@@ -658,6 +943,73 @@ body {
         </svg>
         Brand Compliance
         <span class="tab-spec">QC</span>
+      </button>
+    </li>
+  </ul>
+
+  <div class="sb-divider"></div>
+  <div class="sb-section-label">Layout Templates</div>
+  <ul class="sb-nav" id="layout-tabs">
+    <li>
+      <button data-tab="split" onclick="switchTab('split')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="6" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="9" y="1" width="6" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Split
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="cardgrid" onclick="switchTab('cardgrid')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="3" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="6" y="3" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="3" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        Card Grid
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="quote" onclick="switchTab('quote')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <path d="M3 6V2h4v4L5 14H2l2-8H3zM11 6V2h4v4l-2 8h-3l2-8h-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        Pull Quote
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="sshero" onclick="switchTab('sshero')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="1" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M4 14h8M8 12v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Screenshot Hero
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="asym" onclick="switchTab('asym')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <path d="M2 2l12 12M4 14L2 12M14 4l-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Asymmetric
+        <span class="tab-spec">1080²</span>
+      </button>
+    </li>
+    <li>
+      <button data-tab="flow" onclick="switchTab('flow')">
+        <svg class="tab-icon" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="2" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="6" y="7" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="12" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 5v4l2.5 1M8 10v4l2.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Process Flow
+        <span class="tab-spec">1080²</span>
       </button>
     </li>
   </ul>
@@ -967,6 +1319,214 @@ body {
 
 </main>
 
+<!-- ══ NEW LAYOUT PANELS (Direction B) ══════════════════════ -->
+<!-- LAYOUT 1: Split -->
+<section class="panel" id="panel-split">
+  <div class="panel-header">
+    <h1>Layout 1: Split — Half Visual, Half Text</h1>
+    <p>Canvas 1080×1080px · Gold divider di tengah · Tidak ada dot grid</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Hook Slide — Personal Branding <span>Split + Gold Divider</span></div>
+      <div class="scale-wrap" id="wrap-split" style="transform-origin:top left;">
+        <div class="split-canvas" id="canvas-split">
+          <div class="gold-divider"></div>
+          <div class="split-left">
+            <div class="split-eyebrow">Toolkit Gue</div>
+            <h2 class="split-headline">3 Tools AI yang Gue Pake Sehari-hari</h2>
+            <p class="split-body">Bukan review — ini yang beneran kepake. Buat riset, nulis, sama bikin visual.</p>
+            <div class="split-handle">Rahman Ramsi</div>
+          </div>
+          <div class="split-right">
+            <div class="visual-placeholder">📸 Foto / Screenshot</div>
+          </div>
+          <div class="slide-counter">
+            <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Split layout:</strong> Kiri 50% teks (cream), kanan 50% visual (foto/screenshot dengan deep brown→terracotta gradient). Gold divider 2px di tengah. Cocok untuk slide hook (slide 1) dan personal branding.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 2: Card Grid -->
+<section class="panel" id="panel-cardgrid">
+  <div class="panel-header">
+    <h1>Layout 2: Card Grid — 3 Poin Horizontal</h1>
+    <p>Canvas 1080×1080px · 3 kartu · Dot grid subtle</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Listicle / Overview <span>Card Grid + Dot Grid</span></div>
+      <div class="scale-wrap" id="wrap-cardgrid" style="transform-origin:top left;">
+        <div class="cardgrid-canvas" id="canvas-cardgrid">
+          <div class="dot-grid"></div>
+          <div class="cg-eyebrow">Toolkit Gue</div>
+          <div class="cg-cards">
+            <div class="cg-card">
+              <div class="cg-card-icon" style="background:var(--terracotta)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3"/></svg></div>
+              <div class="cg-card-title">Claude</div>
+              <div class="cg-card-desc">Riset &amp; drafting konten panjang</div>
+            </div>
+            <div class="cg-card">
+              <div class="cg-card-icon" style="background:var(--terracotta)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+              <div class="cg-card-title">Perplexity</div>
+              <div class="cg-card-desc">Research + fact-check otomatis</div>
+            </div>
+            <div class="cg-card">
+              <div class="cg-card-icon" style="background:var(--terracotta)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+              <div class="cg-card-title">Gamma</div>
+              <div class="cg-card-desc">Deck &amp; visual presentasi instan</div>
+            </div>
+          </div>
+          <div class="cg-handle">Rahman Ramsi</div>
+          <div class="slide-counter">
+            <span></span><span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Card Grid layout:</strong> 3 kartu horizontal dengan icon SVG (terracotta bg). Dot grid hadir sebagai subtle texture. Cocok untuk listicle, perbandingan tools, 3 tips.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 3: Pull Quote -->
+<section class="panel" id="panel-quote">
+  <div class="panel-header">
+    <h1>Layout 3: Pull Quote — Satu Kalimat Besar</h1>
+    <p>Canvas 1080×1080px · Centered bold text · Only text</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Key Insight / Closing <span>Pull Quote + Gold Highlight</span></div>
+      <div class="scale-wrap" id="wrap-quote" style="transform-origin:top left;">
+        <div class="quote-canvas" id="canvas-quote">
+          <div class="quote-mark-deco">"</div>
+          <div class="quote-content">
+            <div class="quote-text">AI bukan soal tools <em>terbaru</em>. Lo cuma perlu 3 yang beneran kepake.</div>
+            <div class="quote-attr">— Rahman Ramsi</div>
+          </div>
+          <div class="slide-counter">
+            <span></span><span></span><span></span><span></span><span></span><span class="active"></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Pull Quote layout:</strong> Satu kalimat besar, centered, cream background bersih. Tidak ada dot grid, tidak ada accent bar. Quote mark dekoratif terracotta 6% opacity. Highlight kata pake PJS 900 italic + Gold. Cocok untuk key insight atau closing slide.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 4: Screenshot Hero -->
+<section class="panel" id="panel-sshero">
+  <div class="panel-header">
+    <h1>Layout 4: Screenshot Hero — Tool in Action</h1>
+    <p>Canvas 1080×1080px · Tool preview 68% area · Deep Earth bg</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Tool Demo / Tutorial <span>Screenshot Hero + Gradient Overlay</span></div>
+      <div class="scale-wrap" id="wrap-sshero" style="transform-origin:top left;">
+        <div class="sshero-canvas" id="canvas-sshero">
+          <div class="ss-img-area">
+            <div class="ss-placeholder">[Screenshot Tool AI]</div>
+          </div>
+          <div class="ss-overlay"></div>
+          <div class="ss-content">
+            <h2 class="ss-headline">Satu chat. Satu draft. Selesai.</h2>
+            <div class="ss-gold-line"></div>
+            <p class="ss-desc">Claude bikin draft artikel 1000 kata dalam 2 menit.</p>
+          </div>
+          <div class="slide-counter">
+            <span></span><span></span><span class="active"></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Screenshot Hero layout:</strong> Screenshot tool full-width 68% area atas. Overlay gradient deep earth di 32% bawah. Headline warm white + gold accent line + deskripsi 1 baris. Slide counter di top-right. Cocok untuk demo tools dan tutorial visual-first.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 5: Asymmetric -->
+<section class="panel" id="panel-asym">
+  <div class="panel-header">
+    <h1>Layout 5: Asymmetric — Break the Grid</h1>
+    <p>Canvas 1080×1080px · Diagonal gold line · Dot grid subtle</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Surprise / Re-engage <span>Asymmetric + Diagonal Gold Line</span></div>
+      <div class="scale-wrap" id="wrap-asym" style="transform-origin:top left;">
+        <div class="asym-canvas" id="canvas-asym">
+          <div class="dot-grid"></div>
+          <div class="asym-diagonal"></div>
+          <h2 class="asym-headline">Tools lo ganti tiap bulan.</h2>
+          <p class="asym-body">Konsistensi yang bikin beda.<br>Bukan tools-nya.</p>
+          <div class="asym-deco-num">05</div>
+          <div class="asym-handle">Rahman Ramsi</div>
+          <div class="slide-counter">
+            <span></span><span></span><span></span><span></span><span class="active"></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Asymmetric layout:</strong> Headline top-right, body bottom-left. Diagonal gold line 2px dari top-left ke tengah. Decorative number bottom-right. Dot grid subtle. Cocok untuk slide yang memecah ekspektasi (slide 3-5) untuk re-engage perhatian.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT 6: Process Flow -->
+<section class="panel" id="panel-flow">
+  <div class="panel-header">
+    <h1>Layout 6: Process Flow — 3 Step Horizontal</h1>
+    <p>Canvas 1080×1080px · Step boxes + gold arrows</p>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas-outer">
+      <div class="canvas-label">Workflow / Tutorial <span>Process Flow + Gold Arrows</span></div>
+      <div class="scale-wrap" id="wrap-flow" style="transform-origin:top left;">
+        <div class="flow-canvas" id="canvas-flow">
+          <div class="flow-eyebrow">Workflow</div>
+          <div class="flow-headline">Dari ide ke publish dalam 3 langkah</div>
+          <div class="flow-steps">
+            <div class="flow-step-box active">
+              <div class="flow-step-num">1</div>
+              <div class="flow-step-label">Brainstorm pake Claude</div>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step-box">
+              <div class="flow-step-num">2</div>
+              <div class="flow-step-label">Validasi pake Perplexity</div>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step-box">
+              <div class="flow-step-num">3</div>
+              <div class="flow-step-label">Visual + post pake Gamma</div>
+            </div>
+          </div>
+          <div class="flow-handle">Rahman Ramsi</div>
+          <div class="slide-counter">
+            <span></span><span></span><span></span><span class="active"></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="hint-box">
+        <strong>Process Flow layout:</strong> 3 step box horizontal dengan gold arrow connector. Active step: Deep Earth bg + gold number. Inactive: Warm Stone bg + brown muted number. Cocok untuk tutorial step-by-step, workflow AI, "cara pakai tool X".
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
 function switchTab(id) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -986,6 +1546,12 @@ function scaleCanvases() {
     { wrap: 'wrap-li',   canvas: 'canvas-li',   w: 1200, h: 627  },
     { wrap: 'wrap-tw',   canvas: 'canvas-tw',   w: 1200, h: 675  },
     { wrap: 'wrap-reel', canvas: 'canvas-reel',  w: 1080, h: 1920 },
+    { wrap: 'wrap-split',   canvas: 'canvas-split',   w: 1080, h: 1080 },
+    { wrap: 'wrap-cardgrid',canvas: 'canvas-cardgrid',w: 1080, h: 1080 },
+    { wrap: 'wrap-quote',   canvas: 'canvas-quote',   w: 1080, h: 1080 },
+    { wrap: 'wrap-sshero',  canvas: 'canvas-sshero',  w: 1080, h: 1080 },
+    { wrap: 'wrap-asym',    canvas: 'canvas-asym',    w: 1080, h: 1080 },
+    { wrap: 'wrap-flow',    canvas: 'canvas-flow',    w: 1080, h: 1080 },
   ];
   const maxW = Math.min(window.innerWidth - 340, 900);
   const maxH = window.innerHeight - 200;
